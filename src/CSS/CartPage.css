@@ -1,0 +1,280 @@
+.CartWrap{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 10px;
+    gap: 20px;
+}
+
+.CartLeft{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 75%;
+    border:1px solid lightgray;
+}
+
+.CartLeftUp{
+    /* padding: 20px; */
+    background-color: lightgray;
+    padding: 5px;
+    width: 100%;
+    font-weight: bold;
+}
+
+.CartLeftDown{
+    padding: 10px;
+    width: 100%;
+}
+
+.CartRight{
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+    gap:20px;
+    
+}
+
+.CartRight button{
+    color: white;
+    background-color: green;
+    padding: 13px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.PromoCode{
+    display: flex;
+    flex-direction: column;
+    background-color: #F9F9F9;
+    padding: 12px;  
+    border: 1px solid lightgray;    
+}
+
+.PromoCode p{
+    font-weight: bold;
+}
+
+.PromoCodeInputWrap{
+    display: flex;
+    width: 100%;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 20px;
+    gap:20px;
+}
+
+.PromoCodeInputWrap input{
+    outline: none;
+    border: 1px solid lightgray;
+    padding: 8px;
+    width: 70%;
+}
+
+.PromoCodeInputWrap button{
+    color:black;
+    background-color: lightgray;
+    font-weight: bold;
+    padding: 8px;
+    width: 90px;
+}
+
+
+.CartSummary{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    width: 100%;
+
+    flex-direction: column;
+    border: 1px solid lightgray;
+    padding-bottom: 20px;
+}
+
+.CartSummary h3{
+    padding: 8px;
+    background-color: lightgray;
+    width: 100%;
+    font-size: 1rem;
+}
+
+.SubTotalWrap{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding-top:20px;
+    padding-left: 10px ;
+    padding-right: 10px;
+    padding-bottom: 5px;
+    width: 100%;
+    font-size: 0.9rem;
+
+}
+
+.Line{
+    width: 90%;
+    background-color: lightgray;
+    height: 1px;
+    margin: 0 auto;
+}
+
+.TotalWrap{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 20px;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+
+.CartItems{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.CartItemsTitles{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+}
+
+.CartItemsTitles p{
+    font-weight: bold;
+}
+
+.CartItemsLine{
+    width: 100%;
+    background-color: black;
+    height: 1px;
+    margin-top: 8px;
+}
+
+.CartItem{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.CartItem img{
+    width: 100px;
+    height: 100px;
+
+}
+
+
+.CartItemImgandTextWrap{
+    display: flex;
+    width: 250px;
+
+    /* background-color: red; */
+}
+
+.CartItemTextWrap p{
+    font-size: 0.8rem;
+}
+
+.CartItemQtyWrap{
+    display: flex;
+    width: 100px;
+    background-color: lightgray;
+    border-radius: 5px;
+    height: 30px;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.CartItemQtyWrap p{
+    width: 33%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+
+.CartItemQtyWrapMobile{
+    display: none;
+    width: 100px;
+    background-color: lightgray;
+    border-radius: 5px;
+    height: 30px;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.CartItemQtyWrapMobile p{
+    width: 33%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.SubTotal{
+    display: flex;
+}
+
+.SubTotalMobile{
+    display: none;
+    font-size: 1rem;
+    color: orangered;
+    font-weight: bold;
+}
+
+.UnitPrice{
+    display: flex;
+}
+
+@media screen and (max-width:768px) {
+    .CartWrap{
+        flex-direction: column;
+    }    
+    .CartLeft{
+        width: 100%;
+    }
+
+    .CartRight{
+        width: 100%;
+    }
+
+    .CartItem{
+        flex-direction: column;
+    }
+    .CartItemQtyWrap{
+        display: none;
+    }
+
+    .CartItemQtyWrapMobile{
+        display: flex;
+    }
+    .SubTotal{
+        display: none;
+    }
+
+    .SubTotalMobile{
+        display: flex;
+    }
+
+    .UnitPrice{
+        display: none;
+    }
+
+  
+}
+
+

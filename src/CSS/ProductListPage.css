@@ -1,0 +1,154 @@
+.ProductListPageWrapA{
+    display: flex;
+    justify-content: flex-start;
+            align-items: flex-start;
+    width: 100%;
+    padding-top: 10px;
+    /* background-color: red; */
+}
+
+.ProductListPageWrap{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    /* background-color: blue; */
+}
+
+.ProductListPageTitleWrap{
+    width: 100%;
+    padding-left: 50px;
+
+}
+
+.ProductListPageTitle{
+    text-align: left;
+    padding: 5px;
+    cursor: pointer;
+    /* background-color: red; */
+    width: 135px;
+    border: 1px solid lightgray;
+}
+
+.ProductSortContainer{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+    padding: 8px;
+    gap: 8px;
+    background-color: #F4F4F4;  
+}
+
+.ProductSortContainer input{
+    padding: 5px;
+    outline: none;
+    border: none;   
+    border-radius: 5px;
+}
+
+.ProductCards{
+    display: flex;
+    padding: 20px;
+    flex-wrap: wrap;
+    /* background-color: red; */
+    width: 100%;
+    justify-content: center;
+    align-items: center ;
+    gap: 50px;
+}
+
+.ProductCard{
+    width:230px;
+    /* backgr   ound-color: #F4F4F4; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+}
+
+.ProductCard img{
+    width: 100%;
+    height: 250px;
+}
+
+.ProductCard p{
+    font-size: 0.9rem;
+    font-weight: bold;
+    cursor: pointer;
+    /* margin-bottom: 10px; */
+}
+
+.ProductCard p:hover{
+    color: #C03A04;
+}
+
+.ProductCard span{
+    font-weight: bold;
+    color: #C03A04;
+    /* margin-bottom: 10px;     */
+    font-size: 1.1rem;
+}
+
+.ButtonAndQtyWrap{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    width: 100%;
+}
+
+.QtyWrap{
+    display: flex;
+    flex-direction: column;
+
+}
+
+.QtyWrap p{
+    font-weight: 400;
+    font-size: 0.7rem   ;
+    font-weight: 500;
+}
+
+.QtyWrap input{
+    padding: 5px;
+    width: 50px;
+}
+
+.ButtonAndQtyWrap button{
+    padding: 7px 40px;
+    cursor: pointer;
+    background-color: orange;
+    border: none ;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+@media screen and (max-width:428px) {
+    .ProductCard{
+        flex-direction: row;
+        width: 100%;    
+        height: 180px;
+        /* background-color: red; */
+       
+    }
+    .ProductCard img{
+        width: 50%;
+        height: 100%;
+    }
+    .ProductTextWrap{
+        display: flex;
+        flex-direction: column;
+    }
+    .ButtonAndQtyWrap{
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
+
+    .ButtonAndQtyWrap button{
+        padding: 10px 20px;
+        margin-top: 10px;
+    }
+}
+

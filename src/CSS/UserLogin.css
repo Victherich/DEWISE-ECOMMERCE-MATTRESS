@@ -1,0 +1,32 @@
+.UserLoginWrap{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    flex-direction: column;
+    padding: 60px 0px;
+}
+
+.UserLoginUp{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    flex-direction: row ;
+    margin-bottom: 100px;
+}
+
+
+.UserLoginUpLeft{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width:50%;
+}
+
+.UserLoginUpRight{
+    width: 50%;
+    padding: 0px 50px;
+}
+

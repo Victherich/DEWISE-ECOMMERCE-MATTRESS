@@ -1,0 +1,199 @@
+.FooterUpWrap{
+    display: flex;
+    background-color: #F9F9F9;
+    border-top: 2px solid rgba(0,0,0,0.4);
+    flex-direction: column;
+    padding: 20px;
+    flex-wrap: wrap;
+}
+
+.FooterUp{
+    display: flex;
+    justify-content: space-around;
+    
+}
+
+.FooterUpGroup{
+    color: #003366;
+}
+
+.QualityWrap{
+    background-color: #003366;
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 5px;
+    text-align: center;
+    width: 250px;
+    color: white;
+    cursor: pointer;
+}
+
+.QualityWrap h2{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 2rem;
+}
+
+.QualityWrap p{
+    font-size: 1.3rem;
+}
+
+.QualityWrap span{
+    background-color: orange;
+    font-size: 0.9rem;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3px;
+    width: 120px;
+}
+
+
+
+.LeanMoreChevron{
+    font-size: 0.6rem;
+    margin-top: 3px;
+}
+
+.FooterUpInputWrap{
+    display: flex;
+
+    align-items: center;
+
+    width: 400px;
+    height: 40px;
+    border-radius: 10px;
+    padding-left: 10px;
+    border: 1px solid lightgray;
+    overflow: hidden;
+    margin-top: 13px;
+}
+
+.FooterUpInputWrap:hover{
+    border:1px solid #CB6B37;
+}
+
+.FooterUpInputWrap input{
+    width: 90%; 
+    height: 100%;
+    outline: none;
+    border: none;
+    font-size: 1rem;
+}
+
+.FooterUpFormIcon{
+    background-color: green;
+    width: 10%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.EmailChevron{
+    color: white;
+    font-size: 1.2rem;
+}
+
+.FooterLiveChat{
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    gap:5px;
+}
+
+
+.FooterUpWrap2{
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%
+}
+
+.FooterUpWrap2Group1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.FooterUpWrap2Group1 img{
+    width: 100%;
+    height: 180px;
+}
+
+.FooterUpWrap2Group2{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    padding: 12px;
+    border: 1px solid lightgray;
+    position: relative;
+    background-color: #F9F9F9;
+}
+
+.FooterUpWrap2Group2 p{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap:5px;
+    font-size: 0.8rem;
+    cursor: pointer;
+}
+
+
+.FooterDropDown{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    justify-content: space-between;
+    align-items: center;
+    
+    background-color: white;
+    gap: 10px;
+    position: absolute;
+    top:90%;
+    /* left: 20px; */
+    border: 1px solid lightgray;
+}
+
+.FooterDropDown p{
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+
+.NeedHelpWrap{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background-color: #F9F9F9;
+}
+
+.NeedHelpWrap h2{
+    color: green;
+    text-align: center;
+    font-size: 2.2rem;
+}
+
+@media screen and (max-width:884px) {
+    .FooterUpWrap{
+        display: none;
+    }   
+    .FooterUpWrap2{
+        display: flex;
+    }
+}
+
+@media screen and (max-width:428px) {
+    .FooterUpWrap2Group1 img{
+        height: 100px;
+    }
+}

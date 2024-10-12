@@ -1,0 +1,234 @@
+.PercentOffWrap{
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 280px;
+    position: relative;
+    cursor: pointer;
+}
+
+.PercentOffWra2{
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100px;
+    position: relative;
+    cursor: pointer;
+}
+
+.PercentOffUp{
+    display: flex;
+    width: 100%;
+    height: 85%;
+    background-color: #003366;
+    padding: 35px;
+    
+}
+
+.PercentOffDown{
+    width: 100%;
+    height: 15%;
+    background-color: orange;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    z-index: 1;
+}
+
+.PercentOffDown p{
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+
+.PercentOffDown2{
+    width: 100%;
+    height: 15%;
+    background-color: orange;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    z-index: 1;
+}
+
+.PercentOffDown2 p{
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.PercentOffDown span{
+    font-weight: 500;
+    font-style: italic;
+}
+
+.PercentOffUpA{
+    background-color: white;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    z-index: 1;
+}
+
+.PercentOffUpA2{
+    background-color: white;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    z-index: 1;
+}
+
+.PercentOffUpA h1{
+    color: #003366;
+    font-size: 7.5vw;
+}
+
+.PercentOffUpA2 h1{
+    color: #003366;
+    font-size: 5vw;
+}
+
+.ShopNowWrap{
+    display: flex;
+    flex-direction: column;
+    gap:13px;
+}
+
+.ShopNowWrap p{
+    font-size: 1.7rem;
+    font-weight: 500;
+    color: #003366;
+}
+
+
+.ShopNowWrap button{
+    padding: 7px 0px;
+    border-radius: 10px;
+    border: none;
+    background-color: orange;
+    color: #003366;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.PERCENTOFFOVERLAY{
+    position: absolute;
+    width: 100%;
+    /* background-color: red; */
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.PERCENTOFFOVERLAY{
+    font-size: 2.8vw;
+    text-align: center;
+    color: #003366; /* Makes the text color transparent */
+    text-shadow: 
+      -1px -1px 0 rgba(255,255,255,0.4),  
+      1px -1px 0 rgba(255,255,255,0.4),
+      -1px 1px 0 rgba(255,255,255,0.4),
+      1px 1px 0 rgba(255,255,255,0.4); /* Creates the outline effect */
+}
+
+
+
+.ShopNowWrap2{
+    display: flex;
+    flex-direction: column;
+    gap:13px;
+}
+
+.ShopNowWrap2 p{
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #003366;
+}
+
+
+.ShopNowWrap2 button{
+    padding: 3px 0px;
+    border-radius: 10px;
+    border: none;
+    background-color: orange;
+    color: #003366;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.PERCENTOFFOVERLAY2{
+    position: absolute;
+    width: 100%;
+    /* background-color: red; */
+    height: 100%;
+    display:none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.PERCENTOFFOVERLAY2{
+    font-size: 2.8vw;
+    text-align: center;
+    color: #003366; /* Makes the text color transparent */
+    text-shadow: 
+      -1px -1px 0 rgba(255,255,255,0.4),  
+      1px -1px 0 rgba(255,255,255,0.4),
+      -1px 1px 0 rgba(255,255,255,0.4),
+      1px 1px 0 rgba(255,255,255,0.4); /* Creates the outline effect */
+}
+
+
+
+
+@media screen and (max-width:884px) {
+    .PERCENTOFFOVERLAY{
+        display: none;
+    }
+    .PercentOffWrap{
+        height: 200px;
+    }
+
+    .ShopNowWrap button{
+        padding: 2px 0px;
+        font-size: 1.2rem;
+    }
+    .ShopNowWrap p{
+        font-size: 1.2rem;
+    }
+}
+
+@media screen and (max-width:428px) {
+    .PercentOffWrap{
+        height: 200px;
+    }   
+    .PercentOffUp{
+        padding: 20px;
+    }
+    .PercentOffUpA{
+        flex-direction: column;
+    }
+    .ShopNowWrap{
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
+    .ShopNowWrap button{
+        padding: 5px;
+        font-size: 1rem;
+    }
+    .ShopNowWrap p{
+        font-size: 1rem;
+    }
+}

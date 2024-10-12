@@ -1,0 +1,314 @@
+.HeaderWrap1{
+    display: flex;
+    padding: 20px;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid lightgray;
+
+}
+
+.HeaderWrap1 img{
+    width: 120px;
+    height: 50px;
+    cursor: pointer;
+}
+
+.HeaderWrap1 h1{
+    font-size: 2.5rem;
+    color:#003366;
+    cursor: pointer;
+}
+
+.HeaderLogoSpan1{
+    color:green;
+}
+
+.HeaderCenterWrap1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap:20px;
+    margin-right: 100px;
+}
+
+.HeaderLanguageWrap1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap:5px;
+    cursor: pointer;
+}
+
+.HeaderLanguageWrap1:hover{
+    color: #CB6B37;
+}
+
+
+
+.HeaderLanguageWrap1 img{
+    width: 30px;
+    height: 20px;
+
+}
+
+.HeaderLanguageWrap1 p{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+}
+
+
+
+.HeaderLang1{
+    font-size: 0.8rem;
+    font-weight: 700;
+
+}
+
+
+
+.ArrowDownIcon1{
+    font-size: 0.5rem;
+    font-weight: bold;
+    margin-top: 3px;
+}
+
+.SearchBarWrap1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40vw;
+
+    border-radius: 10px;
+    height: 35px;
+    overflow: hidden;
+    border: 2px solid #003366;
+    padding-left: 10px;
+    cursor: pointer;
+}
+
+.SearchBarWrap1:hover{
+    border:2px solid #CB6B37;
+}
+
+
+.SearchBarWrap1 input{
+    width: 92%;
+    height: 100%;
+    outline: none;
+    background-color: none;
+    border: none;
+    outline: none;
+    font-size: 1.05rem;
+}
+
+.SearchIconWrap1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 8%;
+    background-color: green;
+    height: 100%;
+}
+
+.SearchIcon1{
+    color: white;
+    font-size: 1.3rem;
+}
+
+.HeaderUserArea1{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.HeaderUserArea1 p{
+    font-size: 0.8rem;
+    cursor: pointer;
+}
+
+.HeaderUserArea1 p:hover{
+    color: #CB6B37;
+}
+
+.HeaderUserArea1 span{
+    font-size: 0.9rem;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background-color: red; */
+    color: rgba(0,0,0,0.8);
+    gap:2px;
+    cursor: pointer;
+
+}
+
+.HeaderUserArea1 span:hover{
+    color: #CB6B37;
+}
+
+.HeaderUserAreaIcon1{
+    font-size: 0.6rem;
+    margin-top:5px;
+}
+
+.HeaderCartImgWrap1{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-right: 50px;
+    cursor: pointer;
+}
+
+
+
+.HeaderCartIcon1{
+    color:#003366;
+    font-size: 1.5rem;
+}
+
+.HeaderCartIcon1:hover{
+    color: #CB6B37;
+}
+
+.HeaderCartImgWrap1 p{
+    color:#CB6B37;
+    font-size: 0.8rem;
+    font-weight: bold;
+
+}
+
+
+.HeaderWrap2{
+    display: none;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    flex-direction: column;
+    padding: 20px;
+    border-bottom: 1px solid gray;
+    /* background-color: red; */
+}
+
+.HeaderWrap2Up{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+}
+
+.FaBurger{
+    font-size: 1.3rem;
+    color: #003366;
+    cursor: pointer;
+}
+
+.MobileFlag{
+    width: 30px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.MobileLogo{
+    width: 60px;
+}
+
+.HeaderWrap2Up h2{
+    color: #003366;
+    font-size: 1.9rem;
+    cursor: pointer;
+}
+
+.HeaderWrap2Up h2 span{
+    color: green;
+}
+
+.FaUserCircle{
+    font-size: 1.6rem;
+    color: #003366;
+    cursor: pointer;
+}
+
+.FaCartPlus{
+    font-size: 1.6rem;
+    color: #003366;
+    cursor: pointer;
+}
+
+.HeaderWrap2Down{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    width: 100%;
+}
+
+
+.SearchBarWrap2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 45px;
+    border-radius: 10px;
+    overflow:hidden;
+    border:2px solid #003366;
+    /* background-color: green; */
+    padding-left:10px;
+    margin-top: 5px;
+}
+
+.SearchBarWrap2:hover{
+    border: 2px solid orange;
+}
+
+.SearchBarWrap2 input{
+    width: 85%;
+    /* background-color: red; */
+    height: 100%;
+    border: none;
+    outline: none;
+    font-size: 1.1rem;
+    /* border-radius: 10px; */
+
+}
+
+.SearchIconWrap2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 15%;
+    height: 100%;
+    background-color: green;
+    cursor: pointer;
+}
+
+.SearchIcon2{
+    color: white;
+}
+
+
+@media screen and (max-width:884px) {
+    .HeaderWrap1{
+        display: none;
+    }
+    .HeaderWrap2{
+        display: flex;
+    }
+}
+
+
+@media screen and (max-width:320px) {
+    .FaBurger{
+        /* font-size: 1rem; */
+    }   
+    .MobileFlag{
+        width: 25px ;
+        height: 20px;
+    }
+    .HeaderWrap2Up h2{
+        font-size: 1.3rem;
+    }
+}

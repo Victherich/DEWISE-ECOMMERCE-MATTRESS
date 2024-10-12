@@ -1,0 +1,30 @@
+.LandingPageDash{
+    display: flex;
+    /* justify-content: center; */
+    width: 100%;
+}
+
+.LandingPageContentWrap{
+    display: flex;
+    flex-direction: column;
+    padding: 15px 40px;
+    width: 83%;
+   
+}
+
+
+
+.LandingPageContentWrapLower{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    /* background-color: red; */
+}
+
+
+@media screen and (max-width:884px) {
+    .LandingPageContentWrap{
+        width: 100%;
+        padding: 20px 0px ;
+    }
+}

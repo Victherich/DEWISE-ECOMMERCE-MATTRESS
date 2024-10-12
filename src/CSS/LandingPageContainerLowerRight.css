@@ -1,0 +1,56 @@
+.CrazyDeals{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    /* background-color: orange; */
+    width: 38%;
+    margin-top: 20px;
+}
+
+.CrazyDealsImg1{
+    width: 100%;
+    height: 45%;
+    cursor: pointer;
+}
+
+.CrazyDealsImg1:hover{
+    border: 1px solid  gray;
+}
+
+.MoreCategory{
+    width: 100%;
+    /* height: 20%; */
+    background-color: red;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    border:  1px solid lightgray;
+    cursor: pointer;
+}
+
+.MoreCategory:hover{
+    border: 1px solid #CB6B37;
+}
+
+.MoreCategory img{
+    width: 100%;
+    height: 90%;
+}
+
+.MoreCategory p{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    background-color: #F9F9F9;
+    height: 10%;
+    color: rgba(0,0,0,2.9);
+}
+
+@media screen and (max-width:884px) {
+    .CrazyDeals{
+        display: none;
+    }   
+}

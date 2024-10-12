@@ -1,0 +1,213 @@
+.ProductDetailPageWrap{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;    
+    /* background-color: red; */
+}
+
+.ProductDetailPage{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    margin-top: 20px;
+    /* background-color: blue; */
+}
+
+.ProductDetailPageLeft{
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: 6%;
+    flex-direction: column;
+    gap: 10px;
+    margin-left: 20px;
+    /* background-color: red; */
+
+}
+
+.ProductDetailPageLeft img{
+    width: 60px;
+    height: 60px;
+    border-radius: 10px;
+    border: 1px solid blue;
+    cursor: pointer;
+}
+
+
+.ProductDetailPageLeft2{
+    display: none;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: 6%;
+    flex-direction: column;
+    gap: 10px;
+    margin-left: 20px;
+    /* background-color: red; */
+
+}
+
+.ProductDetailPageLeft2 img{
+    width: 60px;
+    height: 60px;
+    border-radius: 10px;
+    border: 1px solid blue;
+    cursor: pointer;
+}
+
+.ProductDetailPageMid{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40%;
+    /* background-color: red; */
+}
+
+.ProductDetailPageMid img{
+    width: 100%;
+    margin-top: 80px;
+}
+
+.ProductDetailPageRight{
+    display: flex;      
+    flex-direction: column;
+    /* background-color: red   ; */
+    width: 50%;
+    margin-top: 30px;
+    
+}
+
+
+.QuantityWrap{
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+}
+
+.QuantityControl{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 150px;
+    height: 50px;
+    /* background-color: red; */
+    border-radius: 5px;
+    border: 1px solid lightgray;
+    margin-top: 10px;
+}
+
+.QuantityControl p {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.QuantityControl p:hover{
+    /* border: 1px solid gray; */
+    background-color: lightgray;
+}
+
+
+.DetailPageUspImg{
+    margin-top: 100px;
+    width: 100%;
+}
+
+.QualityAndCartButton{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;        
+    margin-top: 50px    ;    
+}
+
+.QualityAndCartButton button{
+
+    padding: 25px;
+    width: 45%;
+    cursor: pointer;
+    background-color: orange;
+    border-radius: 5px;
+    border: 1px solid orangered;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.QualityBadge{
+    margin-right: 20px;
+}
+
+
+.GuarranteeWrap{
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+}
+
+.GuarranteeWrap p{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: 0.9rem;
+    gap:5px;
+    font-weight: bold;
+}
+
+
+@media screen and (max-width:884px) {
+    .ProductDetailPage{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        /* background-color: red; */
+    }   
+
+    .ProductDetailPageLeft{
+        display: none;
+    }
+
+    .ProductDetailPageLeft2{
+        width: 100%;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        /* background-color: red; */
+        margin-left: 0px;
+        margin-top: 30px;
+    }
+
+    .ProductDetailPageMid{
+        width: 100%;
+    }
+    .ProductDetailPageRight{
+        width: 95%;
+        text-align: center;
+    }
+    .QuantityWrap{
+        width: 100%;
+        align-items: center;
+    }
+    .QualityAndCartButton{
+        flex-direction: column;
+        width: 100%;
+    }
+    .QualityAndCartButton button{
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    .GuarranteeWrap{
+        width: 100%;
+        text-align: center;
+    }
+
+    .GuarranteeWrap p{
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+    }
+}

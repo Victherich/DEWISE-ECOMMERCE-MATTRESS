@@ -1,0 +1,26 @@
+.SideCategoryMenu{
+    display: flex;
+    flex-direction: column;
+    padding: 12px;
+    gap: 14px;
+    border-right: 1px solid rgba(0,0,0,0.4);
+    width: 18%;
+
+}
+
+.pcategory1{
+    color: green;
+}
+
+.SideCategoryMenu p:hover{
+    color: #CB6B37;
+    cursor: pointer;
+}
+
+
+
+@media screen and (max-width:884px) {
+    .SideCategoryMenu{
+        display: none;
+    }   
+}

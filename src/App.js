@@ -1,25 +1,54 @@
 import logo from './logo.svg';
 import './App.css';
+import {BrowserRouter,Routes,Route, Router} from "react-router-dom"
+import LandingPage from './components/LandingPage';
+import Header from './components/Header';
+import SubCategoryPage from './components/SubCategoryPage';
+import FooterDown from './components/FooterDown';
+import FooterUp from './components/FooterUp';
+import ProductListPage from './components/ProductListPage';
+import ProductDetail from './components/ProductDetail';
+import MenuCategories from './components/MenuCategories';
+import CartPage from './components/CartPage';
+import OrderSummaryPage from './components/OrderSummaryPage';
+import UserLogin from './components/UserLogin';
+import AdminLogin from './components/AdminLogin';
+import AdminDashboard from './components/AdminDashboard';
+import PrivateAdminDashboard from './components/PrivateAdminDashboard';
+import UserSignup from './components/UserSignUp';
+import AdminVerifyEmail from './components/AdminVerifyEmail';
+import AdminForgotPassword from './components/AdminForgotPassword';
+import AdminResetPassword from './components/AdminResetPassword';
+
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+   <BrowserRouter>
+    <Header/>
+    <MenuCategories/>
+    <Routes>
+      <Route path="/" element={<LandingPage/>}/>
+      <Route path="/subcategory" element={<SubCategoryPage/>}/>
+      <Route path = "/productlistpage" element ={<ProductListPage/>}/>
+      <Route path="/productdetail/:productId" element={<ProductDetail/>}/> 
+      <Route path="/cartpage" element={<CartPage/>}/>
+      <Route path = "/ordersummarypage" element={<OrderSummaryPage/>}/>
+      <Route path="/userlogin" element={<UserLogin/>}/>
+      <Route path="/adminlogin" element={<AdminLogin />} />
+      <Route path='/verify/:token' element={<AdminVerifyEmail/>}/>
+      <Route path='/adminforgotpassword' element={<AdminForgotPassword/>}/>
+      <Route path="usersignup" element={<UserSignup/>}/>
+      <Route path="/reset-password/:token" element={<AdminResetPassword/>}/>
+          {/* <Route path="/adminsignup" element={<AdminSignup/>}/> */}
+      <Route path="/admin" element={<PrivateAdminDashboard />}>
+          <Route path="" element={<AdminDashboard />} />
+        </Route>
+    </Routes>
+    <FooterUp/>
+    <FooterDown/>
+   </BrowserRouter>
+  )
 }
 
 export default App;

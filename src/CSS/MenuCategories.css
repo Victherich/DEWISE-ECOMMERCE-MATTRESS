@@ -1,0 +1,36 @@
+.MenuCategories{
+    background-color:#003366;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 5px;
+    
+}
+
+.MenuCategories p{
+    color: white;
+    /* font-weight: 400; */
+    font-size: 1.1rem;
+    cursor: pointer;
+}
+
+.MenuCategories p:hover{
+    text-decoration: underline 4px solid;
+    color:orange
+}
+
+.MenuCategories button{
+    background-color:orange ;
+    padding: 5px 20px;
+    border: none;
+    border-radius: 7px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    cursor: pointer;
+}
+
+@media screen and (max-width:884px){
+    .MenuCategories{
+        display: none;
+    }
+}
