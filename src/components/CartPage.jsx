@@ -90,7 +90,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { updateCartQuantity, removeFromCart } from '../Features/Slice'; // Import actions
 import "../CSS/CartPage.css";   
 import { useNavigate } from 'react-router-dom';
-    
+
 const CartPage = () => {
   const { cartItems, totalQuantity, totalAmount } = useSelector(state => state); // Access cart state
   const dispatch = useDispatch();
@@ -136,9 +136,9 @@ const CartPage = () => {
                   </div>
                   <p className='UnitPrice'>${item.price}</p>
                   <div className='CartItemQtyWrap'>
-                    <button onClick={() => handleQuantityChange(item.id, item.quantity - 1)}>-</button>
+                    <p onClick={() => handleQuantityChange(item.id, item.quantity - 1)}>-</p>
                     <p style={{ backgroundColor: "white" }}>{item.quantity}</p>
-                    <button onClick={() => handleQuantityChange(item.id, item.quantity + 1)}>+</button>
+                    <p onClick={() => handleQuantityChange(item.id, item.quantity + 1)}>+</p>
                   </div>
                   <p className='SubTotal'>${item.subtotal.toFixed(2)}</p>
                 </div>

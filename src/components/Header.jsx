@@ -1,13 +1,33 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import {FaArrowDown, FaCartPlus, FaChevronDown, FaChevronRight, FaHamburger, FaHome, FaSearch, FaUserCircle} from "react-icons/fa"
 import "../CSS/Header.css"
 import flag from "../Images/flag.png"
 import logo from "../Images/logo.jpeg"
 import { useNavigate } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 
 
 const Header = () => {
     const navigate = useNavigate()
+    const cart = useSelector(state=>state.cartItems)
+    console.log(cart)
+    const [totalQty,setTotalQty]=useState(0)
+  const totalAmount = useSelector(state=>state.totalAmount)
+
+
+
+   
+        useEffect(() => {
+            const totalItems = cart.reduce((acc, item) => acc + item.quantity, 0);
+            console.log(totalItems); // or set it to some state if needed
+            setTotalQty(totalItems)
+
+        }, [cart]);
+
+        
+   
+
+
   return (
     <div>
         <div className='HeaderWrap1'>
@@ -31,8 +51,10 @@ const Header = () => {
         </div>
         <div className='HeaderCartImgWrap1' onClick={()=>navigate("/cartpage")}>
             {/* <img src="" alt="cartImg"/> */}
-            <FaCartPlus className='HeaderCartIcon1'/>
-            <p>$0.00</p>
+            <div style={{display:"flex"}}>
+            <FaCartPlus className='HeaderCartIcon1'/> <p>({totalQty})</p>
+            </div>
+            <p>${totalAmount.toFixed(2)}</p>
         </div>
     </div>
     <div className='HeaderWrap2'>

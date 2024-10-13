@@ -13,13 +13,18 @@ import product1 from "../Images/product1.png"; // Placeholder for product images
 import SideCategoryMenu from './SideCategoryMenu';
 import { useNavigate, useLocation } from 'react-router-dom';
 import axios from 'axios';
+import { addToCart } from '../Features/Slice';
+import { useDispatch } from 'react-redux';
+import Swal from 'sweetalert2';
 
 const ProductListPage = () => {
+    const dispatch = useDispatch();
   const navigate = useNavigate();
   const location = useLocation();
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
-  const category = location.state?.category || "allproduct"; // Default to "All Products" if no category is provided
+  const category = location.state?.category || "All Product"; // Default to "All Products" if no category is provided
+  const [quantity, setQuantity] = useState(1); // Track product quantity for cart
 
   useEffect(() => {
     // Fetch products based on the selected category
@@ -29,6 +34,7 @@ const ProductListPage = () => {
         // Example API call to get products by category
         const response = await axios.get(`https://www.heovin.com.ng/api/get_products_by_category.php?category=${category}`);
         setProducts(response.data.products || []); // Assuming API returns products array
+        console.log(response.data.products)
       } catch (error) {
         console.error("Error fetching products:", error);
       } finally {
@@ -40,7 +46,23 @@ const ProductListPage = () => {
   }, [category]);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <div style={{width:"100%",height:"200px",display:"flex",justifyContent:"center",alignItems:"center"}}>Loading...</div>;
+  }
+
+
+  const AddToCart = (id)=>{
+    const product = products.find((e)=>e.id===id)
+    const cartItem = {
+        id: product.id,
+        productName: product.product_name,
+        price: product.price,
+        quantity,
+        image: product.product_images[0],
+      };
+
+    dispatch(addToCart(cartItem));
+    Swal.fire('Success', 'Product added to cart', 'success');
+
   }
 
   return (
@@ -50,7 +72,7 @@ const ProductListPage = () => {
         <div className='ProductListPageTitleWrap'>
           <p className='ProductListPageTitle'>{category}</p>
         </div>
-        <div className='ProductSortContainer'>
+        <div className='ProductSortContainer'>  
           <p>Sort by: </p><input type="text" />
         </div>
         <div className='ProductCards'>
@@ -60,11 +82,11 @@ const ProductListPage = () => {
                 <img src={product.imageUrl || product1} alt={product.productName} />
                 <div className='ProductTextWrap'>
                   <p onClick={() => navigate(`/productdetail/${product.id}`)}>
-                    {product.productName}
+                    {product.product_name}
                   </p>
                   <span>${product.price}</span>
                   <div className='ButtonAndQtyWrap'>
-                    <button>Add to cart</button>
+                    <button onClick={()=>AddToCart(product.id)}>Add to cart</button>
                   </div>
                 </div>
               </div>

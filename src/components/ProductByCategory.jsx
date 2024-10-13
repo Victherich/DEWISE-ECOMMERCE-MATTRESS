@@ -177,6 +177,7 @@ const categories = [
   'Omega-3',
   'Homeopathic',
   'Eye Products',
+  'All Product'
 ];
 
 function ProductByCategory() {

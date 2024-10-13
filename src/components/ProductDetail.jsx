@@ -223,7 +223,7 @@ const ProductDetail = () => {
 
       <img src={require('../Images/DetaiPageUsp.png')} alt="uspImg" className='DetailPageUspImg' />
       <h2 style={{ textAlign: "center", color: "#003366" }}>Product Description</h2>
-      <p style={{ textAlign: "center", padding: "2px" }}>{product.description}</p>
+      <p style={{ textAlign: "center", padding: "2px",marginBottom:'100px' }}>{product.description}</p>
       </div>
     </div>
   );
