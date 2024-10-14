@@ -85,12 +85,16 @@ const UserLogin = () => {
       Swal.close();
 
       if (response.data.success) {
-        Swal.fire('Success', response.data.message, 'success');
+        Swal.fire({title:'Success',text: response.data.message,icon: 'success',allowOutsideClick:false}).then((result)=>{
+            if(result.isConfirmed){
+                navigate('/userdashboard'); 
+            }
+        });
         const userInfo = response.data.user;
         const userToken = response.data.token;
 
         dispatch(userLogin({ userInfo, userToken }));
-        navigate('/userdashboard'); // Navigate to user's dashboard after login
+       // Navigate to user's dashboard after login
       } else {
         Swal.fire({text:response.data.error});
       }

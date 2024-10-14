@@ -2,8 +2,12 @@ import React, { useState, useEffect, useRef } from 'react';
 import { FaChevronDown, FaChevronRight, FaFacebookMessenger } from 'react-icons/fa';
 import "../CSS/FooterUp.css";
 import Qb from "../Images/Quality Badge.png";
+import { useNavigate } from 'react-router-dom';
+
+import Swal from 'sweetalert2';
 
 const FooterUp = () => {
+  const navigate = useNavigate()
   const [openDropdown, setOpenDropdown] = useState(null); // Tracks which dropdown is open
   const dropdownRef = useRef(null); // Ref for detecting outside clicks
 
@@ -28,15 +32,60 @@ const FooterUp = () => {
     setOpenDropdown(openDropdown === dropdown ? null : dropdown);
   };
 
+
+
+  const [email, setEmail] = useState('');
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    // Display a loading state using SweetAlert
+    const loadingAlert = Swal.fire({
+      title: 'Processing...',
+      text: 'Please wait while we process your subscription.',
+      icon: 'info',
+      buttons: false,
+      closeOnClickOutside: false,
+    });
+    Swal.showLoading()
+
+    try {
+      const response = await fetch('https://www.heovin.com.ng/api/api4users/subscribe_newsletter.php', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email }),
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        // On success, show a success SweetAlert
+        Swal.fire('Subscribed!', result.message, 'success');
+        setEmail(''); // Clear the input field after submission
+      } else {
+        // Show an error SweetAlert if something goes wrong
+        Swal.fire('Error', result.error, 'error');
+      }
+    } catch (error) {
+      // Show a generic error SweetAlert if the API call fails
+      Swal.fire('Error', 'There was a problem with the subscription. Please try again.', 'error');
+    }finally{
+      loadingAlert.close()
+    }
+  };
+
+
   return (
     <div>
       <div className='FooterUpWrap'>
         <div className='FooterUp'>
           <div className='FooterUpGroup'>
             <h3>CUSTOMER SERVICE</h3>
-            <p>Contact Us</p>
+            <p onClick={()=>navigate("/contactus")}>Contact Us</p>
             <p>FAQ</p>
-            <p>Sign In / Join</p>
+            <p onClick={()=>navigate("/userlogin")}>Sign In / Join</p>
           </div>
           <div className='FooterUpGroup'>
             <h3>ORDERS & POLICIES</h3>
@@ -46,7 +95,7 @@ const FooterUp = () => {
           </div>
           <div className='FooterUpGroup'>
             <h3>COMPANY</h3>
-            <p>About Us</p>
+            <p onClick={()=>navigate("/aboutus")}>About Us</p>
             {/* <p>Manufacturing</p> */}
             {/* <p>Blog</p> */}
             {/* <p>Non-GMO Pledge</p> */}
@@ -69,9 +118,9 @@ const FooterUp = () => {
           <h3>EMAIL SIGN UP</h3>
           <p>Receive updates on new products and crazy deals!</p>
           <div className='FooterUpInputWrap'>
-            <input placeholder='Enter email' />
+            <input placeholder='Enter email' type="email" onChange={(e)=>setEmail(e.target.value)}/>
             <div className='FooterUpFormIcon'>
-              <FaChevronRight className='EmailChevron' />
+              <FaChevronRight className='EmailChevron' onClick={handleSubmit}/>
             </div>
           </div>
         </div>
@@ -84,9 +133,9 @@ const FooterUp = () => {
           <h3>EMAIL SIGN UP</h3>
           <p>Receive updates on new products and crazy deals!</p>
           <div className='FooterUpInputWrap' style={{width:"280px"}}>
-            <input placeholder='Enter email'  />
+            <input placeholder='Enter email'  type='email' onChange={(e)=>setEmail(e.target.value)}/>
             <div className='FooterUpFormIcon'>
-              <FaChevronRight className='EmailChevron' />
+              <FaChevronRight className='EmailChevron' onClick={handleSubmit}/>
             </div>
           </div>
         </div>
@@ -96,8 +145,8 @@ const FooterUp = () => {
           </p>
           {openDropdown === 'contact' && (
             <div className='FooterDropDown' style={{left:"10px"}}>
-              <p>Contact us</p>
-              <p>Sign In / Join</p>
+              <p onClick={()=>navigate('/contactus')}>Contact us</p>
+              <p onClick={()=>navigate("/userlogin")}>Sign In / Join</p>
             </div>
           )}
 
@@ -117,7 +166,7 @@ const FooterUp = () => {
           </p>
           {openDropdown === 'company' && (
             <div className='FooterDropDown' style={{ right: "10px" }}>
-              <p>About Us</p>
+              <p onClick={()=>navigate("/aboutus")}>About Us</p>
               {/* <p>Manufacturing</p> */}
               {/* <p>Blog</p> */}
               {/* <p>Non-GMO Pledge</p> */}

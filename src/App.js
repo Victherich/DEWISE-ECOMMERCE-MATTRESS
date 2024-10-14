@@ -27,6 +27,13 @@ import UserResetPassword from './components/UserResetPassword';
 import UserDashboard from './components/UserDashboard';
 import PrivateUserDashboard from './components/PrivateUserDashboard';
 import AdminSignup from './components/AdminSignUp';
+import SearchResultPage from './components/SearchResultPage';
+import PrivateDeliveryDetail from './components/PrivateDeliveryDetail';
+import PrivateOrderSummary from './components/PrivateOrderSummary';
+import PrivateUserLogin from './components/PrivateUserLogin';
+import PrivateUserSignUp from './components/PrivateUserSignUp.jsx';
+import AboutUs from './components/AboutUs.jsx';
+import ContactUs from './components/ContactUs.jsx';
 
 
 
@@ -42,14 +49,14 @@ function App() {
       <Route path = "/productlistpage" element ={<ProductListPage/>}/>
       <Route path="/productdetail/:productId" element={<ProductDetail/>}/> 
       <Route path="/cartpage" element={<CartPage/>}/>
-      <Route path = "/ordersummarypage" element={<OrderSummaryPage/>}/>
-      <Route path="/userlogin" element={<UserLogin/>}/>
+      {/* <Route path = "/ordersummarypage" element={<OrderSummaryPage/>}/> */}
+      {/* <Route path="/userlogin" element={<UserLogin/>}/> */}
       <Route path="/adminlogin" element={<AdminLogin />} />
       <Route path='/verify/:token' element={<AdminVerifyEmail/>}/>
-      <Route path='/deliverydetailpage' element={<DeliveryDetailPage/>}/>
+      {/* <Route path='/deliverydetailpage' element={<DeliveryDetailPage/>}/> */}
     
       <Route path='/adminforgotpassword' element={<AdminForgotPassword/>}/>
-      <Route path="usersignup" element={<UserSignup/>}/>
+      {/* <Route path="usersignup" element={<UserSignup/>}/> */}
       <Route path="/reset-password/:token" element={<AdminResetPassword/>}/>
           {/* <Route path="/adminsignup" element={<AdminSignup/>}/> */}
       <Route path="/admin" element={<PrivateAdminDashboard />}>
@@ -59,10 +66,29 @@ function App() {
         <Route path='/verifyuser/:token' element={<UserVerifyEmail/>}/>
         <Route path='/userforgotpassword' element={<UserForgotPassword/>}/>
         <Route path="/user-reset-password/:token" element={<UserResetPassword/>}/>
+
         <Route path="/userdashboard" element={<PrivateUserDashboard />}>
           <Route path="" element={<UserDashboard />} />
         </Route>
+        <Route path="/deliverydetailpage" element={<PrivateDeliveryDetail />}>
+          <Route path="" element={<DeliveryDetailPage />} />
+        </Route>
+        <Route path="/ordersummarypage" element={<PrivateOrderSummary />}>
+          <Route path="" element={<OrderSummaryPage />} />
+        </Route>
+        <Route path="/userlogin" element={<PrivateUserLogin />}>
+          <Route path="" element={<UserLogin />} />
+        </Route>
 
+        <Route path="/usersignup" element={<PrivateUserSignUp/>}>
+          <Route path="" element={<UserSignup />} />
+        </Route>
+
+
+        <Route path="/searchresultpage" element={<SearchResultPage/>}/>
+
+        <Route path="/aboutus" element={<AboutUs/>}/>
+        <Route path="/contactus" element={<ContactUs/>}/>
 
     </Routes>
     <FooterUp/>

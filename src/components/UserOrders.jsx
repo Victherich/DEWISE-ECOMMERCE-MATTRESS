@@ -41,14 +41,14 @@ const UserOrders = () => {
 
     return (
         <div className="orders-container">
-            <h2>Your Orders</h2>
+            <h2 style={{color:"#003366"}}>Your Orders</h2>
             {orders.length === 0 ? (
                 <p>No orders found.</p>
             ) : (
                 <div className="orders-list">
                     {orders.map(order => (
                         <div key={order.order_ref} className="order-card">
-                            <h3>Order Ref: {order.order_ref}</h3>
+                            <h3 style={{color:"#003366"}}>Order Ref: {order.order_ref}</h3>
                             <p>Transaction Ref: {order.transaction_ref}</p>
                             <p>Date: {new Date(order.order_date).toLocaleString()}</p>
                             <p>Total: ₦{order.total}</p>
@@ -61,6 +61,7 @@ const UserOrders = () => {
                                             <p>{item.product_name}</p>
                                             <p>Quantity: {item.quantity}</p>
                                             <p>Price: ₦{item.price}</p>
+                                            <p style={{fontSize:"small"}}>Product ID: {item.product_id}</p>
                                         </div>
                                     </div>
                                 ))}

@@ -17,6 +17,10 @@
     color: #003366;
 }
 
+.FooterUpGroup p{
+    cursor: pointer;
+}
+
 .QualityWrap{
     background-color: #003366;
     padding: 15px;

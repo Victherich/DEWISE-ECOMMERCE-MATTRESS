@@ -321,11 +321,13 @@ const handleDeleteProduct = async (productId) => {
             <ProductCard key={index}>
               <h3 style={{ color: "#CB6B37" }}>{product.product_name}</h3>
               <p>Price: ${product.price}</p>
+              <p style={{fontSize:"small"}}>Product ID: {product.id}</p>
               <img
                 src={`https://www.heovin.com.ng/api/uploads/${product.product_images[0]}`}
                 alt={product.product_name}
               />
               <ActionButtons>
+
                 <DeleteButton style={{backgroundColor:"#003366"}} onClick={() => navigate(`/productdetail/${product.id}`)}>View</DeleteButton>
                 <DeleteButton onClick={() => handleDeleteProduct(product.id)}>Delete</DeleteButton>
               </ActionButtons>
