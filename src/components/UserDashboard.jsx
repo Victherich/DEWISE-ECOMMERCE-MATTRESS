@@ -13,6 +13,7 @@ import ManageProducts from './ManageProducts';
 import ProductByCategory from './ProductByCategory';
 import { FaBars, FaHamburger } from 'react-icons/fa';
 import UserProfile from './UserProfile';
+import UserOrders from './UserOrders';
 
 
 const UserDashboard = () => {
@@ -68,14 +69,14 @@ useEffect(() => {
       <div className='AdminDashboardMenu' style={{display:display}} ref={sideMenuRef}>
         <p className="AdminDashboardMenuP" style={{ color: "rgba(0,0,0,0.7", cursor: "none" }}>Hi, {userInfo.full_name.slice(0,6)}</p>
         <p onClick={() => {setAdminMenu(0);setDisplay("")}} className={adminMenu === 0 ? 'AdminDashboardMenuPActive' : 'AdminDashboardMenuP'}>User Info</p>
-        {/* <p onClick={() => {setAdminMenu(1);setDisplay("")}} className={adminMenu === 1 ? 'AdminDashboardMenuPActive' : 'AdminDashboardMenuP'}>Post Product</p> */}
+        <p onClick={() => {setAdminMenu(1);setDisplay("")}} className={adminMenu === 1 ? 'AdminDashboardMenuPActive' : 'AdminDashboardMenuP'}>My Orders</p>
         {/* <p onClick={() => {setAdminMenu(2);setDisplay("")}} className={adminMenu === 2 ? 'AdminDashboardMenuPActive' : 'AdminDashboardMenuP'}>Manage Products</p> */}
         {/* <p onClick={() => {setAdminMenu(3);setDisplay("")}} className={adminMenu === 3 ? 'AdminDashboardMenuPActive' : 'AdminDashboardMenuP'}>Register an Admin</p> */}
         <p onClick={handleLogout} className='AdminDashboardMenuP'>Logout</p>
       </div>
       <div className='AdminDashboardContentWrap'>
         {adminMenu === 0 && <UserProfile />}
-        {/* {adminMenu === 1 && <UploadProduct setAdminMenu={setAdminMenu}/>} */}
+        {adminMenu === 1 && <UserOrders/>}
         
         {/* {adminMenu === 2 && <ProductByCategory/>} */}
         {/* {adminMenu === 3 &&<AdminSignup/>} */}

@@ -79,7 +79,7 @@ const ProductListPage = () => {
           {products.length > 0 ? (
             products.map(product => (
               <div className='ProductCard' key={product.id}>
-                <img src={product.imageUrl || product1} alt={product.productName} />
+                <img src={`https://www.heovin.com.ng/api/uploads/${product.product_images[0]}`} alt={product.productName} />
                 <div className='ProductTextWrap'>
                   <p onClick={() => navigate(`/productdetail/${product.id}`)}>
                     {product.product_name}

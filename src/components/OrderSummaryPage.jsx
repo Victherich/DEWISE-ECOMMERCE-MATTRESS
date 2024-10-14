@@ -64,11 +64,14 @@ const OrderSummaryPage = () => {
     const userInfo = useSelector(state=>state.userInfo)
   const user = useSelector((state) => state.DeliveryDetail);
   const cart = useSelector((state) => state.cartItems);
+  
   const {loading,setLoading,loading2,setLoading2,dashContent,setDashContent,userAllOrders,setUserAllOrders,
     orderedList,setOrderedList,orderListPostUrl,orderSendEmailUrl
   }=useContext(Context)
+  const {setAdminMenu}=useContext(Context)
 
   console.log(userInfo)
+  console.log(cart)
 
   const calculateTotal = () => {
     let total = cart.reduce((sum, item) => sum + item.price  * item.quantity, 0);
@@ -77,11 +80,61 @@ const OrderSummaryPage = () => {
   };
 
   
-const createOrder = (orderSummary)=>{
-    //run the creat order back eend and send email to user
-     dispatch(clearCart());
-     navigate("/");
-}
+
+  
+  const createOrder = async (orderSummary) => {
+
+    
+    try {
+      // Show a loading alert
+      const loadingAlert = Swal.fire({ text: "Processing your order..." });
+      Swal.showLoading();
+  
+      // Make a POST request to the backend
+      const response = await axios.post('https://www.heovin.com.ng/api/api4users/create_order.php', orderSummary);
+      
+      
+      Swal.fire({
+        icon: 'success',
+        title: 'Order Placed Successfully!',
+        text: 'Your order has been confirmed. You will receive an email with the order details.',
+    }).then((result) => {
+        if (result.isConfirmed) {
+            navigate('/userdashboard');
+            setAdminMenu(1)
+        }
+    });     
+
+      // Handle success response
+      if (response.data.success) {
+        
+        
+        // Clear the cart in Redux
+        dispatch(clearCart());
+  
+        // Navigate back to homepage or order confirmation page
+        
+      } else {
+        Swal.fire({
+          icon: 'error',
+          title: 'Order Failed',
+          text: response.data.error || 'An error occurred while processing your order.',
+        });
+      }
+    } catch (error) {
+      console.error('Error creating order:', error);
+      Swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: 'An error occurred while processing your order. Please try again later.',
+      });
+    } finally {
+      // Close the loading alert
+    //   Swal.close();
+    loadingAlert.close();
+    }
+  };
+  
 
 
 
@@ -97,66 +150,59 @@ const createOrder = (orderSummary)=>{
 
   const deliveryCharge = new Intl.NumberFormat().format(deliveryFees[user.state]?.[user.city] || 0)
 
-  const handleOrderNow2 = async (reference) => {
-    const loadingAlert = Swal.fire({text:"Please wait..."})
-    Swal.showLoading()
 
+const handleOrderNow2 = async (reference) => {
     const getCurrentDateTime = () => {
       const now = new Date();
-      // Calculate the timezone offset in milliseconds
       const offset = now.getTimezoneOffset() * 60000;
-      // Adjust the time to the local time
       const localTime = new Date(now.getTime() - offset);
-      // Convert to a readable format
       return localTime.toISOString().slice(0, 19).replace("T", " ");
     };
-    
+  
     const orderSummary = {
-      userId:userInfo.id,
-      date:getCurrentDateTime(),
-      deliveryCharge: Number(deliveryCharge.replace(/,/g, '')),
-      transactionRef:reference,
-    orderRef:generateOrderRef(),
+      userId: userInfo.id,
+      date: getCurrentDateTime(),
+      deliveryCharge: Number(deliveryCharge.replace(/,/g, '')), // unformatted delivery charge
+      transactionRef: reference,
+      orderRef: generateOrderRef(),
       firstName: user.firstName,
-      lastName: user.lastName, 
+      lastName: user.lastName,
       phone: user.phone,
       email: user.email,
       address: user.address,
       state: user.state,
       city: user.city,
-      cartItems: cart.map((item) => `https://www.heovin.com.ng/api/uploads/${item.image} - ${item.productName} - ${item.quantity} x ₦${new Intl.NumberFormat().format(item.price)}`),
-      total: `₦ ${new Intl.NumberFormat().format(calculateTotal())}`
+      cartItems: cart.map(item => ({
+        imageUrl: `https://www.heovin.com.ng/api/uploads/${item.image}`,
+        productName: item.productName,
+        quantity: item.quantity,
+        price: item.price, // raw price, without formatting
+        productId:item.id,
+      })),
+      total: calculateTotal() // unformatted total amount
     };
-
-
-console.log(orderSummary)
-
-createOrder(orderSummary)
-
-
-try {
-  const response = await axios.post(`${orderSendEmailUrl}`, {
-    buyerEmail: user.email,
-    sellerEmail: 'digitalpremiumtech@gmail.com',
-    orderSummary: JSON.stringify(orderSummary, null, 2)
-    
-  });
-
-  if (response.status === 200) {
-    Swal.fire({ icon: "success", text: "Order confirmed, Please check your email for details" });
-    
-  } else {
-    Swal.fire({ icon: "error", text: "Failed to send order summary." });
-  }
-} catch (error) {
-  console.error(error)
-  Swal.fire({ icon: "error", text: "An error occurred while sending the order summary." });
-}finally{
-    loadingAlert.close()        
+  
+    console.log(orderSummary);
+    createOrder(orderSummary);
+  
+    try {
+      const response = await axios.post(`${orderSendEmailUrl}`, {
+        buyerEmail: user.email,
+        sellerEmail: 'heovincom@heovin.com.ng',
+        orderSummary: JSON.stringify(orderSummary, null, 2)
+      });
+  
+      if (response.status === 200) {
+        // Swal.fire({ icon: "success", text: "Order confirmed, Please check your email for details" });
+      } else {
+        // Swal.fire({ icon: "error", text: "Failed to send order summary." });
+      }
+    } catch (error) {
+      console.error(error);
+    //   Swal.fire({ icon: "error", text: "An error occurred while sending the order summary." });
     }
   };
-
-
+  
 
 
 
@@ -164,7 +210,7 @@ try {
   const handleOrderNow = () => {
     handleLoading();
     if (isChecked) {
-      handleOrderNow3()
+    //   handleOrderNow3()
     } else {
       payWithPaystack();
     }

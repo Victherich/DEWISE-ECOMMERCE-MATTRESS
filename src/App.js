@@ -26,6 +26,7 @@ import UserForgotPassword from './components/UserForgotPassword';
 import UserResetPassword from './components/UserResetPassword';
 import UserDashboard from './components/UserDashboard';
 import PrivateUserDashboard from './components/PrivateUserDashboard';
+import AdminSignup from './components/AdminSignUp';
 
 
 
