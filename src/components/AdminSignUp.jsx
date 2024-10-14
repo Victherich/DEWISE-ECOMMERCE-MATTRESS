@@ -76,10 +76,10 @@ const AdminSignup = () => {
   };
 
   return (
-    <div className='ContactFormWrap' style={{padding:"30px 0px",backgroundColor:"white"}}>
+    <div className='ContactFormWrap' style={{backgroundColor:"white"}}>
       <div className='contact-form-container' style={{padding:"5px",boxShadow:"none"}}>
         <h2>Register an Admin </h2>
-        {/* <img src={Logo} alt='Logo' style={{ position: 'relative', width: '70px' }} /> */}
+        <img src={Logo} alt='Logo' style={{ position: 'relative', width: '70px' }} />
         <form onSubmit={handleSubmit} style={{width:"100%"}}>
           <div className='form-group' >
             <label htmlFor='fullName'>Full Name</label>

@@ -111,7 +111,7 @@ const CartPage = () => {
     <div className='CartWrap'>
       <div className='CartLeft'>
         <div className='CartLeftUp'>
-          Shopping Cart ({totalQuantity} Items)
+          Shopping Cart
         </div>
         <div className='CartLeftDown'>
           {cartItems.length === 0 ? (
@@ -120,35 +120,37 @@ const CartPage = () => {
             <div className='CartItems'>
               <div className='CartItemsTitles'>
                 <p>Items</p>
-                <p style={{ marginLeft: "385px" }}>Price</p>
+                {/* <p style={{ marginLeft: "385px" }}>Price</p>
                 <p style={{ marginLeft: "190px" }}>Quantity</p>
-                <p style={{ marginLeft: "180px" }}>Subtotal</p>
+                <p style={{ marginLeft: "180px" }}>Subtotal</p> */}
               </div>
               <div className='CartItemsLine'></div>
               {cartItems.map(item => (
-                <div className='CartItem' key={item.id}>
+          
+                  <div className='CartItem' key={item.id}>
                   <div className='CartItemImgandTextWrap'>
                     <img src={`https://www.heovin.com.ng/api/uploads/${item.image}`} alt="cartItemImg" />
                     <div className='CartItemTextWrap'>
-                      <p style={{ fontWeight: "bold" }}>{item.productName}</p>
-                      <p>${item.price}</p>
+                      <p style={{ fontWeight: "bold",marginTop:"10px" }}>{item.productName}</p>
+                      <p style={{marginTop:"10px"}}>${item.price}</p>
                     </div>
                   </div>
-                  <p className='UnitPrice'>${item.price}</p>
+                  {/* <p className='UnitPrice' style={{marginTop:"10px"}}><strong style={{marginRight:"5px"}}>Unit Price: </strong>  ${item.price}</p> */}
                   <div className='CartItemQtyWrap'>
                     <p onClick={() => handleQuantityChange(item.id, item.quantity - 1)}>-</p>
                     <p style={{ backgroundColor: "white" }}>{item.quantity}</p>
                     <p onClick={() => handleQuantityChange(item.id, item.quantity + 1)}>+</p>
                   </div>
-                  <p className='SubTotal'>${item.subtotal.toFixed(2)}</p>
-                </div>
+                  <p className='SubTotal' style={{marginTop:"10px"}}><strong style={{marginRight:"5px"}}>Subtotal:</strong> ${item.subtotal.toFixed(2)}</p>
+                  </div>
+        
               ))}
             </div>
           )}
         </div>
       </div>
       <div className='CartRight'>
-        <button onClick={() => navigate("/subcategory")}>Continue Shopping</button>
+        <button onClick={() => navigate("/subcategory")} className='ContinueShoppingButton'>Continue Shopping</button>
 
         <div className='PromoCode'>
           <p>Have a Code?</p>
@@ -160,17 +162,17 @@ const CartPage = () => {
 
         <div className='CartSummary'>
           <h3>Cart Summary</h3>
-          <div className='SubTotalWrap'>
+          {/* <div className='SubTotalWrap'>
             <p>Sub total ({totalQuantity} Items)</p>
             <p>${totalAmount.toFixed(2)}</p>
-          </div>
+          </div> */}
           <div className='Line'></div>
           <div className='TotalWrap'>
             <p>Order Total:</p>
             <p style={{ color: "orangeRed" }}>${totalAmount.toFixed(2)}</p>
           </div>
           <button
-            onClick={() => navigate("/ordersummarypage")}
+            onClick={() => navigate("/deliverydetailpage")}
             style={{ width: "90%", fontWeight: "bold", backgroundColor: "orange", color: "black", fontSize: "1rem", margin: "0 auto" }}
           >
             Checkout

@@ -42,14 +42,14 @@ const FooterUp = () => {
             <h3>ORDERS & POLICIES</h3>
             <p>Shipping Policy</p>
             <p>Return Policy</p>
-            <p>Order Form (PDF)</p>
+            {/* <p>Order Form (PDF)</p> */}
           </div>
           <div className='FooterUpGroup'>
             <h3>COMPANY</h3>
             <p>About Us</p>
-            <p>Manufacturing</p>
-            <p>Blog</p>
-            <p>Non-GMO Pledge</p>
+            {/* <p>Manufacturing</p> */}
+            {/* <p>Blog</p> */}
+            {/* <p>Non-GMO Pledge</p> */}
           </div>
           <div className='QualityWrap'>
             <h2>SUPERIOR<br />QUALITY</h2>
@@ -118,9 +118,9 @@ const FooterUp = () => {
           {openDropdown === 'company' && (
             <div className='FooterDropDown' style={{ right: "10px" }}>
               <p>About Us</p>
-              <p>Manufacturing</p>
-              <p>Blog</p>
-              <p>Non-GMO Pledge</p>
+              {/* <p>Manufacturing</p> */}
+              {/* <p>Blog</p> */}
+              {/* <p>Non-GMO Pledge</p> */}
             </div>
           )}
         </div>

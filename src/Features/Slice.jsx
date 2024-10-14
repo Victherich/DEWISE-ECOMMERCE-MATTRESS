@@ -35,9 +35,24 @@ const MySlice = createSlice({
   initialState: {
     adminInfo: null,
     adminToken: null,
+    userInfo: null,
+    userToken: null,
+
     cartItems: [], // Array of cart items
     totalQuantity: 0, // Total number of items in the cart
     totalAmount: 0, // Total price of items in the cart
+
+    DeliveryDetail:{
+      firstName: '',
+      lastName:'',
+      phone: '',
+      confirmPhone: '',
+      email: '',
+      address: '',
+      state: '',
+      city: '',
+    },
+
   },
   reducers: {
     adminLogin: (state, { payload }) => {
@@ -51,6 +66,21 @@ const MySlice = createSlice({
     updateAdminInfo: (state, { payload }) => {
       if (state.adminInfo) {
         state.adminInfo = { ...state.adminInfo, ...payload };
+      }
+    },
+
+    //user reducers
+    userLogin: (state, { payload }) => {
+      state.userInfo = payload.userInfo;
+      state.userToken = payload.userToken;
+    },
+    userLogout: (state) => {
+      state.userInfo = null;
+      state.userToken = null;
+    },
+    updateUserInfo: (state, { payload }) => {
+      if (state.userInfo) {
+        state.userInfo = { ...state.userInfo, ...payload };
       }
     },
 
@@ -90,8 +120,16 @@ const MySlice = createSlice({
         state.cartItems = state.cartItems.filter(item => item.id !== id);
       }
     },
+    updateField: (state, action) => {
+      state.DeliveryDetail[action.payload.field] = action.payload.value;
+    },
+    clearCart: (state) => {
+      state.cartItems = [];
+      state.totalAmount = 0;
+      state.totalQuantity = 0;
+    },
   },
 });
 
-export const { adminLogin, adminLogout, updateAdminInfo, addToCart, updateCartQuantity, removeFromCart } = MySlice.actions;
+export const { adminLogin, adminLogout, updateAdminInfo, userLogin, clearCart, userLogout, updateUserInfo, updateField, addToCart, updateCartQuantity, removeFromCart } = MySlice.actions;
 export default MySlice.reducer;

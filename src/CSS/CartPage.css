@@ -119,6 +119,7 @@
     background-color: lightgray;
     height: 1px;
     margin: 0 auto;
+    margin-top: 30px;
 }
 
 .TotalWrap{
@@ -164,11 +165,13 @@
     display: flex;
     width: 100%;
     justify-content: space-between;
+    margin-bottom: 20px;
 }
 
 .CartItem img{
     width: 100px;
     height: 100px;
+    margin-right: 10px;
 
 }
 
@@ -240,7 +243,11 @@
     display: flex;
 }
 
-@media screen and (max-width:768px) {
+.ContinueShoppingButton{
+    display: block;
+}
+
+@media screen and (max-width:884px) {
     .CartWrap{
         flex-direction: column;
     }    
@@ -256,14 +263,14 @@
         flex-direction: column;
     }
     .CartItemQtyWrap{
-        display: none;
+        /* display: none; */
     }
 
     .CartItemQtyWrapMobile{
         display: flex;
     }
     .SubTotal{
-        display: none;
+        /* display: none; */
     }
 
     .SubTotalMobile{
@@ -273,7 +280,9 @@
     .UnitPrice{
         display: none;
     }
-
+    .ContinueShoppingButton{
+        display: none;
+    }
   
 }
 

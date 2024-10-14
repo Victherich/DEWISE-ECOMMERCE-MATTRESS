@@ -25,27 +25,6 @@ const AdminVerifyEmail = () => {
         Swal.close();
         Swal.fire({icon:"success",timer:2000})
         navigate("/adminlogin")
-        // console.log("Verification Response:", response.data);
-
-        // if (response.data.success) {
-        //   Swal.fire({
-        //     icon: 'success',
-        //     title: 'Verification Successful',
-        //     text: response.data.message,
-        //     showConfirmButton: false,
-        //     timer: 3000
-        //   }).then(() => {
-        //     navigate("/adminlogin");
-        //   });
-        // } else {
-        //   Swal.fire({
-        //     icon: 'error',
-        //     title: 'Verification Failed',
-        //     text: response.data.error,
-        //     showConfirmButton: true,
-        //     confirmButtonText: 'Ok'
-        //   });
-        // }
 
       } catch (error) {
         Swal.close();

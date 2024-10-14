@@ -98,8 +98,8 @@ import { useNavigate } from 'react-router-dom'
   return (
     <div className='MainCategories'>
        {
-        CategoryItems.map((CategoryItem)=>(
-            <div className='MainCategory' onClick={()=>navigate("/subcategory")}>
+        CategoryItems.map((CategoryItem,index)=>(
+            <div className='MainCategory' onClick={()=>navigate("/subcategory")} key={index}>
             <img src={CategoryItem.img} alt='img'/>
             <p>{CategoryItem.title}</p>
         </div>

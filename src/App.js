@@ -19,12 +19,20 @@ import UserSignup from './components/UserSignUp';
 import AdminVerifyEmail from './components/AdminVerifyEmail';
 import AdminForgotPassword from './components/AdminForgotPassword';
 import AdminResetPassword from './components/AdminResetPassword';
+import DeliveryDetailPage from './components/DeliveryDetailPage';
+import ScrollToTop from './components/ScrollToTop';
+import UserVerifyEmail from './components/UserVerifyEmail';
+import UserForgotPassword from './components/UserForgotPassword';
+import UserResetPassword from './components/UserResetPassword';
+import UserDashboard from './components/UserDashboard';
+import PrivateUserDashboard from './components/PrivateUserDashboard';
 
 
 
 function App() {
   return (
    <BrowserRouter>
+   <ScrollToTop/>
     <Header/>
     <MenuCategories/>
     <Routes>
@@ -37,6 +45,8 @@ function App() {
       <Route path="/userlogin" element={<UserLogin/>}/>
       <Route path="/adminlogin" element={<AdminLogin />} />
       <Route path='/verify/:token' element={<AdminVerifyEmail/>}/>
+      <Route path='/deliverydetailpage' element={<DeliveryDetailPage/>}/>
+    
       <Route path='/adminforgotpassword' element={<AdminForgotPassword/>}/>
       <Route path="usersignup" element={<UserSignup/>}/>
       <Route path="/reset-password/:token" element={<AdminResetPassword/>}/>
@@ -44,6 +54,15 @@ function App() {
       <Route path="/admin" element={<PrivateAdminDashboard />}>
           <Route path="" element={<AdminDashboard />} />
         </Route>
+
+        <Route path='/verifyuser/:token' element={<UserVerifyEmail/>}/>
+        <Route path='/userforgotpassword' element={<UserForgotPassword/>}/>
+        <Route path="/user-reset-password/:token" element={<UserResetPassword/>}/>
+        <Route path="/userdashboard" element={<PrivateUserDashboard />}>
+          <Route path="" element={<UserDashboard />} />
+        </Route>
+
+
     </Routes>
     <FooterUp/>
     <FooterDown/>

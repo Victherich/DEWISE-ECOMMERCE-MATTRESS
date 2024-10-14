@@ -92,7 +92,7 @@ const ProductListPage = () => {
               </div>
             ))
           ) : (
-            <div>No products found for this category.</div>
+            <div style={{width:"100%",height:"200px",display:"flex",justifyContent:"center",alignItems:"center"}}>No products found for this category.</div>
           )}
         </div>
       </div>

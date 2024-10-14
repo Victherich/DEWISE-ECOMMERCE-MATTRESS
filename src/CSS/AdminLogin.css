@@ -2,7 +2,7 @@
 
 .ContactFormWrap{
 
-    padding: 100px 0px;
+    padding: 50px 0px;
     /* background-image: url("../Images/HeroPic3.jpeg"); */
     /* min-height: 100vh; */
     /* background-color: rgba(211, 211, 211, 0.1); */
@@ -12,8 +12,8 @@
     background-size: cover;
     position: relative;
 }
-
 /* .ContactFormWrap::before{
+
   content: "";
   position: absolute;
   top: 0;
@@ -97,17 +97,18 @@
   .contact-form-container button {
     width: 100%;
     padding: 10px;
-    background-color: #003366;
+    background-color: #FFB42C;
     border: none;
     border-radius: 4px;
-    color: white;
+    color: black;
     font-size: 16px;
     cursor: pointer;
     position: relative;
+    font-weight: bold;
   }
   
   .contact-form-container button:hover {
-    background-color:#003399;
+    /* background-color:#003399; */
   }
 
   .contact-form-container img{
@@ -132,7 +133,7 @@
 
 @media screen and (max-width:884px) {
   .ContactFormWrap{
-    padding: 200px 0px;
+      /* padding: 200px 0px; */
   }
 }
 
@@ -152,7 +153,7 @@
 
   @media screen and (max-width:428px) {
     .ContactFormWrap{
-      padding: 20px 10px;
+      padding: 0px 0px;
     } 
     .contact-form-container{
       width: 100%;

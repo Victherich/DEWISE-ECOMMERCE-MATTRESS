@@ -5,6 +5,7 @@
     width: 100%;
     /* background-color: red; */
     /* padding: 100px 0px; */
+    position: relative;
 
   }
 
@@ -53,4 +54,33 @@
     /* min-height: 100vh; */
     /* overflow-y: scroll; */
     
+  }
+
+.Bars{
+  display: none;
+  /* margin-top: 10px; */
+  cursor: pointer;
+  color: #003366;
+  position: absolute;
+  top: 20px;
+  left:20px;
+
+}
+
+  @media screen and (max-width:428px) {
+      .AdminDashboardMenu{
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        overflow-y: scroll;
+        width: 70%;
+        z-index: 999;
+        display: none;
+
+      }
+
+      .Bars{
+        display: flex;
+      }
   }

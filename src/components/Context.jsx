@@ -8,11 +8,12 @@ const ContextProvider = ({children}) => {
     const [admin,setAdmin]=useState(null)
     const [adminMenu,setAdminMenu]=useState(0) 
     const [trackingID, setTrackingID] = useState('');
+    const [mobileMenuSwitch,setMobileMenuSwitch]=useState(false)
 
-
+const orderSendEmailUrl="https://hotsalesngonboarding.onrender.com/api/send-order-summary"
   return (
     <Context.Provider value={{adminToken,setAdminToken,admin,setAdmin,adminMenu,
-    setAdminMenu,trackingID,setTrackingID}}>
+    setAdminMenu,trackingID,setTrackingID,orderSendEmailUrl,mobileMenuSwitch,setMobileMenuSwitch}}>
 
         {children}
     </Context.Provider>

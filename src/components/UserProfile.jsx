@@ -4,10 +4,12 @@ import { useSelector, useDispatch } from 'react-redux';
 import '../CSS/AdminProfile.css';
 import Swal from 'sweetalert2';
 import axios from 'axios';
-import { adminLogin, updateAdminInfo } from '../Features/Slice';
+import { userLogin, updateUserInfo } from '../Features/Slice';
 
-const AdminProfile = () => {
-  const adminInfo = useSelector((state) => state.adminInfo);
+
+
+const UserProfile = () => {
+  const userInfo = useSelector((state) => state.userInfo);
   const dispatch = useDispatch();
   const [editModal, setEditModal] = useState(false);
   const [phone, setPhone] = useState('');
@@ -17,14 +19,14 @@ const AdminProfile = () => {
     const loadingAlert = Swal.fire({title:"Updating phone number..."})
     Swal.showLoading()
     try {
-      const response = await axios.post('https://www.heovin.com.ng/api/admin_update_phone.php', {
-        email: adminInfo.email, // Assuming email is stored in adminInfo
+      const response = await axios.post('https://www.heovin.com.ng/api/api4users/user_update_phone.php', {
+        email: userInfo.email, // Assuming email is stored in adminInfo
         phoneNumber: phone
       });
 
       if (response.data.success) {
         // Dispatch action to update Redux state
-        dispatch(updateAdminInfo({ phone_number: response.data.user.phone_number }));
+        dispatch(updateUserInfo({ phone_number: response.data.user.phone_number }));
 
         Swal.fire({
           icon: 'success',
@@ -57,10 +59,10 @@ const AdminProfile = () => {
 
   return (
     <div className="admin-profile-page">
-      <h2>Admin Information</h2>
-      <p><strong style={{color:"#003366"}}>Name:</strong> {adminInfo.full_name}</p>
-      <p><strong style={{color:"#003366"}}>Email:</strong> {adminInfo.email}</p>
-      <p><strong style={{color:"#003366"}}>Phone:</strong> {adminInfo.phone_number}</p>
+      <h2>User Information</h2>
+      <p><strong style={{color:"#003366"}}>Name:</strong> {userInfo.full_name}</p>
+      <p><strong style={{color:"#003366"}}>Email:</strong> {userInfo.email}</p>
+      <p><strong style={{color:"#003366"}}>Phone:</strong> {userInfo.phone_number}</p>
       <button onClick={() => setEditModal(!editModal)}>Edit Phone number</button>
       {editModal && (
         <div className='admin-profile-edit-modal'>
@@ -79,5 +81,5 @@ const AdminProfile = () => {
   );
 };
 
-export default AdminProfile;
+export default UserProfile;
 

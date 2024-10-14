@@ -13,6 +13,7 @@ const UserSignup = () => {
     fullName: '',
     email: '',
     password: '',
+    confirmPassword: '', // New field for confirming password
     phoneNumber: ''
   });
   const [showPassword, setShowPassword] = useState(false);
@@ -34,12 +35,19 @@ const UserSignup = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    // Frontend validation for matching passwords
+    if (formData.password !== formData.confirmPassword) {
+      Swal.fire('Error!', 'Passwords do not match!', 'error');
+      return;
+    }
+
     setIsSubmitting(true);
 
     // Show loading spinner
     Swal.fire({
       title: 'Loading...',
-      text: 'Creating admin account...',
+      text: 'Creating user account...',
       allowOutsideClick: false,
       didOpen: () => {
         Swal.showLoading();
@@ -47,7 +55,12 @@ const UserSignup = () => {
     });
 
     try {
-      const response = await axios.post('https://vinrichards.com/api2/admin_signup.php', formData, {
+      const response = await axios.post('https://www.heovin.com.ng/api/api4users/user_signup.php', {
+        fullName: formData.fullName,
+        email: formData.email,
+        password: formData.password, // Only send password, not confirmPassword
+        phoneNumber: formData.phoneNumber
+      }, {
         headers: {
           'Content-Type': 'application/json',
         },
@@ -56,14 +69,15 @@ const UserSignup = () => {
       Swal.close();
 
       if (response.data.success) {
-        Swal.fire('Success!', 'Account created. Please check your email for verification.', 'success');
+        Swal.fire('Success!', 'Account created. Please check your email indox or spam for verification.', 'success');
         setFormData({
           fullName: '',
           email: '',
           password: '',
+          confirmPassword: '',
           phoneNumber: ''
         });
-        navigate('/adminlogin');
+        navigate('/userlogin');
       } else {
         Swal.fire('Error!', response.data.error, 'error');
       }
@@ -76,12 +90,12 @@ const UserSignup = () => {
   };
 
   return (
-    <div className='ContactFormWrap' style={{padding:"50px 0px",backgroundColor:"white"}}>
+    <div className='ContactFormWrap' style={{backgroundColor:"white"}}>
       <div className='contact-form-container' style={{padding:"5px",boxShadow:"none"}}>
-        <h2>User Sign Up </h2>
-        {/* <img src={Logo} alt='Logo' style={{ position: 'relative', width: '70px' }} /> */}
+        <h2>User Sign Up</h2>
+        <img src={Logo} alt='Logo' style={{ position: 'relative', width: '70px' }} />
         <form onSubmit={handleSubmit} style={{width:"100%"}}>
-          <div className='form-group' >
+          <div className='form-group'>
             <label htmlFor='fullName'>Full Name</label>
             <input
               type='text'
@@ -120,6 +134,25 @@ const UserSignup = () => {
               style={{width:"98%"}}
             />
             <span
+              onClick={() => setShowPassword(!showPassword)}
+              style={{ position: 'absolute', right: '10px', top: '65%', cursor: 'pointer', transform: 'translateY(-50%)' }}
+            >
+              {showPassword ? '🙈' : '👁️'}
+            </span>
+          </div>
+          <div className='form-group'>
+            <label htmlFor='confirmPassword'>Confirm Password</label>
+            <input
+              type={showPassword ? 'text' : 'password'}
+              id='confirmPassword'
+              name='confirmPassword'
+              value={formData.confirmPassword}
+              onChange={handleChange}
+              required
+              placeholder="Re-enter your password"
+              style={{width:"98%"}}
+            />
+             <span
               onClick={() => setShowPassword(!showPassword)}
               style={{ position: 'absolute', right: '10px', top: '65%', cursor: 'pointer', transform: 'translateY(-50%)' }}
             >
