@@ -133,6 +133,7 @@ const CartPage = () => {
                     <div className='CartItemTextWrap'>
                       <p style={{ fontWeight: "bold",marginTop:"10px" }}>{item.productName}</p>
                       <p style={{marginTop:"10px"}}>${item.price}</p>
+                      <p style={{fontSize:"0.7rem"}}>Product ID: {item.id}</p>
                     </div>
                   </div>
                   {/* <p className='UnitPrice' style={{marginTop:"10px"}}><strong style={{marginRight:"5px"}}>Unit Price: </strong>  ${item.price}</p> */}

@@ -78,6 +78,14 @@
   .CheckBoxWrap input{
     cursor: pointer;
   }
+
+  .OrderSummaryPageSelect{
+    width: 100%;
+    padding: 10px;
+    cursor: pointer;
+    margin-bottom: 20px;
+
+  }
   
   @media (max-width: 600px) {
     .order-summary {

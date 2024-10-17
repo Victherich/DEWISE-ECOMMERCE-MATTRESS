@@ -16,7 +16,7 @@ const FooterDown = () => {
         All products sold on this site are for personal use and are not for resale. Read More
       </p>
       <p style={styles.text}>
-        Copyright 2024 PipingRock Health Products, LLC. 2120 Smithtown Avenue, Ronkonkoma, NY 11779-7347 USA
+        Copyright Heovin.com. address.....................
       </p>
     </div>
   )
