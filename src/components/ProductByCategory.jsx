@@ -166,19 +166,78 @@ import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
 
 // Sample categories - adjust according to your actual categories
-const categories = [
-  'Calcium Supplements',
-  'Alpha Lipoic Acid',
-  'Cinnamon Supplements',
-  'CoQ-10',
-  'Flaxseed Products',
-  'Ginkgo Biloba',
-  'L-Carnitine',
-  'Omega-3',
-  'Homeopathic',
-  'Eye Products',
-  'All Product'
+// const categories = [
+//   'Calcium Supplements',
+//   'Alpha Lipoic Acid',
+//   'Cinnamon Supplements',
+//   'CoQ-10',
+//   'Flaxseed Products',
+//   'Ginkgo Biloba',
+//   'L-Carnitine',
+//   'Omega-3',
+//   'Homeopathic',
+//   'Eye Products',
+//   'All Product'
+// ];
+
+
+
+const subCategories = [
+  { id: 14, name: 'PipingRock\'s Best' },
+  { id: 15, name: 'Sale Items' },
+  { id: 16, name: 'Essential Oils' },
+  { id: 17, name: 'Men\'s Vitamins' },
+  { id: 18, name: 'Melatonin' },
+  { id: 19, name: 'CoQ-10' },
+  { id: 20, name: 'Ashwagandha' },
+  { id: 21, name: 'Weight Support' },
+  { id: 22, name: 'Skin Care' },
+  { id: 23, name: 'Immune Support' },
+  { id: 24, name: 'Supplements' },
+  { id: 25, name: 'Probiotics' },
+  { id: 26, name: 'Fragrance Oils' },
+  { id: 27, name: 'Mushrooms' },
+  { id: 28, name: 'Joint Support' },
+  { id: 29, name: 'Women\'s Vitamins' },
+  { id: 30, name: 'Sports & Fitness' },
+  { id: 31, name: 'Beauty & Personal Care' },
+  { id: 32, name: 'Bulk Herbs' },
+  { id: 33, name: 'Pet Products' },
+  { id: 34, name: 'Liquid Extracts' },
+  { id: 35, name: 'Herbal Supplements' },
+  { id: 36, name: 'Vitamin D' },
+  { id: 37, name: 'Turmeric' },
+  { id: 38, name: 'Spices' },
+  { id: 39, name: 'Magnesium' },
+  { id: 40, name: 'Homeopathics' },
+  { id: 41, name: 'Collagen' },
+  { id: 42, name: 'Aromatherapy' },
+  { id: 43, name: 'Lutein' },
+  { id: 44, name: 'Vitamin C' },
+  { id: 45, name: 'Zinc' },
+  { id: 46, name: 'Nuts & Seeds' },
+  { id: 47, name: 'Hyaluronic Acid' },
+  { id: 48, name: 'Elderberry' },
+  { id: 49, name: 'Compare and Save' },
+  { id: 50, name: 'N-Acetyl Cysteine' },
+  { id: 51, name: 'Organic Products' },
+  { id: 52, name: 'Herbal Teas' },
+  { id: 53, name: 'Antioxidants' },
+  { id: 54, name: 'Brain Supplements' },
+  { id: 55, name: 'Digestive Health' },
+  { id: 56, name: 'Eye Nutrients' },
+  { id: 57, name: 'Heart Health' },
+  { id: 58, name: 'Herbs' },
+  { id: 59, name: 'Immune Support 2' },
+  { id: 60, name: 'Sleep Support' },
+  { id: 61, name: 'Crazy Deals' },
+  { id: 62, name: 'Vitamins' },
+  { id: 63, name: 'Beauty' },
+  { id: 64, name: 'Sports' },
+  {id:65, name:'All Brands'},
+  {id:66, name:'All Category'}
 ];
+
 
 function ProductByCategory() {
   const [products, setProducts] = useState([]);
@@ -295,9 +354,9 @@ const handleDeleteProduct = async (productId) => {
       <h2 style={{ color: "#CB6B37", marginBottom: "5px" }}>Select a Category</h2>
       <SelectCategory onChange={handleCategoryChange} value={selectedCategory}>
         <option value="">-- Choose a category --</option>
-        {categories.map((category, index) => (
-          <option key={index} value={category}>
-            {category}
+        {subCategories.map((category, index) => (
+          <option key={index} value={category.name}>
+            {category.name}
           </option>
         ))}
       </SelectCategory>

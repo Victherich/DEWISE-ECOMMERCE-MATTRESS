@@ -30,6 +30,7 @@ const ProductListPage = () => {
     // Fetch products based on the selected category
     const fetchProductsByCategory = async () => {
       setLoading(true);
+
       try {
         // Example API call to get products by category
         const response = await axios.get(`https://www.heovin.com.ng/api/get_products_by_category.php?category=${category}`);
@@ -79,7 +80,11 @@ const ProductListPage = () => {
           {products.length > 0 ? (
             products.map(product => (
               <div className='ProductCard' key={product.id}>
-                <img src={`https://www.heovin.com.ng/api/uploads/${product.product_images[0]}`} alt={product.productName} />
+                <img src={`https://www.heovin.com.ng/api/uploads/${product.product_images[0]}`} 
+                alt={product.productName} 
+                onClick={() => navigate(`/productdetail/${product.id}`)}
+                style={{cursor:"pointer"}}/>
+
                 <div className='ProductTextWrap'>
                   <p onClick={() => navigate(`/productdetail/${product.id}`)}>
                     {product.product_name}

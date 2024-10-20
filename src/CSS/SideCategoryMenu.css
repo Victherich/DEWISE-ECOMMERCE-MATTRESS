@@ -9,14 +9,49 @@
 }
 
 .pcategory1{
-    color: green;
+    /* color: green; */
 }
+
+
+.SideCategoryMenu p {
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+
 
 .SideCategoryMenu p:hover{
     color: #CB6B37;
     cursor: pointer;
 }
 
+
+.SideCategoryMenu p:nth-child(1){
+    color: green;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.SideCategoryMenu p:nth-child(2){
+    color: green;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.SideCategoryMenu p:nth-child(3){
+    color: green;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.SideCategoryMenu p:nth-child(4),
+.SideCategoryMenu p:nth-child(5), 
+.SideCategoryMenu p:nth-child(6),
+.SideCategoryMenu p:nth-child(7),
+.SideCategoryMenu p:nth-child(8)
+{
+    font-weight: bold;
+}
 
 
 @media screen and (max-width:884px) {

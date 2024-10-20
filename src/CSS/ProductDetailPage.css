@@ -1,9 +1,15 @@
+
+
 .ProductDetailPageWrap{
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
     width: 100%;    
-    /* background-color: red; */
+    /* background-color: red;    */
+}
+
+.ProductDetailPageWrapA{
+    width: 90%;
 }
 
 .ProductDetailPage{

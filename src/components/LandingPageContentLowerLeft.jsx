@@ -22,36 +22,36 @@ import { useNavigate } from 'react-router-dom'
     const LandingPageContentLowerLeft = () => {
       const navigate = useNavigate()
     
-      const CategoryItems = [
+      const subCategories = [
         {
           img: supplemetsImg,
           title: "Supplements",
         },
-        // {
-        //   img: essentialoil,
-        //   title: "Essential Oil",
-        // },
-        // {
-        //   img: antioxidants,
-        //   title: "Antioxidants",
-        // },
+        {
+          img: essentialoil,
+          title: "Essential Oils",
+        },
+        {
+          img: antioxidants,
+          title: "Antioxidants",
+        },
         {
           img: brainsupplements,
           title: "Brain Supplements",
         },
     
-        // {
-        //   img: digestiehealth,
-        //   title: "Digestive Health",
-        // },
-        // {
-        //   img: eyenutrients,
-        //   title: "Eye Nutrients",
-        // },
-        // {
-        //   img: hearthealt,
-        //   title: "Heart Health",
-        // },
+        {
+          img: digestiehealth,
+          title: "Digestive Health",
+        },
+        {
+          img: eyenutrients,
+          title: "Eye Nutrients",
+        },
+        {
+          img: hearthealt,
+          title: "Heart Health",
+        },
         {
           img: herbs,
           title: "Herbs",
@@ -66,27 +66,27 @@ import { useNavigate } from 'react-router-dom'
         },
         {
           img: mensitamin,
-          title: "Men's Vitamin",
+          title: "Men\'s Vitamins",
         },
-        // {
-        //   img: skincare,
-        //   title: "Skin Care",
-        // },
-        // {
-        //   img: sleepsupport,
-        //   title: "Sleep Support",
-        // },
-        // {
-        //   img: sport,
-        //   title: "Sport",
-        // },
-        // {
-        //   img: weightsupport,
-        //   title: "Weight Support",
-        // },
+        {
+          img: skincare,
+          title: "Skin Care",
+        },
+        {
+          img: sleepsupport,
+          title: "Sleep Support",
+        },
+        {
+          img: sport,
+          title: "Sports & Fitness",
+        },
+        {
+          img: weightsupport,
+          title: "Weight Support",
+        },
         {
           img: womenitamin,
-          title: "Women's Vitamin",
+          title: "Women\'s Vitamins",
         },
       ];
     
@@ -98,10 +98,12 @@ import { useNavigate } from 'react-router-dom'
   return (
     <div className='MainCategories'>
        {
-        CategoryItems.map((CategoryItem,index)=>(
-            <div className='MainCategory' onClick={()=>navigate("/subcategory")} key={index}>
-            <img src={CategoryItem.img} alt='img'/>
-            <p>{CategoryItem.title}</p>
+        subCategories.map((subCategory,index)=>(
+            <div className='MainCategory' 
+            onClick={() => navigate("/productlistpage",  { state: { category: subCategory.title }})}
+            key={index}>
+            <img src={subCategory.img} alt='img'/>
+            <p>{subCategory.title}</p>
         </div>
         ))
        }

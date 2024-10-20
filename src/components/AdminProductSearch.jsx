@@ -98,7 +98,7 @@ const handleDeleteProduct = async (productId) => {
                         type="text"
                         placeholder="Search by product name"
                         value={searchNameInput}
-                        onChange={(e) => setSearchNameInput(e.target.value)}
+                        onChange={(e) => {setSearchNameInput(e.target.value);setSearchIdInput("");setProducts([])}}
                     />
                     <button onClick={handleSearchByName}>Search by Name</button>
                 </div>
@@ -108,7 +108,7 @@ const handleDeleteProduct = async (productId) => {
                         type="text"
                         placeholder="Search by product ID"
                         value={searchIdInput}
-                        onChange={(e) => setSearchIdInput(e.target.value)}
+                        onChange={(e) => {setSearchIdInput(e.target.value);setSearchNameInput("");setProducts([])}}
                     />
                     <button onClick={handleSearchById}>Search by ID</button>
                 </div>

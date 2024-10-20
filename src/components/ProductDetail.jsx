@@ -188,7 +188,7 @@ const ProductDetail = () => {
   return (
     <div className='ProductDetailPageWrap'>
       <SideCategoryMenu />
-      <div>
+      <div className='ProductDetailPageWrapA'>
       <div className='ProductDetailPage'>
         <div className='ProductDetailPageLeft'>
           {product.product_images.map((image, index) => (

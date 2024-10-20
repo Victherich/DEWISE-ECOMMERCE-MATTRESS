@@ -85,10 +85,10 @@ const SubCategoryPage = () => {
     { id: 4, image: coq, name: 'CoQ-10' },
     { id: 5, image: flaxseed, name: 'Flaxseed Products' },
     { id: 6, image: ginkgo, name: 'Ginkgo Biloba' },
-    { id: 7, image: carnitine, name: 'L-Carnitine' },
+    // { id: 7, image: carnitine, name: 'L-Carnitine' },
     { id: 8, image: omega3, name: 'Omega-3' },
-    { id: 9, image: homeopathic, name: 'Homeopathic' },
-    { id: 10, image: eyeproducts, name: 'Eye Products' }
+    // { id: 9, image: homeopathic, name: 'Homeopathic' },
+    // { id: 10, image: eyeproducts, name: 'Eye Products' }
   ];
 
   return (

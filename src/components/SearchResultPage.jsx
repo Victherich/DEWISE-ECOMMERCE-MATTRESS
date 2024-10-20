@@ -157,7 +157,12 @@ const SearchResultPage = () => {
                     {products.length > 0 ? (
                         products.map(product => (
                             <div className='ProductCard' key={product.id}>
-                                <img src={`https://www.heovin.com.ng/api/uploads/${product.product_images[0]}`} alt={product.product_name} />
+                                <img 
+                                src={`https://www.heovin.com.ng/api/uploads/${product.product_images[0]}`} 
+                                alt={product.product_name} 
+                                onClick={() => navigate(`/productdetail/${product.id}`)}
+                                />
+                                
                                 <div className='ProductTextWrap'>
                                     <p onClick={() => navigate(`/productdetail/${product.id}`)}>
                                         {product.product_name}
