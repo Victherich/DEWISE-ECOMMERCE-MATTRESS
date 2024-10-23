@@ -4,19 +4,19 @@ const FooterDown = () => {
   return (
     <div style={styles.container}>
       <p style={styles.text}>
-        ^50% OFF promotion is valid on selected Piping Rock brand items. All products are subject to availability. Offer cannot be applied to prior purchases. Offer Expires: 10.5.24 @ 11.59 PM [PST]
+        ^50% OFF promotion is valid on selected Piping Rock brand items. All products are subject to availability. Offer cannot be applied to prior purchases. 
       </p>
       <p style={styles.text}>
         Privacy Policy | Terms of Use
       </p>
       <p style={styles.text2}>
-        These statements have not been evaluated by the Food and Drug Administration. These products are not intended to diagnose, treat, cure or prevent any disease. Read More
+        These statements have not been evaluated by the Food and Drug Administration. These products are not intended to diagnose, treat, cure or prevent any disease.
       </p>
       <p style={styles.text}>
-        All products sold on this site are for personal use and are not for resale. Read More
+        All products sold on this site are for personal use and are not for resale.
       </p>
       <p style={styles.text}>
-        Copyright Heovin.com. address.....................
+        Copyright Heovin.com.ng
       </p>
     </div>
   )

@@ -258,7 +258,8 @@ const VALID_IMAGE_TYPES = ['image/jpeg', 'image/png'];
 
 
 const subCategories = [
-  { id: 14, name: 'PipingRock\'s Best' },
+  // { id: 14, name: 'PipingRock\'s Best' },
+  { id: 14, name: 'Heovin\'s Best' },
   { id: 15, name: 'Sale Items' },
   { id: 16, name: 'Essential Oils' },
   { id: 17, name: 'Men\'s Vitamins' },
@@ -290,7 +291,7 @@ const subCategories = [
   { id: 43, name: 'Lutein' },
   { id: 44, name: 'Vitamin C' },
   { id: 45, name: 'Zinc' },
-  { id: 46, name: 'Nuts & Seeds' },
+  { id: 46, name: 'Nuts and Seeds' },
   { id: 47, name: 'Hyaluronic Acid' },
   { id: 48, name: 'Elderberry' },
   { id: 49, name: 'Compare and Save' },
@@ -319,7 +320,7 @@ function UploadProduct({setAdminMenu}) {
     productName: '',
     description: '',
     price: '',
-    availableStock: '',
+    availableStock: '1',
     category: '',
     productImages: []
   });
@@ -419,7 +420,7 @@ function UploadProduct({setAdminMenu}) {
         <Input type="text" name="productName" placeholder="Product Name" onChange={handleInputChange} />
         <Input type="text" name="description" placeholder="Description" onChange={handleInputChange} />
         <Input type="number" name="price" placeholder="Price" onChange={handleInputChange} />
-        <Input type="number" name="availableStock" placeholder="Available Stock" onChange={handleInputChange} />
+        {/* <Input type="number" name="availableStock" placeholder="Available Stock" onChange={handleInputChange} /> */}
         <Select name="category" onChange={handleInputChange}>
           <option value="">--Select Category--</option>
           {subCategories.map((category) => (

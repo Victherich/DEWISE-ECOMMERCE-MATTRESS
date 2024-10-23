@@ -5,7 +5,8 @@ import { useNavigate } from 'react-router-dom'
 const SideCategoryMenu = () => {
 const navigate = useNavigate()
 const subCategories = [
-  { id: 14, name: 'PipingRock\'s Best' },
+  // { id: 14, name: 'PipingRock\'s Best' },
+  { id: 14, name: 'Heovin\'s Best' },
   { id: 15, name: 'Sale Items' },
   { id: 16, name: 'Essential Oils' },
   { id: 17, name: 'Men\'s Vitamins' },
@@ -37,7 +38,7 @@ const subCategories = [
   { id: 43, name: 'Lutein' },
   { id: 44, name: 'Vitamin C' },
   { id: 45, name: 'Zinc' },
-  { id: 46, name: 'Nuts & Seeds' },
+  { id: 46, name: 'Nuts and Seeds' },
   { id: 47, name: 'Hyaluronic Acid' },
   { id: 48, name: 'Elderberry' },
   { id: 49, name: 'Compare and Save' },

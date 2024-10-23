@@ -45,7 +45,7 @@ function App() {
     <MenuCategories/>
     <Routes>
       <Route path="/" element={<LandingPage/>}/>
-      <Route path="/subcategory" element={<SubCategoryPage/>}/>
+      {/* <Route path="/subcategory" element={<SubCategoryPage/>}/> */}
       <Route path = "/productlistpage" element ={<ProductListPage/>}/>
       <Route path="/productdetail/:productId" element={<ProductDetail/>}/> 
       <Route path="/cartpage" element={<CartPage/>}/>

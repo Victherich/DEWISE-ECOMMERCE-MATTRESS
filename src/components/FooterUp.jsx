@@ -107,7 +107,13 @@ const FooterUp = () => {
           </div>
           <div className='FooterUpGroup'>
             <h3>CONTACT US</h3>
-            <p>1-800-544-1925</p>
+            <p>+1-832-916-0698</p>
+            <br/>
+            <h3>Emails</h3>
+            <p>contact@heovin.com.ng</p>
+            <p>heovinhealth@gmail.com</p>
+            <p>heovinllc@gmail.com</p>
+            <br/>
             <p>Sunday - Closed</p>
             <p>Mon - Fri 9am - 9pm (EST)</p>
             <p>Saturday - 10am-6pm (EST)</p>

@@ -150,8 +150,9 @@ const SearchResultPage = () => {
         <div className='ProductListPageWrapA'>
             <SideCategoryMenu />
             <div className='ProductListPageWrap'>
-                <div className='ProductListPageTitleWrap'>
+                <div className='ProductListPageTitleWrap' style={{display:"flex"}}>
                     <p className='ProductListPageTitle'>Search Results</p>
+                    <p className='ProductListPageTitle'>{products.length} Results</p>
                 </div>
                 <div className='ProductCards'>
                     {products.length > 0 ? (
@@ -162,7 +163,7 @@ const SearchResultPage = () => {
                                 alt={product.product_name} 
                                 onClick={() => navigate(`/productdetail/${product.id}`)}
                                 />
-                                
+
                                 <div className='ProductTextWrap'>
                                     <p onClick={() => navigate(`/productdetail/${product.id}`)}>
                                         {product.product_name}

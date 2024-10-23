@@ -151,7 +151,7 @@ const CartPage = () => {
         </div>
       </div>
       <div className='CartRight'>
-        <button onClick={() => navigate("/subcategory")} className='ContinueShoppingButton'>Continue Shopping</button>
+        <button onClick={() => navigate("/")} className='ContinueShoppingButton'>Continue Shopping</button>
 
         <div className='PromoCode'>
           <p>Have a Code?</p>

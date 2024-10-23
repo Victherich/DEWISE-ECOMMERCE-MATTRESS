@@ -18,7 +18,7 @@ const PercentOff = () => {
             </div>
         </div>
         <div className={location.pathname==="/"?'PercentOffDown':'PercentOffDown2'}>
-          <p>HURRY! <span>Expires October 5, 2024</span></p>
+          <p>HURRY NOW! <span>Expires Soon...</span></p>
         </div>
         <div className={location.pathname==='/'?'PERCENTOFFOVERLAY':'PERCENTOFFOVERLAY2'}>
             <h1>50% OFF 5O% OFF 50% OFF</h1>
