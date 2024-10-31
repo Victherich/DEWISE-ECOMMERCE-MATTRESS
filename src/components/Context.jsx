@@ -10,11 +10,13 @@ const ContextProvider = ({children}) => {
     const [trackingID, setTrackingID] = useState('');
     const [mobileMenuSwitch,setMobileMenuSwitch]=useState(false)
     const [searchArray,setSearchArray]=useState([])
+    const [isChatVisible, setIsChatVisible] = useState(false);
 
 const orderSendEmailUrl="https://hotsalesngonboarding.onrender.com/api/send-order-summary"
   return (
     <Context.Provider value={{adminToken,setAdminToken,admin,setAdmin,adminMenu,
-    setAdminMenu,trackingID,setTrackingID,orderSendEmailUrl,mobileMenuSwitch,setMobileMenuSwitch,searchArray,setSearchArray}}>
+    setAdminMenu,trackingID,setTrackingID,orderSendEmailUrl,mobileMenuSwitch,setMobileMenuSwitch,searchArray,setSearchArray,
+    isChatVisible,setIsChatVisible}}>
 
         {children}
     </Context.Provider>

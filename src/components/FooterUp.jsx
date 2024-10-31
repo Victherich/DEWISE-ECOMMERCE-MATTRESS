@@ -1,15 +1,18 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useContext } from 'react';
 import { FaChevronDown, FaChevronRight, FaFacebookMessenger } from 'react-icons/fa';
 import "../CSS/FooterUp.css";
 import Qb from "../Images/Quality Badge.png";
 import { useNavigate } from 'react-router-dom';
+import Qb2 from "../Images/Heovin cONCEPT 2.jpg"
 
 import Swal from 'sweetalert2';
+import { Context } from './Context';
 
 const FooterUp = () => {
   const navigate = useNavigate()
   const [openDropdown, setOpenDropdown] = useState(null); // Tracks which dropdown is open
   const dropdownRef = useRef(null); // Ref for detecting outside clicks
+  const {isChatVisible, setIsChatVisible}=useContext(Context);
 
   // Function to handle click outside of dropdown
   const handleClickOutside = (event) => {
@@ -117,7 +120,10 @@ const FooterUp = () => {
             <p>Sunday - Closed</p>
             <p>Mon - Fri 9am - 9pm (EST)</p>
             <p>Saturday - 10am-6pm (EST)</p>
-            <div className="FooterLiveChat"><FaFacebookMessenger /><p>LIVE CHAT</p></div>
+            <div className="FooterLiveChat"
+            onClick={()=>setIsChatVisible(true)}>
+              <FaFacebookMessenger style={{color:"#008048"}}/>
+              <p>LIVE CHAT</p></div>
           </div>
         </div>
         <div className='FooterUpGroup'>
@@ -133,7 +139,7 @@ const FooterUp = () => {
       </div>
       <div className='FooterUpWrap2'>
         <div className='FooterUpWrap2Group1'>
-          <img src={Qb} alt="Quality Badge" />
+          <img src={Qb2} alt="Quality Badge" />
         </div>
         <div className='FooterUpGroup' style={{width:"100%",paddingLeft:"20px",paddingRight:"20px", paddingTop: "20px", paddingBottom: "40px",backgroundColor:"#F9F9F9" }}>
           <h3>EMAIL SIGN UP</h3>
@@ -181,7 +187,7 @@ const FooterUp = () => {
         </div>
         <div className='NeedHelpWrap'>
             <h2>
-            NEED HELP?<br/>1-800-544-1925
+            CUSTOMER CARE<br/>1-888-215-3448
             </h2>
         </div>
         

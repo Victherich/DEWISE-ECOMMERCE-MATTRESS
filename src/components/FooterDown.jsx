@@ -4,7 +4,7 @@ const FooterDown = () => {
   return (
     <div style={styles.container}>
       <p style={styles.text}>
-        ^50% OFF promotion is valid on selected Piping Rock brand items. All products are subject to availability. Offer cannot be applied to prior purchases. 
+        ^50% OFF promotion is valid on selected Heovin brand items. All products are subject to availability. Offer cannot be applied to prior purchases. 
       </p>
       <p style={styles.text}>
         Privacy Policy | Terms of Use

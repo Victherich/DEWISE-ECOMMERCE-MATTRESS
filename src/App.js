@@ -34,6 +34,7 @@ import PrivateUserLogin from './components/PrivateUserLogin';
 import PrivateUserSignUp from './components/PrivateUserSignUp.jsx';
 import AboutUs from './components/AboutUs.jsx';
 import ContactUs from './components/ContactUs.jsx';
+import LiveChatWidget from './components/LiveChatWidget.jsx';
 
 
 
@@ -91,6 +92,7 @@ function App() {
         <Route path="/contactus" element={<ContactUs/>}/>
 
     </Routes>
+    <LiveChatWidget/>
     <FooterUp/>
     <FooterDown/>
    </BrowserRouter>

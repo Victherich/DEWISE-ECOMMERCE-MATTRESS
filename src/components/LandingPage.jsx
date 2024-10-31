@@ -7,6 +7,7 @@ import FooterUp from './FooterUp'
 import PercentOff from './PercentOff'
 import LandingPageContentLowerLeft from './LandingPageContentLowerLeft'
 import LandingPageContainerLowerRight from './LandingPageContainerLowerRight'
+import Hero from './Hero'
 
 const LandingPage = () => {
   return (
@@ -15,7 +16,8 @@ const LandingPage = () => {
       <div className='LandingPageDash'>
        <SideCategoryMenu/>
         <div className="LandingPageContentWrap">
-          <PercentOff/>
+          {/* <PercentOff/> */}
+          <Hero/>
           <div className='LandingPageContentWrapLower'>
               <LandingPageContentLowerLeft/>
               <LandingPageContainerLowerRight/>

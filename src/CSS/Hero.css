@@ -1,0 +1,23 @@
+.HeroWrap{
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 280px;
+    position: relative;
+    cursor: pointer;
+  
+}
+
+.HeroWrap img{
+    width: 100%;
+    height: 100%;
+}
+
+
+@media screen and (max-width:600px) {
+    .HeroWrap{
+        height: 120px;
+    }
+}

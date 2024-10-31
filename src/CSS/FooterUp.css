@@ -22,7 +22,8 @@
 }
 
 .QualityWrap{
-    background-color: #003366;
+    /* background-color: #003366; */
+    background-color: #008048;
     padding: 15px;
     display: flex;
     justify-content: center;
@@ -199,5 +200,17 @@
 @media screen and (max-width:428px) {
     .FooterUpWrap2Group1 img{
         height: 100px;
+    }
+}   
+
+@media screen and (max-width:360px) {
+    .FooterUpWrap2Group1 img{
+        /* height: 95px; */
+    }
+}
+
+@media screen and (max-width:360px) {
+    .FooterUpWrap2Group1 img{
+        height: 80px;
     }
 }

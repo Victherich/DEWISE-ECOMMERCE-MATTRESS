@@ -1,5 +1,6 @@
 .MenuCategories{
-    background-color:#003366;
+    /* background-color:#003366; */
+    background-color: #008048;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -27,6 +28,7 @@
     font-weight: 600;
     font-size: 1.1rem;
     cursor: pointer;
+    color: white;
 }
 
 @media screen and (max-width:884px){
