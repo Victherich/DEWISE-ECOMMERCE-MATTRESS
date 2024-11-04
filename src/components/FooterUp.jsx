@@ -104,8 +104,8 @@ const FooterUp = () => {
             {/* <p>Non-GMO Pledge</p> */}
           </div>
           <div className='QualityWrap'>
-            <h2>SUPERIOR<br />QUALITY</h2>
-            <p>GUARANTEED</p>
+            <h2>TRUSTED<br/>FOR<br/>SUPERIOR</h2>
+            <p>HEALTH & VITALITY</p>
             <span>Learn More <FaChevronRight className='LeanMoreChevron' /></span>
           </div>
           <div className='FooterUpGroup'>

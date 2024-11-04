@@ -3,9 +3,9 @@ import React from 'react'
 const FooterDown = () => {
   return (
     <div style={styles.container}>
-      <p style={styles.text}>
+      {/* <p style={styles.text}>
         ^50% OFF promotion is valid on selected Heovin brand items. All products are subject to availability. Offer cannot be applied to prior purchases. 
-      </p>
+      </p> */}
       <p style={styles.text}>
         Privacy Policy | Terms of Use
       </p>
