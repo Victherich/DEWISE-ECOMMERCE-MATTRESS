@@ -35,13 +35,33 @@ import PrivateUserSignUp from './components/PrivateUserSignUp.jsx';
 import AboutUs from './components/AboutUs.jsx';
 import ContactUs from './components/ContactUs.jsx';
 import LiveChatWidget from './components/LiveChatWidget.jsx';
+import FooterBanner from './components/FooterBanner';
+import ChristmasOverlay from './components/ChristmassWelcomeMessage.jsx';
+import { useState,useEffect } from 'react';
+import ChristmassImg from "./Images/ChristmassImg.png"
 
 
 
 function App() {
+  const [showOverlay, setShowOverlay] = useState(true);
+
+  useEffect(() => {
+    // Set a timer to hide the overlay after 2 seconds
+    const timer = setTimeout(() => {
+      setShowOverlay(false);
+    }, 4000);
+
+    // Cleanup the timer on component unmount
+    return () => clearTimeout(timer);
+  }, []);
+
+
+
+
   return (
    <BrowserRouter>
    <ScrollToTop/>
+   {showOverlay&& <ChristmasOverlay/>}
     <Header/>
     <MenuCategories/>
     <Routes>
@@ -92,9 +112,12 @@ function App() {
         <Route path="/contactus" element={<ContactUs/>}/>
 
     </Routes>
+    <FooterBanner/>
+    <img src={ChristmassImg} alt="Logo2" className='SideLogo2' />
     <LiveChatWidget/>
     <FooterUp/>
     <FooterDown/>
+
    </BrowserRouter>
   )
 }
