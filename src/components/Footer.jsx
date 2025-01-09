@@ -35,7 +35,7 @@ const navigate = useNavigate();
         <div className="footer-links">
           <h4>Footer Links</h4>
           {subCategories.map((subCategory)=>(
-        <p className="Menu" onClick={() => navigate("/productlistpage",  { state: { category: subCategory.name }})}>{subCategory.name}</p>
+        <p className="Menu" onClick={() => navigate(`/productlistpage/${subCategory.name}`)}>{subCategory.name}</p>
       
       ))} 
    

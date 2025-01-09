@@ -423,7 +423,7 @@ const Header = () => {
           <NavLink to="/blog" className="Menu">BLOG / DROP SHIPPING</NavLink>
           <NavLink to="/buyandsellfood" className="Menu">BUY AND SELL FOOD (Free public accounts)</NavLink> */}
                {subCategories.map((subCategory)=>(
-        <p  className="Menu" onClick={() => navigate("/productlistpage",  { state: { category: subCategory.name }})}>{subCategory.name}</p>
+        <p  className="Menu" onClick={() => {navigate(`/productlistpage/${subCategory.name}`);setMobileMenuSwitch(false)}}>{subCategory.name}</p>
       
       ))} 
         

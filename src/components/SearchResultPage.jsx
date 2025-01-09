@@ -104,14 +104,101 @@
 
 
 
+// import React, { useContext, useState, useEffect } from 'react';
+// import "../CSS/ProductListPage.css";
+// import SideCategoryMenu from './SideCategoryMenu';
+// import { useNavigate } from 'react-router-dom';
+// import { addToCart } from '../Features/Slice';
+// import { useDispatch } from 'react-redux';
+// import Swal from 'sweetalert2';
+// import { Context } from './Context';
+
+// const SearchResultPage = () => {
+//     const dispatch = useDispatch();
+//     const navigate = useNavigate();
+//     const { searchArray } = useContext(Context); // Access the search results from context
+//     const [products, setProducts] = useState(searchArray || []); // Initialize products with searchArray
+//     const [loading, setLoading] = useState(false);
+//     const [quantity, setQuantity] = useState(1); // Track product quantity for cart
+
+//     useEffect(() => {
+//         // Update products when searchArray changes
+//         setProducts(searchArray);
+//     }, [searchArray]);
+
+//     const AddToCart = (id) => {
+//         const product = products.find((e) => e.id === id);
+//         if (product) {
+//             const cartItem = {
+//                 id: product.id,
+//                 productName: product.product_name,
+//                 price: product.price,
+//                 quantity,
+//                 image: product.product_images[0],
+//             };
+
+//             dispatch(addToCart(cartItem));
+//             Swal.fire('Success', 'Product added to cart', 'success');
+//         }
+//     };
+
+//     if (loading) {
+//         return <div style={{ width: "100%", height: "200px", display: "flex", justifyContent: "center", alignItems: "center" }}>Loading...</div>;
+//     }
+
+//     return (
+//         <div className='ProductListPageWrapA'>
+//             {/* <SideCategoryMenu /> */}
+//             <div className='ProductListPageWrap'>
+//                 <div className='ProductListPageTitleWrap' style={{display:"flex"}}>
+//                     <p className='ProductListPageTitle'>Search Results</p>
+//                     <p className='ProductListPageTitle'>{products.length} Results</p>
+//                 </div>
+//                 <div className='ProductCards'>
+//                     {products.length > 0 ? (
+//                         products.map(product => (
+//                             <div className='ProductCard' key={product.id}>
+//                                 <img 
+//                                 src={`https://www.glmarketplace.ng/api/uploads/${product.product_images[0]}`} 
+//                                 alt={product.product_name} 
+//                                 onClick={() => navigate(`/productdetail/${product.id}`)}
+//                                 />
+
+//                                 <div className='ProductTextWrap'>
+//                                     <p onClick={() => navigate(`/productdetail/${product.id}`)}>
+//                                         {product.product_name}
+//                                     </p>
+//                                     <span>${product.price}</span>
+//                                     <div className='ButtonAndQtyWrap'>
+//                                         {/* <input type="number" min="1" value={quantity} onChange={(e) => setQuantity(e.target.value)} /> */}
+//                                         <button onClick={() => AddToCart(product.id)}>Add to cart</button>
+//                                     </div>
+//                                 </div>
+//                             </div>
+//                         ))
+//                     ) : (
+//                         <div style={{ width: "100%", height: "200px", display: "flex", justifyContent: "center", alignItems: "center" }}>No products found for this search.</div>
+//                     )}
+//                 </div>
+//             </div>
+//         </div>
+//     );
+// };
+
+// export default SearchResultPage;
+
+
+
+
+
 import React, { useContext, useState, useEffect } from 'react';
-import "../CSS/ProductListPage.css";
-import SideCategoryMenu from './SideCategoryMenu';
+import "../CSS/FeaturedCollections.css"; // Use the same CSS as ProductListPage for consistency
 import { useNavigate } from 'react-router-dom';
 import { addToCart } from '../Features/Slice';
 import { useDispatch } from 'react-redux';
 import Swal from 'sweetalert2';
 import { Context } from './Context';
+import heroImg7 from '../Images/heroimg7.jpeg'; // Use the same hero image
 
 const SearchResultPage = () => {
     const dispatch = useDispatch();
@@ -119,7 +206,6 @@ const SearchResultPage = () => {
     const { searchArray } = useContext(Context); // Access the search results from context
     const [products, setProducts] = useState(searchArray || []); // Initialize products with searchArray
     const [loading, setLoading] = useState(false);
-    const [quantity, setQuantity] = useState(1); // Track product quantity for cart
 
     useEffect(() => {
         // Update products when searchArray changes
@@ -133,7 +219,7 @@ const SearchResultPage = () => {
                 id: product.id,
                 productName: product.product_name,
                 price: product.price,
-                quantity,
+                quantity: 1, // Default quantity to 1
                 image: product.product_images[0],
             };
 
@@ -143,47 +229,48 @@ const SearchResultPage = () => {
     };
 
     if (loading) {
-        return <div style={{ width: "100%", height: "200px", display: "flex", justifyContent: "center", alignItems: "center" }}>Loading...</div>;
+        return (
+            <div style={{ width: "100%", height: "200px", display: "flex", justifyContent: "center", alignItems: "center" }}>
+                Loading...
+            </div>
+        );
     }
 
     return (
-        <div className='ProductListPageWrapA'>
-            <SideCategoryMenu />
-            <div className='ProductListPageWrap'>
-                <div className='ProductListPageTitleWrap' style={{display:"flex"}}>
-                    <p className='ProductListPageTitle'>Search Results</p>
-                    <p className='ProductListPageTitle'>{products.length} Results</p>
-                </div>
-                <div className='ProductCards'>
-                    {products.length > 0 ? (
-                        products.map(product => (
-                            <div className='ProductCard' key={product.id}>
-                                <img 
-                                src={`https://www.glmarketplace.ng/api/uploads/${product.product_images[0]}`} 
-                                alt={product.product_name} 
-                                onClick={() => navigate(`/productdetail/${product.id}`)}
+        <div className='FeaturedCollections'>
+            <div className='FeaturedCollectionHeaderImgWrap' style={{ backgroundImage: `url(${heroImg7})` }}>
+                <h1>Search Results : {products.length} items Found</h1>
+            </div>
+            <div className='Collections'>
+                {products.length > 0 ? (
+                    products.map((product) => (
+                        <div
+                            className='ProductCard2'
+                            key={product.id}
+                            onClick={() => navigate(`/productdetail/${product.id}`)}
+                        >
+                            <div className='CardUp'>
+                                <img
+                                    src={`https://www.glmarketplace.ng/api/uploads/${product.product_images[0]}`}
+                                    alt={product.product_name}
                                 />
-
-                                <div className='ProductTextWrap'>
-                                    <p onClick={() => navigate(`/productdetail/${product.id}`)}>
-                                        {product.product_name}
-                                    </p>
-                                    <span>${product.price}</span>
-                                    <div className='ButtonAndQtyWrap'>
-                                        {/* <input type="number" min="1" value={quantity} onChange={(e) => setQuantity(e.target.value)} /> */}
-                                        <button onClick={() => AddToCart(product.id)}>Add to cart</button>
-                                    </div>
-                                </div>
                             </div>
-                        ))
-                    ) : (
-                        <div style={{ width: "100%", height: "200px", display: "flex", justifyContent: "center", alignItems: "center" }}>No products found for this search.</div>
-                    )}
-                </div>
+                            <div className='CardDown'>
+                                <p>{product.product_name.slice(0, 13)}...</p>
+                                <span>₦ {new Intl.NumberFormat().format(product.price)}</span>
+                            </div>
+                        </div>
+                    ))
+                ) : (
+                    <div style={{ width: "100%", height: "200px", display: "flex", justifyContent: "center", alignItems: "center" }}>
+                        No products found for this search.
+                    </div>
+                )}
             </div>
         </div>
     );
 };
 
 export default SearchResultPage;
+
 
