@@ -47,7 +47,7 @@ const AdminSignup = () => {
     });
 
     try {
-      const response = await axios.post('https://www.heovin.com.ng/api/admin_signup.php', formData, {
+      const response = await axios.post('https://www.glmarketplace.ng/api/admin_signup.php', formData, {
         headers: {
           'Content-Type': 'application/json',
         },
@@ -79,7 +79,7 @@ const AdminSignup = () => {
     <div className='ContactFormWrap' style={{backgroundColor:"white"}}>
       <div className='contact-form-container' style={{padding:"5px",boxShadow:"none"}}>
         <h2>Register an Admin </h2>
-        <img src={Logo} alt='Logo' style={{ position: 'relative', width: '70px' }} />
+        {/* <img src={Logo} alt='Logo' style={{ position: 'relative', width: '70px' }} /> */}
         <form onSubmit={handleSubmit} style={{width:"100%"}}>
           <div className='form-group' >
             <label htmlFor='fullName'>Full Name</label>

@@ -17,7 +17,7 @@ const AdminProfile = () => {
     const loadingAlert = Swal.fire({title:"Updating phone number..."})
     Swal.showLoading()
     try {
-      const response = await axios.post('https://www.heovin.com.ng/api/admin_update_phone.php', {
+      const response = await axios.post('https://www.glmarketplace.ng/api/admin_update_phone.php', {
         email: adminInfo.email, // Assuming email is stored in adminInfo
         phoneNumber: phone
       });

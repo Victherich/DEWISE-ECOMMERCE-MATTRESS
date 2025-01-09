@@ -39,6 +39,7 @@ import FooterBanner from './components/FooterBanner';
 import ChristmasOverlay from './components/ChristmassWelcomeMessage.jsx';
 import { useState,useEffect } from 'react';
 import ChristmassImg from "./Images/ChristmassImg.png"
+import Footer from './components/Footer.jsx';
 
 
 
@@ -61,13 +62,13 @@ function App() {
   return (
    <BrowserRouter>
    <ScrollToTop/>
-   {showOverlay&& <ChristmasOverlay/>}
+   {/* {showOverlay&& <ChristmasOverlay/>} */}
     <Header/>
-    <MenuCategories/>
+    {/* <MenuCategories/> */}
     <Routes>
       <Route path="/" element={<LandingPage/>}/>
       {/* <Route path="/subcategory" element={<SubCategoryPage/>}/> */}
-      <Route path = "/productlistpage" element ={<ProductListPage/>}/>
+      <Route path = "/productlistpage/:category" element ={<ProductListPage/>}/>
       <Route path="/productdetail/:productId" element={<ProductDetail/>}/> 
       <Route path="/cartpage" element={<CartPage/>}/>
       {/* <Route path = "/ordersummarypage" element={<OrderSummaryPage/>}/> */}
@@ -112,11 +113,12 @@ function App() {
         <Route path="/contactus" element={<ContactUs/>}/>
 
     </Routes>
-    <FooterBanner/>
-    <img src={ChristmassImg} alt="Logo2" className='SideLogo2' />
+    {/* <FooterBanner/> */}
+    {/* <img src={ChristmassImg} alt="Logo2" className='SideLogo2' /> */}
     <LiveChatWidget/>
-    <FooterUp/>
-    <FooterDown/>
+    <Footer/>
+    {/* <FooterUp/> */}
+    {/* <FooterDown/> */}
 
    </BrowserRouter>
   )

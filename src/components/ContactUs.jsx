@@ -138,7 +138,7 @@ const ContactUs = () => {
     setErrorMessage('');
 
     try {
-      const response = await fetch('https://www.heovin.com.ng/api/api4users/contact_form_endpoint.php', {
+      const response = await fetch('https://www.glmarketplace.ng/api/api4users/contact_form_endpoint.php', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

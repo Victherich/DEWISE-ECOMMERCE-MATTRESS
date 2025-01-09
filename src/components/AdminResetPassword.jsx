@@ -46,7 +46,7 @@ const AdminResetPassword = () => {
     setIsSubmitting(true);
   
     try {
-      const response = await axios.post("https://www.heovin.com.ng/api/admin_reset_password.php", {
+      const response = await axios.post("https://www.glmarketplace.ng/api/admin_reset_password.php", {
         token: formData.token,
         password: formData.password
       });

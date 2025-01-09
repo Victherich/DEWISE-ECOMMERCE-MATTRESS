@@ -13,10 +13,38 @@ const ContextProvider = ({children}) => {
     const [isChatVisible, setIsChatVisible] = useState(false);
 
 const orderSendEmailUrl="https://hotsalesngonboarding.onrender.com/api/send-order-summary"
+
+
+// const subCategories = [
+//   { id: 4,  name: 'Crazy Deals' },
+//   { id: 5,  name: 'Supplements' },
+//   { id: 6,  name: 'Vitamins' },
+//   { id: 7,  name: 'Essential Oils' },
+//   { id: 8,  name: 'Herbs' },
+//   { id: 9,  name: 'Beauty' },
+//   { id: 10, name: 'Weight Support' },
+//   { id: 11, name: 'Sports' },
+//   { id: 12, name: 'Joint Support' },
+// ];
+
+
+const subCategories = [
+  { id: 4,  name: 'Electronics' },
+  { id: 5,  name: 'Phones and Accessories' },
+  { id: 6,  name: 'Kitchen Utensils' },
+  { id: 7,  name: 'Fashion' },
+  { id: 8,  name: 'Food and Beverages' },
+  { id: 9,  name: 'Health' },
+  { id: 10, name: 'Beauty and Cosmetics' },
+  { id: 11, name: 'Sports Wears' },
+  { id: 12, name: 'Crazy deals' },
+];
+
+
   return (
     <Context.Provider value={{adminToken,setAdminToken,admin,setAdmin,adminMenu,
     setAdminMenu,trackingID,setTrackingID,orderSendEmailUrl,mobileMenuSwitch,setMobileMenuSwitch,searchArray,setSearchArray,
-    isChatVisible,setIsChatVisible}}>
+    isChatVisible,setIsChatVisible,subCategories}}>
 
         {children}
     </Context.Provider>
@@ -29,6 +57,5 @@ export default ContextProvider
 
 
 // database details
-// password : Abc555@them
-// User: heovincom_db1
-// Database: heovincom_db1
+// User “glmarketplace_db1” was added to the database “glmarketplace_db1”.
+// pw: dave@decafe2025

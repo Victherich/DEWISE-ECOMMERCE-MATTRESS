@@ -91,7 +91,7 @@ const OrderSummaryPage = () => {
       
   
       // Make a POST request to the backend
-      const response = await axios.post('https://www.heovin.com.ng/api/api4users/create_order.php', orderSummary);
+      const response = await axios.post('https://www.glmarketplace.ng/api/api4users/create_order.php', orderSummary);
       
       
       Swal.fire({
@@ -174,7 +174,7 @@ const handleOrderNow2 = async (reference) => {
       state: user.state,
       city: user.city,
       cartItems: cart.map(item => ({
-        imageUrl: `https://www.heovin.com.ng/api/uploads/${item.image}`,
+        imageUrl: `https://www.glmarketplace.ng/api/uploads/${item.image}`,
         productName: item.productName,
         quantity: item.quantity,
         price: item.price, // raw price, without formatting
@@ -189,7 +189,7 @@ const handleOrderNow2 = async (reference) => {
     try {
       const response = await axios.post(`${orderSendEmailUrl}`, {
         buyerEmail: user.email,
-        sellerEmail: 'heovincom@heovin.com.ng',
+        sellerEmail: 'heovincom@glmarketplace.ng',
         orderSummary: JSON.stringify(orderSummary, null, 2)
       });
   
@@ -247,46 +247,41 @@ const handleOrderNow2 = async (reference) => {
   //   });
   // };
 
-
   const payWithPaystack = () => {
-    // Assuming exchangeRate is the USD to NGN conversion rate
-    const exchangeRate = 1600; // Example rate, make sure to get the actual rate dynamically
-    const amountInNGN = (amount * exchangeRate).toFixed(2); // Calculate NGN equivalent
+    const paystack = new PaystackPop();
   
-    Swal.fire({
-      title: 'Confirm Payment',
-      text: `You are about to pay $${amount} USD, which is approximately ₦${amountInNGN} NGN. Do you want to proceed?`,
-      icon: 'info',
-      showCancelButton: true,
-      confirmButtonText: 'Yes, proceed',
-      cancelButtonText: 'No, cancel',
-      allowOutsideClick:false,
-    }).then((result) => {
-      if (result.isConfirmed) {
-        // If user confirms, proceed with Paystack payment
-        const paystack = new PaystackPop();
-        paystack.newTransaction({
-          key: "pk_test_60e1f53bba7c80b60029bf611a26a66a9a22d4e4",
-          amount: amountInNGN * 100, // Amount in kobo
-          email: email,
-          firstname: firstname,
-          lastname: lastname,
-          onSuccess: (transaction) => {
-            Swal.fire({ icon: "success", text: "Payment successful!", showConfirmButton: true, timer: 2000 });
-            handleOrderNow2(transaction.reference);
-          },
-          onCancel: () => {
-            Swal.fire({ icon: "error", text: "Payment cancelled.", showConfirmButton: true });
-          },
-          onError: (error) => {
-            Swal.fire({ icon: "error", text: `Payment failed: ${error.message}`, showConfirmButton: true });
-          }
+    paystack.newTransaction({
+      key: "pk_test_60e1f53bba7c80b60029bf611a26a66a9a22d4e4",
+      amount: amount * 100, // Amount in kobo
+      email: email,
+      firstname: firstname,
+      lastname: lastname,
+      onSuccess: (transaction) => {
+        Swal.fire({
+          icon: "success",
+          text: "Payment successful!",
+          showConfirmButton: true,
+          timer: 2000,
         });
-      } else if (result.dismiss === Swal.DismissReason.cancel) {
-        Swal.fire({ icon: 'error', text: 'Payment cancelled.', showConfirmButton: true });
-      }
+        handleOrderNow2(transaction.reference);
+      },
+      onCancel: () => {
+        Swal.fire({
+          icon: "error",
+          text: "Payment cancelled.",
+          showConfirmButton: true,
+        });
+      },
+      onError: (error) => {
+        Swal.fire({
+          icon: "error",
+          text: `Payment failed: ${error.message}`,
+          showConfirmButton: true,
+        });
+      },
     });
   };
+  
   
 
 const [currencyOption,setCurrencyOption]=useState("")
@@ -390,8 +385,8 @@ const payWithFlutterWave = () => {
         <ul>
           {cart.map((item, index) => (
             <li key={index}>
-                <img src={`https://www.heovin.com.ng/api/uploads/${item.image}`} alt="summaryImage"/>
-              <p>{item.productName} - {item.quantity} x $ {new Intl.NumberFormat().format(item.price)}</p>
+                <img src={`https://www.glmarketplace.ng/api/uploads/${item.image}`} alt="summaryImage"/>
+              <p>{item.productName} - {item.quantity} x ₦ {new Intl.NumberFormat().format(item.price)}</p>
               <p style={{fontSize:"0.7rem"}}>Product ID: {item.id}</p>
             </li>
           ))}
@@ -399,9 +394,9 @@ const payWithFlutterWave = () => {
       </div>
       <div className="total-info">
         <h3>Total</h3>
-        <p><strong>Subtotal:</strong> $ {new Intl.NumberFormat().format(cart.reduce((sum, item) => sum + item.price * item.quantity, 0))}</p>
-        <p><strong>Delivery Fee:</strong> $ {new Intl.NumberFormat().format(deliveryFees[user.state]?.[user.city] || 0)}</p>
-        <p><strong>Grand Total:</strong> ${new Intl.NumberFormat().format(calculateTotal())}</p>
+        <p><strong>Subtotal:</strong> ₦ {new Intl.NumberFormat().format(cart.reduce((sum, item) => sum + item.price * item.quantity, 0))}</p>
+        <p><strong>Delivery Fee:</strong> ₦ {new Intl.NumberFormat().format(deliveryFees[user.state]?.[user.city] || 0)}</p>
+        <p><strong>Grand Total:</strong> ₦ {new Intl.NumberFormat().format(calculateTotal())}</p>
       </div>
       {/* <div className='CheckBoxWrap'><input type="checkbox" isChecked={isChecked} onClick={()=>setIsChecked(!isChecked)}/> <p>Payment on delivery</p></div>       */}
 {/* {isChecked?<button onClick={handleOrderNow}>Order Now</button> */}
@@ -409,14 +404,14 @@ const payWithFlutterWave = () => {
 
 
 
-<select className='OrderSummaryPageSelect' onChange={(e)=>setCurrencyOption(e.target.value)}>
+{/* <select className='OrderSummaryPageSelect' onChange={(e)=>setCurrencyOption(e.target.value)}>
   <option >--Select Currency in which you want to pay and click "pay now"--</option>
   <option value="naira">Naira</option>
   <option value="usd">USD</option>
-</select>
+</select> */}
 
-{currencyOption==="naira"&&<button type="button" onClick={payWithPaystack}>Pay Now</button>}
-{currencyOption==="usd"&&<button type="button" onClick={payWithFlutterWave}>Pay Now</button>}
+<button type="button" onClick={payWithPaystack}>Pay Now</button>
+{/* {currencyOption==="usd"&&<button type="button" onClick={payWithFlutterWave}>Pay Now</button>} */}
     
     </div>
 

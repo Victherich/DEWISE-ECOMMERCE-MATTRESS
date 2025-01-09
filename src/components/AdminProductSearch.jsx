@@ -21,7 +21,7 @@ const AdminSearchProduct = () => {
         Swal.showLoading();
 
         try {
-            const response = await axios.get(`https://www.heovin.com.ng/api/get_products_by_name.php?searchTerm=${searchNameInput}`);
+            const response = await axios.get(`https://www.glmarketplace.ng/api/get_products_by_name.php?searchTerm=${searchNameInput}`);
             setProducts(response.data.products);
             Swal.close();
         } catch (error) {
@@ -40,7 +40,7 @@ const AdminSearchProduct = () => {
         Swal.showLoading();
 
         try {
-            const response = await axios.get(`https://www.heovin.com.ng/api/get_product_by_id.php?productId=${searchIdInput}`);
+            const response = await axios.get(`https://www.glmarketplace.ng/api/get_product_by_id.php?productId=${searchIdInput}`);
             if(response.data.product){
                 setProducts([response.data.product]);
             }
@@ -66,7 +66,7 @@ const handleDeleteProduct = async (productId) => {
       if (result.isConfirmed) {
         Swal.fire({text:"Deleting..."})
         try {
-          const response = await axios.post('https://www.heovin.com.ng/api/delete_product.php', 
+          const response = await axios.post('https://www.glmarketplace.ng/api/delete_product.php', 
             { productId }, // Data being sent
             {
               headers: {
@@ -119,17 +119,17 @@ const handleDeleteProduct = async (productId) => {
                     products?.map(product => (
                         <div className="searchProduct-card" key={product.id}>
                             <img
-                                src={`https://www.heovin.com.ng/api/uploads/${product.product_images[0]}`}
+                                src={`https://www.glmarketplace.ng/api/uploads/${product.product_images[0]}`}
                                 alt={product.product_name}
                             />
                             <div className="searchProduct-info">
                                 <h3>{product.product_name}</h3>
-                                <p>Price: ${product.price}</p>
+                                <p>Price: ₦ {product.price}</p>
                                 <p style={{fontSize:"small"}}>Product ID: {product.id}</p>
                             </div>
                             <ActionButtons>
 
-                <DeleteButton style={{backgroundColor:"#003366"}} onClick={() => navigate(`/productdetail/${product.id}`)}>View</DeleteButton>
+                <DeleteButton style={{backgroundColor:"#FF9003"}} onClick={() => navigate(`/productdetail/${product.id}`)}>View</DeleteButton>
                 <DeleteButton onClick={() => handleDeleteProduct(product.id)}>Delete</DeleteButton>
               </ActionButtons>
                         </div>
@@ -149,6 +149,7 @@ const ActionButtons = styled.div`
   display: flex;
   justify-content: space-between;
   margin-top: 10px;
+
 `;
 
 const DeleteButton = styled.button`

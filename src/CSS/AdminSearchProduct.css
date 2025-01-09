@@ -44,7 +44,7 @@
 
 .searchProduct-inputGroup button {
     padding: 10px 20px;
-    background-color: #28a745;
+    background-color: #FF9003;
     color: white;
     border: none;
     border-radius: 4px;
@@ -52,7 +52,7 @@
 }
 
 .searchProduct-inputGroup button:hover {
-    background-color: #218838;
+    background-color: #FF550C;
 }
 
 /* Product list and cards */

@@ -16,7 +16,7 @@ const FooterDown = () => {
         All products sold on this site are for personal use and are not for resale.
       </p>
       <p style={styles.text}>
-        Copyright Heovin.com.ng
+        Copyright glmarketplace.ng
       </p>
     </div>
   )

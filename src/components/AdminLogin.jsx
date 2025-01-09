@@ -36,7 +36,7 @@ const AdminLogin = () => {
     setIsSubmitting(true);
 
     try {
-      const response = await axios.post('https://www.heovin.com.ng/api/admin_login.php', formData, {
+      const response = await axios.post('https://www.glmarketplace.ng/api/admin_login.php', formData, {
         headers: {
           'Content-Type': 'application/json',
         },
@@ -109,7 +109,7 @@ const AdminLogin = () => {
     <div className='ContactFormWrap' key={location.pathname}>
       <div className='contact-form-container'>
         <h2>Admin Login</h2>
-        <img src={Logo} alt='Logo' style={{ position: 'relative', width: '70px' }} />
+        {/* <img src={Logo} alt='Logo' style={{ position: 'relative', width: '70px' }} /> */}
         <form onSubmit={handleSubmit}>
           <div className='form-group'>
             <label htmlFor='email'>Email</label>

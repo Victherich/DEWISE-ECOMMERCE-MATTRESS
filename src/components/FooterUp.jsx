@@ -53,7 +53,7 @@ const FooterUp = () => {
     Swal.showLoading()
 
     try {
-      const response = await fetch('https://www.heovin.com.ng/api/api4users/subscribe_newsletter.php', {
+      const response = await fetch('https://www.glmarketplace.ng/api/api4users/subscribe_newsletter.php', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -113,7 +113,7 @@ const FooterUp = () => {
             <p>+1-832-916-0698</p>
             <br/>
             <h3>Emails</h3>
-            <p>contact@heovin.com.ng</p>
+            <p>contact@glmarketplace.ng</p>
             <p>heovinhealth@gmail.com</p>
             <p>heovinllc@gmail.com</p>
             <br/>

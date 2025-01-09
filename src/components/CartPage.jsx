@@ -129,20 +129,20 @@ const CartPage = () => {
           
                   <div className='CartItem' key={item.id}>
                   <div className='CartItemImgandTextWrap'>
-                    <img src={`https://www.heovin.com.ng/api/uploads/${item.image}`} alt="cartItemImg" />
+                    <img src={`https://www.glmarketplace.ng/api/uploads/${item.image}`} alt="cartItemImg" />
                     <div className='CartItemTextWrap'>
                       <p style={{ fontWeight: "bold",marginTop:"10px" }}>{item.productName}</p>
-                      <p style={{marginTop:"10px"}}>${item.price}</p>
+                      <p style={{marginTop:"10px"}}> ₦ {item.price}</p>
                       <p style={{fontSize:"0.7rem"}}>Product ID: {item.id}</p>
                     </div>
                   </div>
                   {/* <p className='UnitPrice' style={{marginTop:"10px"}}><strong style={{marginRight:"5px"}}>Unit Price: </strong>  ${item.price}</p> */}
                   <div className='CartItemQtyWrap'>
-                    <p onClick={() => handleQuantityChange(item.id, item.quantity - 1)}>-</p>
+                    <p style={{ backgroundColor: "#FF9300",color:"white" }} onClick={() => handleQuantityChange(item.id, item.quantity - 1)}>-</p>
                     <p style={{ backgroundColor: "white" }}>{item.quantity}</p>
-                    <p onClick={() => handleQuantityChange(item.id, item.quantity + 1)}>+</p>
+                    <p style={{ backgroundColor: "#FF9300", color:"white" }} onClick={() => handleQuantityChange(item.id, item.quantity + 1)}>+</p>
                   </div>
-                  <p className='SubTotal' style={{marginTop:"10px"}}><strong style={{marginRight:"5px"}}>Subtotal:</strong> ${item.subtotal.toFixed(2)}</p>
+                  <p className='SubTotal' style={{marginTop:"10px"}}><strong style={{marginRight:"5px"}}>Subtotal:</strong> ₦ {item.subtotal.toFixed(2)}</p>
                   </div>
         
               ))}
@@ -153,13 +153,13 @@ const CartPage = () => {
       <div className='CartRight'>
         <button onClick={() => navigate("/")} className='ContinueShoppingButton'>Continue Shopping</button>
 
-        <div className='PromoCode'>
+        {/* <div className='PromoCode'>
           <p>Have a Code?</p>
           <div className='PromoCodeInputWrap'>
             <input placeholder='Enter a code here' />
             <button>Apply</button>
           </div>
-        </div>
+        </div> */}
 
         <div className='CartSummary'>
           <h3>Cart Summary</h3>
@@ -170,11 +170,11 @@ const CartPage = () => {
           <div className='Line'></div>
           <div className='TotalWrap'>
             <p>Order Total:</p>
-            <p style={{ color: "orangeRed" }}>${totalAmount.toFixed(2)}</p>
+            <p style={{ color: "orangeRed" }}> ₦ {totalAmount.toFixed(2)}</p>
           </div>
           <button
             onClick={() => navigate("/deliverydetailpage")}
-            style={{ width: "90%", fontWeight: "bold", backgroundColor: "orange", color: "black", fontSize: "1rem", margin: "0 auto" }}
+            style={{ width: "90%", fontWeight: "bold", backgroundColor: "orange", color: "white", fontSize: "1rem", margin: "0 auto" }}
           >
             Checkout
           </button>

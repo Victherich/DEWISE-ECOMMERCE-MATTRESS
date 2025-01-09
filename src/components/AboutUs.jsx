@@ -1,144 +1,12 @@
-// import React from 'react';
-// import styled from 'styled-components';
-// import { FaHeartbeat } from 'react-icons/fa'; // Example icon
-// import { GiStrongMan } from 'react-icons/gi'; // Example icon
-
-// const AboutUsContainer = styled.div`
-//   padding: 50px;
-//   background-color: #f4f4f9;
-//   text-align: center;
-//   color: #333;
-  
-//   @media (max-width: 768px) {
-//     padding: 20px;
-//   }
-// `;
-
-// const Heading = styled.h1`
-//   font-size: 2.5rem;
-//   color: #003366;
-//   margin-bottom: 20px;
-  
-//   @media (max-width: 768px) {
-//     font-size: 2rem;
-//   }
-// `;
-
-// const SubHeading = styled.h2`
-//   font-size: 1.5rem;
-//   color: #003366;
-//   margin-bottom: 15px;
-
-//   @media (max-width: 768px) {
-//     font-size: 1.3rem;
-//   }
-// `;
-
-// const Text = styled.p`
-//   font-size: 1.2rem;
-//   line-height: 1.8;
-//   margin-bottom: 30px;
-//   max-width: 900px;
-//   margin-left: auto;
-//   margin-right: auto;
-
-//   @media (max-width: 768px) {
-//     font-size: 1rem;
-//     margin-bottom: 20px;
-//   }
-// `;
-
-// const IconWrapper = styled.div`
-//   display: flex;
-//   justify-content: center;
-//   gap: 30px;
-//   margin: 30px 0;
-
-//   svg {
-//     font-size: 4rem;
-//     color: #FFB42C;
-//     animation: pulse 2s infinite;
-//   }
-
-//   @keyframes pulse {
-//     0% { transform: scale(1); }
-//     50% { transform: scale(1.1); }
-//     100% { transform: scale(1); }
-//   }
-
-//   @media (max-width: 768px) {
-//     svg {
-//       font-size: 3rem;
-//     }
-//   }
-// `;
-
-// const Button = styled.a`
-//   display: inline-block;
-//   background-color: #FFB42C;
-//   color: white;
-//   padding: 12px 30px;
-//   font-size: 1.2rem;
-//   border-radius: 5px;
-//   text-decoration: none;
-//   margin-top: 20px;
-//   transition: background-color 0.3s;
-
-//   &:hover {
-//     background-color: #e69c29;
-//   }
-
-//   @media (max-width: 768px) {
-//     font-size: 1rem;
-//     padding: 10px 25px;
-//   }
-// `;
-
-// const AboutUs = () => {
-//   return (
-//     <AboutUsContainer>
-//       <Heading>About Heovin</Heading>
-//       <SubHeading>Your Health, Our Priority</SubHeading>
-//       <Text>
-//         At Heovin, we believe in providing the best supplements to support your health and wellness. 
-//         With a commitment to quality, innovation, and customer satisfaction, our products are formulated with care 
-//         to meet the unique needs of every individual. Whether you're looking to boost your immunity, enhance your 
-//         energy levels, or strengthen your body, Heovin has something for everyone.
-//       </Text>
-
-//       <Text>
-//         Our mission is simple: to empower individuals to take control of their health with trusted, natural, and 
-//         scientifically-backed supplements. We work tirelessly to ensure that each product meets the highest standards 
-//         of safety and efficacy, giving you peace of mind as you work towards your wellness goals.
-//       </Text>
-
-//       <IconWrapper>
-//         <FaHeartbeat />
-//         <GiStrongMan />
-//       </IconWrapper>
-
-
-//     </AboutUsContainer>
-//   );
-// };
-
-// export default AboutUs;
-
-
-
-
-
 import React from 'react';
 import styled from 'styled-components';
-import { FaHeartbeat } from 'react-icons/fa'; // Example icon
-import { GiStrongMan } from 'react-icons/gi'; // Example icon
 
 const AboutUsContainer = styled.div`
   padding: 50px;
   background-color: #f4f4f9;
   text-align: center;
   color: #333;
-  
+
   @media (max-width: 768px) {
     padding: 20px;
   }
@@ -146,9 +14,9 @@ const AboutUsContainer = styled.div`
 
 const Heading = styled.h1`
   font-size: 2.5rem;
-  color: #003366;
+  color: #FF550C;
   margin-bottom: 20px;
-  
+
   @media (max-width: 768px) {
     font-size: 2rem;
   }
@@ -156,7 +24,7 @@ const Heading = styled.h1`
 
 const SubHeading = styled.h2`
   font-size: 1.5rem;
-  color: #003366;
+  color: #FF550C;
   margin-bottom: 15px;
 
   @media (max-width: 768px) {
@@ -178,57 +46,73 @@ const Text = styled.p`
   }
 `;
 
-const IconWrapper = styled.div`
-  display: flex;
-  justify-content: center;
-  gap: 30px;
-  margin: 30px 0;
-
-  svg {
-    font-size: 4rem;
-    color: #FFB42C;
-    animation: pulse 2s infinite;
-  }
-
-  @keyframes pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.1); }
-    100% { transform: scale(1); }
-  }
-
-  @media (max-width: 768px) {
-    svg {
-      font-size: 3rem;
-    }
-  }
-`;
-
 const AboutUs = () => {
   return (
     <AboutUsContainer>
-      <Heading>HEOVIN - Nourishing Life, Naturally</Heading>
+      <Heading>Welcome to GL Marketplace – Your Ultimate Online Shopping Destination!</Heading>
       <Text>
-        At HEOVIN, we harness the incredible power of nature to heal, protect, and rejuvenate the human body. Our mission is clear: to prevent, manage, and treat health challenges through the finest <strong>natural and organic</strong> dietary supplements. We are dedicated to delivering premium-quality products that not only <strong>nurture health</strong> but also <strong>slow down the aging process</strong>, empowering you to <strong>live a vibrant life</strong> at any age.
+        At GL Marketplace, we redefine convenience, innovation, and diversity in online shopping. Our platform is not just an e-commerce store; it’s a world-class marketplace designed to cater to all your needs, dreams, and aspirations.
+      </Text>
+
+      <SubHeading>Why Choose GL Marketplace?</SubHeading>
+      <Text>
+        Discover a seamless blend of quality, variety, and innovation that caters to your personal and business needs. From everyday essentials to state-of-the-art technology, GL Marketplace is your trusted partner in lifestyle enhancement and business growth.
+      </Text>
+
+      <SubHeading>What We Offer:</SubHeading>
+      <Text>
+        <strong>1. A Vast Product Portfolio:</strong>
+        <ul>
+          <li>From the latest smartphones and gadgets to solar energy solutions, we’ve got everything you need to stay ahead in today’s world.</li>
+          <li>Explore a wide range of fashion, beauty products, and dietary supplements that keep you looking and feeling your best.</li>
+          <li>Transform your home with smart appliances, daily essentials, and kitchen accessories that simplify life.</li>
+        </ul>
       </Text>
 
       <Text>
-        Our unwavering commitment to <strong>natural wellness</strong> begins with sourcing <strong>high-quality ingredients</strong> and crafting supplements that address a wide spectrum of health needs. From boosting your <strong>immune system</strong> to supporting overall wellness, our solutions are meticulously designed to <strong>promote a longer, healthier, and more energetic life</strong>.
+        <strong>2. Technology Meets Lifestyle:</strong>
+        <ul>
+          <li>Shop cutting-edge electric vehicles, renewable energy systems, and portable power stations for a sustainable future.</li>
+          <li>Upgrade your life with smart home devices, electronics, and wearable tech tailored for your needs.</li>
+        </ul>
       </Text>
 
       <Text>
-        At HEOVIN, we care for <strong>human life from cradle to old age</strong>, ensuring every stage is nurtured with essential nutrients that fuel vitality and well-being. Whether you're aiming to <strong>preserve youthful energy</strong>, <strong>prevent diseases</strong>, or enhance your quality of life, HEOVIN is your steadfast partner.
+        <strong>3. Health and Wellness First:</strong>
+        <ul>
+          <li>Access premium NAFDAC-approved traditional medicines, anti-aging foods, and dietary supplements to enrich your well-being.</li>
+          <li>Stay informed and inspired with our daily health podcasts on disease prevention and lifestyle tips.</li>
+        </ul>
       </Text>
 
       <Text>
-        As a <strong>global brand</strong>, we are passionate about bringing <strong>the best of nature</strong> to you. We empower individuals everywhere to <strong>embrace healthy living</strong> with our trusted, science-backed products. From combating early signs of aging to strengthening your body’s defenses, HEOVIN stands alongside you in your journey towards <strong>optimal health</strong>, naturally.
+        <strong>4. Business Solutions:</strong>
+        <ul>
+          <li>Collaborate with us for franchising opportunities, affiliate marketing, and expert business consultation services.</li>
+          <li>Revolutionize your brand with our product design, marketing, and branding expertise.</li>
+        </ul>
       </Text>
 
-      <SubHeading>HEOVIN - Nourishing Life, Naturally. Experience the difference today!</SubHeading>
+      <SubHeading>What Makes Us Stand Out?</SubHeading>
+      <Text>
+        <ul>
+          <li><strong>Unmatched Convenience:</strong> Our intuitive platform ensures a smooth shopping experience, whether you’re shopping for groceries, gadgets, or machinery.</li>
+          <li><strong>Global Reach with Local Focus:</strong> We bring international brands to your doorstep while supporting local businesses and communities.</li>
+          <li><strong>Sustainability at Heart:</strong> From solar energy solutions to electric vehicles, we are committed to promoting green and renewable energy.</li>
+        </ul>
+      </Text>
 
-      <IconWrapper>
-        <FaHeartbeat />
-        <GiStrongMan />
-      </IconWrapper>
+      <SubHeading>The GL Marketplace Vision</SubHeading>
+      <Text>
+        At GL Marketplace, we’re not just selling products—we’re building lifestyles and empowering businesses. Our mission is to create a one-stop hub for innovation, sustainability, and growth, ensuring every customer and partner achieves their goals.
+      </Text>
+
+      <SubHeading>Explore, Shop, and Thrive!</SubHeading>
+      <Text>
+        Visit GL Marketplace today and experience the future of online shopping. Your journey to a smarter, healthier, and more stylish lifestyle starts here.
+      </Text>
+
+      <SubHeading>GL Marketplace – Shop. Innovate. Succeed.</SubHeading>
     </AboutUsContainer>
   );
 };

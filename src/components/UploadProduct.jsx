@@ -93,7 +93,7 @@
 //         },
 //       });
 
-//       const response = await axios.post('https://www.heovin.com.ng/api/upload_product.php', formData);
+//       const response = await axios.post('https://www.glmarketplace.ng/api/upload_product.php', formData);
 //       if (response.data.success) {
 //         Swal.fire('Success', response.data.message, 'success');
 //         setCurrentView('storeinfo'); 
@@ -238,9 +238,10 @@
 
 
 import axios from 'axios';
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import Swal from 'sweetalert2';
 import styled from 'styled-components';
+import { Context } from './Context';
 
 const MAX_FILE_SIZE = 2 * 1024 * 1024; // 2 MB
 const VALID_IMAGE_TYPES = ['image/jpeg', 'image/png'];
@@ -257,65 +258,68 @@ const VALID_IMAGE_TYPES = ['image/jpeg', 'image/png'];
 
 
 
-const subCategories = [
-  // { id: 14, name: 'PipingRock\'s Best' },
-  { id: 14, name: 'Heovin\'s Best' },
-  { id: 15, name: 'Sale Items' },
-  { id: 16, name: 'Essential Oils' },
-  { id: 17, name: 'Men\'s Vitamins' },
-  { id: 18, name: 'Melatonin' },
-  { id: 19, name: 'CoQ-10' },
-  { id: 20, name: 'Ashwagandha' },
-  { id: 21, name: 'Weight Support' },
-  { id: 22, name: 'Skin Care' },
-  { id: 23, name: 'Immune Support' },
-  { id: 24, name: 'Supplements' },
-  { id: 25, name: 'Probiotics' },
-  { id: 26, name: 'Fragrance Oils' },
-  { id: 27, name: 'Mushrooms' },
-  { id: 28, name: 'Joint Support' },
-  { id: 29, name: 'Women\'s Vitamins' },
-  { id: 30, name: 'Sports & Fitness' },
-  { id: 31, name: 'Beauty & Personal Care' },
-  { id: 32, name: 'Bulk Herbs' },
-  { id: 33, name: 'Pet Products' },
-  { id: 34, name: 'Liquid Extracts' },
-  { id: 35, name: 'Herbal Supplements' },
-  { id: 36, name: 'Vitamin D' },
-  { id: 37, name: 'Turmeric' },
-  { id: 38, name: 'Spices' },
-  { id: 39, name: 'Magnesium' },
-  { id: 40, name: 'Homeopathics' },
-  { id: 41, name: 'Collagen' },
-  { id: 42, name: 'Aromatherapy' },
-  { id: 43, name: 'Lutein' },
-  { id: 44, name: 'Vitamin C' },
-  { id: 45, name: 'Zinc' },
-  { id: 46, name: 'Nuts and Seeds' },
-  { id: 47, name: 'Hyaluronic Acid' },
-  { id: 48, name: 'Elderberry' },
-  { id: 49, name: 'Compare and Save' },
-  { id: 50, name: 'N-Acetyl Cysteine' },
-  { id: 51, name: 'Organic Products' },
-  { id: 52, name: 'Herbal Teas' },
-  { id: 53, name: 'Antioxidants' },
-  { id: 54, name: 'Brain Supplements' },
-  { id: 55, name: 'Digestive Health' },
-  { id: 56, name: 'Eye Nutrients' },
-  { id: 57, name: 'Heart Health' },
-  { id: 58, name: 'Herbs' },
-  { id: 59, name: 'Immune Support 2' },
-  { id: 60, name: 'Sleep Support' },
-  { id: 61, name: 'Crazy Deals' },
-  { id: 62, name: 'Vitamins' },
-  { id: 63, name: 'Beauty' },
-  { id: 64, name: 'Sports' },
-  {id:65, name:'All Brands'},
-  {id:66, name:'All Category'}
-];
+// const {subCategories} = [
+//   // { id: 14, name: 'PipingRock\'s Best' },
+//   { id: 14, name: 'Heovin\'s Best' },
+//   { id: 15, name: 'Sale Items' },
+//   { id: 16, name: 'Essential Oils' },
+//   { id: 17, name: 'Men\'s Vitamins' },
+//   { id: 18, name: 'Melatonin' },
+//   { id: 19, name: 'CoQ-10' },
+//   { id: 20, name: 'Ashwagandha' },
+//   { id: 21, name: 'Weight Support' },
+//   { id: 22, name: 'Skin Care' },
+//   { id: 23, name: 'Immune Support' },
+//   { id: 24, name: 'Supplements' },
+//   { id: 25, name: 'Probiotics' },
+//   { id: 26, name: 'Fragrance Oils' },
+//   { id: 27, name: 'Mushrooms' },
+//   { id: 28, name: 'Joint Support' },
+//   { id: 29, name: 'Women\'s Vitamins' },
+//   { id: 30, name: 'Sports & Fitness' },
+//   { id: 31, name: 'Beauty & Personal Care' },
+//   { id: 32, name: 'Bulk Herbs' },
+//   { id: 33, name: 'Pet Products' },
+//   { id: 34, name: 'Liquid Extracts' },
+//   { id: 35, name: 'Herbal Supplements' },
+//   { id: 36, name: 'Vitamin D' },
+//   { id: 37, name: 'Turmeric' },
+//   { id: 38, name: 'Spices' },
+//   { id: 39, name: 'Magnesium' },
+//   { id: 40, name: 'Homeopathics' },
+//   { id: 41, name: 'Collagen' },
+//   { id: 42, name: 'Aromatherapy' },
+//   { id: 43, name: 'Lutein' },
+//   { id: 44, name: 'Vitamin C' },
+//   { id: 45, name: 'Zinc' },
+//   { id: 46, name: 'Nuts and Seeds' },
+//   { id: 47, name: 'Hyaluronic Acid' },
+//   { id: 48, name: 'Elderberry' },
+//   { id: 49, name: 'Compare and Save' },
+//   { id: 50, name: 'N-Acetyl Cysteine' },
+//   { id: 51, name: 'Organic Products' },
+//   { id: 52, name: 'Herbal Teas' },
+//   { id: 53, name: 'Antioxidants' },
+//   { id: 54, name: 'Brain Supplements' },
+//   { id: 55, name: 'Digestive Health' },
+//   { id: 56, name: 'Eye Nutrients' },
+//   { id: 57, name: 'Heart Health' },
+//   { id: 58, name: 'Herbs' },
+//   { id: 59, name: 'Immune Support 2' },
+//   { id: 60, name: 'Sleep Support' },
+//   { id: 61, name: 'Crazy Deals' },
+//   { id: 62, name: 'Vitamins' },
+//   { id: 63, name: 'Beauty' },
+//   { id: 64, name: 'Sports' },
+//   {id:65, name:'All Brands'},
+//   {id:66, name:'All Category'}
+// ];
+
+
 
 
 function UploadProduct({setAdminMenu}) {
+  const {subCategories}= useContext(Context)
   const [productData, setProductData] = useState({
     productName: '',
     description: '',
@@ -389,7 +393,7 @@ function UploadProduct({setAdminMenu}) {
         },
       });
   
-      const response = await axios.post('https://www.heovin.com.ng/api/upload_product.php', formData, {
+      const response = await axios.post('https://www.glmarketplace.ng/api/upload_product.php', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
@@ -415,11 +419,11 @@ function UploadProduct({setAdminMenu}) {
 
   return (
     <UploadFormWrap>
-      <h2 style={{textAlign:"center",color:"#003366"}}>Upload Product</h2>
+      <h2 style={{textAlign:"center",color:"#FF550C"}}>Upload Product</h2>
       <UploadForm onSubmit={handleSubmit}>
         <Input type="text" name="productName" placeholder="Product Name" onChange={handleInputChange} />
         <Input type="text" name="description" placeholder="Description" onChange={handleInputChange} />
-        <Input type="number" name="price" placeholder="Price" onChange={handleInputChange} />
+        <Input type="number" name="price" placeholder="Enter Price in NGN" onChange={handleInputChange} />
         {/* <Input type="number" name="availableStock" placeholder="Available Stock" onChange={handleInputChange} /> */}
         <Select name="category" onChange={handleInputChange}>
           <option value="">--Select Category--</option>
@@ -489,7 +493,7 @@ const Select = styled.select`
 `;
 
 const SubmitButton = styled.button`
-  background-color: #003366;
+  background-color: #FF9003;
   color: white;
   padding: 10px;
   border: none;
