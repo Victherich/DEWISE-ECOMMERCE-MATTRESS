@@ -7,7 +7,7 @@
     /* background-color: red; */
     /* background-color: rgba(172, 255, 47, 0.2); */
     /* background-color: rgba(211, 211, 211, 0.5); */
-    gap: 50px;
+    /* gap: 50px; */
     /* margin-top: 50px; */
     /* padding-top: 100px;/ */
     
@@ -29,6 +29,7 @@
     background-size: cover;
     background-position: center;
     position: relative;
+    margin-bottom:50px;
 }
 
 .FeaturedCollectionHeaderImgWrap::before{

@@ -21,7 +21,7 @@ const navigate = useNavigate();
           <FaWeibo/>
 
           <h4>GL MARKETPLACE</h4>
-          <p>Email: email@gmail.com</p>
+          <p>Email: support@glmarketplace.ng</p>
           <p>Phone: +234 81234567 </p>
         </div>
         <div className="footer-links">

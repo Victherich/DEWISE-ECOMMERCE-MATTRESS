@@ -36,6 +36,7 @@ const subCategories = [
   { id: 8,  name: 'Food and Beverages' },
   { id: 9,  name: 'Health' },
   { id: 10, name: 'Beauty and Cosmetics' },
+  { id: 13, name: 'Solar Green Energy' },
   { id: 11, name: 'Sports Wears' },
   { id: 12, name: 'Crazy deals' },
 ];
@@ -59,3 +60,10 @@ export default ContextProvider
 // database details
 // User “glmarketplace_db1” was added to the database “glmarketplace_db1”.
 // pw: dave@decafe2025
+
+
+
+// chat details
+// email: support@glmarketplace.ng
+// url: https://dashboard.tawk.to/login
+// pw: #Glm123glm

@@ -124,6 +124,8 @@ import { useDispatch } from 'react-redux';
 import Swal from 'sweetalert2';
 import { Link } from 'react-router-dom';
 import heroImg7 from '../Images/heroimg7.jpeg'
+import GreenSolarEnergyPage from './GreenSolarEnergyPage';
+import Hero2 from './Hero2'
 
 const ProductListPage = () => {
     const dispatch = useDispatch();
@@ -176,9 +178,14 @@ const ProductListPage = () => {
 
     return (
         <div className='FeaturedCollections'>
-            <div className='FeaturedCollectionHeaderImgWrap' style={{ backgroundImage: `url(${heroImg7})` }}>
+            {category==='Solar Green Energy'&&<Hero2/>}
+            {category==='Solar Green Energy'&&<GreenSolarEnergyPage/>}
+            
+            {category!=='Solar Green Energy'&&<div className='FeaturedCollectionHeaderImgWrap' style={{ backgroundImage: `url(${heroImg7})` }}>
+
+
                 <h1>{category.toUpperCase()}</h1>
-            </div>
+            </div>}
             <div className='Collections'>
                 {products.length > 0 ? (
                     products.map((product) => (
