@@ -37,7 +37,7 @@
 //     });
 
 //     try {
-//       const response = await axios.get(`https://www.glmarketplace.ng/api/get_products_by_category.php?category=${category}`);
+//       const response = await axios.get(`https://dewisemattress.com/api/get_products_by_category.php?category=${category}`);
       
 //       if (response.data.success) {
 //         setProducts(response.data.products);
@@ -99,7 +99,7 @@
 //               <h3 style={{color:"#CB6B37"}}>{product.product_name}</h3>
 //               {/* <p>{product.description}</p> */}
 //               <p>Price: ${product.price}</p>
-//               <img src={`https://www.glmarketplace.ng/api/uploads/${product.product_images[0]}`} alt={product.product_name} />
+//               <img src={`https://dewisemattress.com/api/uploads/${product.product_images[0]}`} alt={product.product_name} />
 //             </ProductCard>
 //           ))}
 //         </ProductList>
@@ -261,7 +261,7 @@ function ProductByCategory() {
     });
 
     try {
-      const response = await axios.get(`https://www.glmarketplace.ng/api/get_products_by_category.php?category=${category}`);
+      const response = await axios.get(`https://dewisemattress.com/api/get_products_by_category.php?category=${category}`);
       
       if (response.data.success) {
         setProducts(response.data.products);
@@ -298,7 +298,7 @@ function ProductByCategory() {
 //     }).then(async (result) => {
 //       if (result.isConfirmed) {
 //         try {
-//           const response = await axios.post('https://www.glmarketplace.ng/api/delete_product.php', { productId });
+//           const response = await axios.post('https://dewisemattress.com/api/delete_product.php', { productId });
 //           if (response.data.success) {
 //             setProducts(products.filter(product => product.id !== productId));
 //             Swal.fire('Deleted!', 'Your product has been deleted.', 'success');
@@ -325,7 +325,7 @@ const handleDeleteProduct = async (productId) => {
       if (result.isConfirmed) {
         Swal.fire({text:"Deleting..."})
         try {
-          const response = await axios.post('https://www.glmarketplace.ng/api/delete_product.php', 
+          const response = await axios.post('https://dewisemattress.com/api/delete_product.php', 
             { productId }, // Data being sent
             {
               headers: {
@@ -354,7 +354,7 @@ const handleDeleteProduct = async (productId) => {
 
   return (
     <Container>
-      <h2 style={{ color: "#FF550C", marginBottom: "5px" }}>Select a Category</h2>
+      <h2 style={{ color: "#000080", marginBottom: "5px" }}>Select a Category</h2>
       <SelectCategory onChange={handleCategoryChange} value={selectedCategory}>
         <option value="">-- Choose a category --</option>
         {subCategories.map((category, index) => (
@@ -385,7 +385,7 @@ const handleDeleteProduct = async (productId) => {
               <p>Price: ₦ {product.price}</p>
               <p style={{fontSize:"small"}}>Product ID: {product.id}</p>
               <img
-                src={`https://www.glmarketplace.ng/api/uploads/${product.product_images[0]}`}
+                src={`https://dewisemattress.com/api/uploads/${product.product_images[0]}`}
                 alt={product.product_name}
               />
               <ActionButtons>
@@ -455,13 +455,13 @@ const ActionButtons = styled.div`
 `;
 
 const DeleteButton = styled.button`
-  background-color: #ff4d4d;
+  background-color: #000080;
   color: white;
   border: none;
   padding: 5px 10px;
   border-radius: 5px;
   cursor: pointer;
   &:hover {
-    background-color: #e60000;
+    background-color: rgba(0,0,255,0.7);
   }
 `;

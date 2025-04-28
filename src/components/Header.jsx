@@ -52,7 +52,7 @@
 // //         const LoadingAlert = Swal.fire({text:"Please wait..."})
 // //         Swal.showLoading();
 // //             try{
-// //                 const response = await axios.get(`https://www.glmarketplace.ng/api/get_products_by_name.php?searchTerm=${searchInput}`);
+// //                 const response = await axios.get(`https://dewisemattress.com/api/get_products_by_name.php?searchTerm=${searchInput}`);
 // //                 console.log(response.data)
 // //                 navigate("/searchresultpage")
 // //                 setSearchArray(response.data)
@@ -180,7 +180,7 @@
 //         const LoadingAlert = Swal.fire({ text: "Please wait..." });
 //         Swal.showLoading();
 //         try {
-//             const response = await axios.get(`https://www.glmarketplace.ng/api/get_products_by_name.php?searchTerm=${searchInput}`);
+//             const response = await axios.get(`https://dewisemattress.com/api/get_products_by_name.php?searchTerm=${searchInput}`);
 //             console.log(response.data);
 //             if (response.data.success) {
 //                 setSearchArray(response.data.products); // Set the search results in context
@@ -273,13 +273,14 @@
 
 
 import React, { useEffect, useState, useContext, useRef } from 'react';
-import { FaCartArrowDown, FaChevronCircleDown, FaHeart, FaHome, FaSearch, FaUser } from 'react-icons/fa';
+import { FaBars, FaCartArrowDown, FaChevronCircleDown, FaHeart, FaHome, FaSearch, FaUser } from 'react-icons/fa';
 import '../CSS/Header.css';
 import { useNavigate,NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { Context } from './Context';
 import Swal from 'sweetalert2';
 import axios from 'axios';
+import logo from '../Images3/logo.jpeg'
 
 
 const Header = () => {
@@ -289,6 +290,7 @@ const Header = () => {
   const navigate = useNavigate();
   const { mobileMenuSwitch, setMobileMenuSwitch, setSearchArray, subCategories } = useContext(Context);
   const sideMenuRef = useRef(null);
+  // console.log(userInfo)
 
   const [totalQty, setTotalQty] = useState(0);
 
@@ -326,7 +328,7 @@ const Header = () => {
         const LoadingAlert = Swal.fire({ text: "Please wait..." });
         Swal.showLoading();
         try {
-            const response = await axios.get(`https://www.glmarketplace.ng/api/get_products_by_name.php?searchTerm=${searchInput}`);
+            const response = await axios.get(`https://dewisemattress.com/api/get_products_by_name.php?searchTerm=${searchInput}`);
             console.log(response.data);
             if (response.data.success) {
                 setSearchArray(response.data.products); // Set the search results in context
@@ -358,7 +360,7 @@ const Header = () => {
     <div className="HeaderWrap">
       <div className="HeaderUp">
         <div className="HeaderUpLeft" onClick={() => navigate('/')}>
-          <h2 style={{ cursor: 'pointer' }}>GL MARKETPLACE</h2>
+          <img src={logo} alt='logo'/>
         </div>
         <div className="HeaderUpMid">
           <input
@@ -380,9 +382,15 @@ const Header = () => {
             className="HeaderUpRight2"
             onClick={() => navigate(userInfo ? '/userdashboard' : '/userlogin')}
           >
-            <FaUser />
-            <p>{userInfo ? 'Dashboard' : 'Sign up / Login'}</p>
+            {/* <FaUser /> */}
+            <p style={{textAlign:"center"}}>{userInfo ? `Welcome ${userInfo.full_name.slice(0,6)}` : 'Login'}</p>
           </div>
+          <div
+            className="HeaderUpRight2"
+            onClick={() => navigate('/trackorder')}
+          >
+            <p>Track Order</p>
+          </div> 
           <div className="HeaderUpRight1" onClick={() => navigate('/cartpage')}>
             <FaCartArrowDown />
             <p>Cart</p>
@@ -391,39 +399,39 @@ const Header = () => {
         </div>
       </div>
       <div className="HeaderDown">
-        {/* <NavLink to="/foodmart" className="Menu">FOOD MART</NavLink>
-        <NavLink to="/kitchenutensils" className="Menu">KITCHEN UTENSILS</NavLink>
-        <NavLink to="/fashion" className="Menu">FASHION (Samtoclassics)</NavLink>
-        <NavLink to="/cookinggasandaccessories" className="Menu">COOKING GAS AND ACCESSORIES</NavLink>
-        <NavLink to="/bellyinn" className="Menu">BELLY INN</NavLink>
-        <NavLink to="/healthcare" className="Menu">HEALTH CARE (Healthy stops)</NavLink>
-        <NavLink to="/blog" className="Menu">BLOG / DROP SHIPPING</NavLink>
-        <NavLink to="/buyandsellfood" className="Menu">BUY AND SELL FOOD (Free public accounts)</NavLink> */}
-         
-         {subCategories.map((subCategory)=>(
-        <p  className="Menu" onClick={() => navigate(`/productlistpage/${subCategory.name}`)}>{subCategory.name}</p>
+           <div className='Menu' onClick={()=>navigate('/')}>
+          <p>HOME</p>
+         </div>
+         <div className='Menu' onClick={()=>navigate('/aboutus')}>
+          <p>ABOUT US</p>
+         </div>
+         <div onClick={() => setMobileMenuSwitch(true)} className='Menu'>
+          <p>
+            SHOP BY CATEGORY <FaBars/>
+          </p>
+         </div>
+
+         {subCategories.slice(-2).map((subCategory)=>(
+        <div  className="Menu" onClick={() => navigate(`/productlistpage/${subCategory.name}`)}><p>{subCategory.name.toUpperCase()}</p></div>
       
       ))} 
+
+<div className='Menu' onClick={()=>navigate('/contactus')}>
+          <p>CONTACT US</p>
+         </div>
+
       
       
       </div>
       <div className="HeaderDown2A" onClick={() => setMobileMenuSwitch(true)}>
-        <p>
-          Categories <FaChevronCircleDown />
+        <p >
+          SHOP BY CATEGORY <FaBars />
         </p>
       </div>
       {mobileMenuSwitch && (
         <div className="HeaderDown2" ref={sideMenuRef}>
-          {/* <NavLink to="/foodmart" className="Menu">FOOD MART</NavLink>
-          <NavLink to="/kitchenutensils" className="Menu">KITCHEN UTENSILS</NavLink>
-          <NavLink to="/fashion" className="Menu">FASHION (Samtoclassics)</NavLink>
-          <NavLink to="/cookinggasandaccessories" className="Menu">COOKING GAS AND ACCESSORIES</NavLink>
-          <NavLink to="/bellyinn" className="Menu">BELLY INN</NavLink>
-          <NavLink to="/healthcare" className="Menu">HEALTH CARE (Healthy stops)</NavLink>
-          <NavLink to="/blog" className="Menu">BLOG / DROP SHIPPING</NavLink>
-          <NavLink to="/buyandsellfood" className="Menu">BUY AND SELL FOOD (Free public accounts)</NavLink> */}
-               {subCategories.map((subCategory)=>(
-        <p  className="Menu" onClick={() => {navigate(`/productlistpage/${subCategory.name}`);setMobileMenuSwitch(false)}}>{subCategory.name}</p>
+              {subCategories.map((subCategory)=>(
+        <p  onClick={() => {navigate(`/productlistpage/${subCategory.name}`);setMobileMenuSwitch(false)}}>{subCategory.name.toUpperCase()}</p>
       
       ))} 
         

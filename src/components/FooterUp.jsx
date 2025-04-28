@@ -53,7 +53,7 @@ const FooterUp = () => {
     Swal.showLoading()
 
     try {
-      const response = await fetch('https://www.glmarketplace.ng/api/api4users/subscribe_newsletter.php', {
+      const response = await fetch('https://dewisemattress.com/api/api4users/subscribe_newsletter.php', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

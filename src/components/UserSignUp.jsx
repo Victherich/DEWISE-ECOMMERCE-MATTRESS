@@ -55,7 +55,7 @@
 //     });
 
 //     try {
-//       const response = await axios.post('https://www.glmarketplace.ng/api/api4users/user_signup.php', {
+//       const response = await axios.post('https://dewisemattress.com/api/api4users/user_signup.php', {
 //         fullName: formData.fullName,
 //         email: formData.email,
 //         password: formData.password, // Only send password, not confirmPassword
@@ -239,7 +239,7 @@ const UserSignup = () => {
     });
 
     try {
-      const response = await axios.post('https://www.glmarketplace.ng/api/api4users/user_signup.php', {
+      const response = await axios.post('https://dewisemattress.com/api/api4users/user_signup.php', {
         fullName: formData.fullName,
         email: formData.email,
         password: formData.password,
@@ -276,7 +276,7 @@ const UserSignup = () => {
   return (
     <div className='agentbody'>
       <div className='agentformWrap'>
-        <div className='HeaderUpRight1' onClick={() => navigate('/')} style={{ color: "#FF550C", fontWeight: "bold" }}>
+        <div className='HeaderUpRight1' onClick={() => navigate('/')} style={{ color: "#000080", fontWeight: "bold" }}>
           <FaHome style={{ cursor: "pointer" }} />
           <p>Home</p>
         </div>
@@ -320,12 +320,12 @@ const UserSignup = () => {
               {showPassword ? (
                 <FaEye
                   onClick={() => setShowPassword(false)}
-                  style={{ cursor: 'pointer', position: 'absolute', right: '10px', top: '50%', color: '#FF550C' }}
+                  style={{ cursor: 'pointer', position: 'absolute', right: '10px', top: '50%', color: '#000080' }}
                 />
               ) : (
                 <FaEyeSlash
                   onClick={() => setShowPassword(true)}
-                  style={{ cursor: 'pointer', position: 'absolute', right: '10px', top: '50%', color: '#FF550C' }}
+                  style={{ cursor: 'pointer', position: 'absolute', right: '10px', top: '50%', color: '#000080' }}
                 />
               )}
             </div>

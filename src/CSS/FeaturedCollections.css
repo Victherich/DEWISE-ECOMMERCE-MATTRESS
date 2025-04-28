@@ -56,7 +56,7 @@
     flex-wrap: wrap;
     width: 100%;
     height: auto;
-    padding: 0px 50px;
+    /* padding: 0px 50px; */
     
     /* gap: 100px; */
 }
@@ -104,7 +104,7 @@
 .CardImgActive{
     width: 50px;
     height: 50px;
-    border: 2px solid #FF550C;
+    border: 2px solid #000080;
     border-radius: 5px;
     cursor: pointer;
 }
@@ -137,7 +137,7 @@
 
 
 .ProductCardRight h3{
-    color: #FF550C;
+    color: rgba(0, 0, 255, 0.5);
 }
 
 .ProductCardRight p{
@@ -146,7 +146,7 @@
 
 .ProductCardRight span{
     font-weight: 600;
-    color: #FF550C;
+    color: rgba(0, 0, 255, 0.5);
 }
 
 .ProductCardRight button{
@@ -158,14 +158,14 @@
 }
 
 .ProductCardRight button:hover{
-    background-color: #FF550C;
+    background-color: rgba(0, 0, 255, 0.5);
 }
 
 
 
 .ProductArrowLeft{
     color:rgba(0, 128, 0, 0.5);
-    color: #FF550C;
+    color: rgba(0, 0, 255, 0.5);
     position: absolute;
     top:50%;
     left: 10px;
@@ -175,7 +175,7 @@
 
 .ProductArrowRight{
     color:rgba(0, 128, 0, 0.5);
-    color: #FF550C;
+    color: rgba(0, 0, 255, 0.5);
     position: absolute;
     top:50%;
     right: 10px;
@@ -189,11 +189,11 @@
     justify-content: center;
     align-items: center;
     gap:10px;
-    color: #FF550C;
+    color: #000080;
 }
 
 .SortWrap span{
-    border: 1px solid #FF550C;
+    border: 1px solid #000080;
     font-size: 0.9rem;
     padding: 5px;
     cursor: pointer;
@@ -201,7 +201,7 @@
 
 .HeartIcon{
     font-size: 1.1rem;
-    color: #FF550C;
+    color: #000080;
     position: absolute;
     top:0px;
     right:10px;
@@ -213,7 +213,7 @@
     transform: scale(1.1);
 }
 
-.ProductCard2{
+/* .ProductCard2{
     width: 200px;
     height: 250px;
     display: flex;
@@ -225,6 +225,21 @@
     border-radius: 10px;
     cursor: pointer;
     text-decoration: none;
+} */
+
+.ProductCard2{
+    width: 400px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px ;
+    margin: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    text-decoration: none;
+    padding:0px 2px;
 }
 
 .CardUp{
@@ -252,12 +267,16 @@
     gap: 5px;
 }
 
-.CardDown p{
+.CardDown p {
     text-align: center;
+    font-size: 1rem;
+   
+    text-transform: uppercase;
 }
+
 .CardDown span{
     font-weight: 600;
-    color: #FF550C;
+    color: #000080;
 }
 
 @media screen and (max-width:884px) {
@@ -269,8 +288,8 @@
 
 @media screen and (max-width:428px) {
     .ProductCard2{
-        width: 170px;
-        height: 220px;
+        width: 350px;
+        height: 350px;
     }
     .FeaturedCollectionHeaderImgWrap{
         height: 150px;
@@ -285,15 +304,15 @@
 }
 @media screen and (max-width:375px) {
     .ProductCard2{
-        width: 160px;
-        height: 220px;
+        width:350px;
+        height: 350px;
     }
 }
 
 @media screen and (max-width:320px) {
     .ProductCard2{
-        width: 140px;
-        height: 200px;
+        width: 300px;
+        height: 300px;
     }
 }
 

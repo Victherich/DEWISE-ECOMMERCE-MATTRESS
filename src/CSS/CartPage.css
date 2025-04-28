@@ -38,7 +38,7 @@
 
 .CartRight button{
     color: white;
-    background-color:#FF9300;
+    background-color:rgba(0, 0, 0, 0.5);
     padding: 13px;
     border: none;
     border-radius: 5px;
@@ -235,7 +235,7 @@
 .SubTotalMobile{
     display: none;
     font-size: 1rem;
-    color: orangered;
+    color: rgba(0, 0, 0, 0.5);
     font-weight: bold;
 }
 

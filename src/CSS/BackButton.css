@@ -8,8 +8,8 @@
 .back-button-wrap button {
     padding: 10px 20px;
     background-color: white;
-    color: orangered;
-    border: 1px solid orangered;
+    color: #000080;
+    border: 1px solid #000080;
     border-radius: 4px;
     cursor: pointer;
 

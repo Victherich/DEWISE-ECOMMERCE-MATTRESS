@@ -22,7 +22,7 @@
 //     setIsSubmitting(true);
 
 //     try {
-//       const response = await axios.post("https://www.glmarketplace.ng/api/api4users/user_forgot_password.php", { email });
+//       const response = await axios.post("https://dewisemattress.com/api/api4users/user_forgot_password.php", { email });
 //       setMessage(response.data.message);
       
 //       Swal.fire({
@@ -137,7 +137,7 @@ const UserForgotPassword = () => {
     setIsSubmitting(true);
 
     try {
-      const response = await axios.post('https://www.glmarketplace.ng/api/api4users/user_forgot_password.php', { email });
+      const response = await axios.post('https://dewisemattress.com/api/api4users/user_forgot_password.php', { email });
       setMessage(response.data.message);
 
       Swal.fire({
@@ -179,7 +179,7 @@ const UserForgotPassword = () => {
   return (
     <div className="agentbody">
       <div className="agentformWrap">
-        <div className="HeaderUpRight1" style={{ color: '#FF550C', fontWeight: 'bold' }} onClick={handleNavigate}>
+        <div className="HeaderUpRight1" style={{ color: '#000080', fontWeight: 'bold' }} onClick={handleNavigate}>
           <FaHome style={{ cursor: 'pointer' }} />
           <p>Home</p>
         </div>
@@ -205,7 +205,7 @@ const UserForgotPassword = () => {
               {isSubmitting ? 'Submitting...' : sendLinkButtonText}
             </button>
           </div>
-          {message && <p style={{ color: '#FF550C' }}>{message}</p>}
+          {message && <p style={{ color: '#000080' }}>{message}</p>}
         </form>
       </div>
       <BackButton />

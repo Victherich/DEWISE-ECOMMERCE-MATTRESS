@@ -14,7 +14,7 @@
   .order-summary h2 {
     text-align: center;
     margin-bottom: 20px;
-    color: #FF550C;
+    color: #000080;
     
   }
   
@@ -23,7 +23,7 @@
   }
 
   .user-info h3, .cart-info h3{
-    color: #FF550C;
+    color: #000080;
   }
 
   .cart-info img{
@@ -56,14 +56,14 @@
     padding: 10px;
     font-size: 1.2em;
     color: #fff;
-    background-color:#FF9003;
+    background-color:#000080;
     border: none;
     border-radius: 5px;
     cursor: pointer;
   }
   
   .order-summary button:hover {
-    background-color: #FF550C;
+    background-color: gray;
   }
 
   .CheckBoxWrap{

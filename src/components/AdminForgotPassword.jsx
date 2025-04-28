@@ -26,7 +26,7 @@ const AdminForgotPassword = () => {
     setIsSubmitting(true);
   
     try {
-      const response = await axios.post("https://www.glmarketplace.ng/api/admin_forgot_password.php", { email });
+      const response = await axios.post("https://dewisemattress.com/api/admin_forgot_password.php", { email });
       setMessage(response.data.message);
       setResendLink(true);
       Swal.fire({
@@ -120,7 +120,7 @@ export default AdminForgotPassword;
 //     setIsSubmitting(true);
 
 //     try {
-//       const response = await axios.post("https://www.glmarketplace.ng/api/admin_forgot_password.php", { email });
+//       const response = await axios.post("https://dewisemattress.com/api/admin_forgot_password.php", { email });
 
 //       // Display success message
 //       Swal.fire({

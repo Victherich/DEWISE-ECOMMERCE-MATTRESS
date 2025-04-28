@@ -27,7 +27,7 @@
 //         }
 //       });
 
-//       const response = await axios.post('https://www.glmarketplace.ng/api/api4users/user_login.php', {
+//       const response = await axios.post('https://dewisemattress.com/api/api4users/user_login.php', {
 //         email,
 //         password
 //       });
@@ -164,7 +164,7 @@ const UserLogin = () => {
             });
 
             const response = await axios.post(
-                'https://www.glmarketplace.ng/api/api4users/user_login.php',
+                'https://dewisemattress.com/api/api4users/user_login.php',
                 formData
             );
 
@@ -206,7 +206,7 @@ const UserLogin = () => {
             <div className="agentformWrap">
                 <div
                     className="HeaderUpRight1"
-                    style={{ color: "#FF550C", fontWeight: "bold" }}
+                    style={{ color: "#000080", fontWeight: "bold" }}
                     onClick={() => navigate("/")}
                 >
                     <FaHome style={{ cursor: "pointer" }} />
@@ -245,7 +245,7 @@ const UserLogin = () => {
                                 <FaEye
                                     onClick={() => setPasswordShow("password")}
                                     style={{
-                                        color: "#FF550C",
+                                        color: "#000080",
                                         fontSize: "1.5rem",
                                         cursor: "pointer",
                                         position: "absolute",
@@ -257,7 +257,7 @@ const UserLogin = () => {
                                 <FaEyeSlash
                                     onClick={() => setPasswordShow("text")}
                                     style={{
-                                        color: "#FF550C",
+                                        color: "#000080",
                                         fontSize: "1.5rem",
                                         cursor: "pointer",
                                         position: "absolute",
@@ -269,7 +269,7 @@ const UserLogin = () => {
                             <p
                                 onClick={() => navigate("/userforgotpassword")}
                                 style={{
-                                    color: "#FF550C",
+                                    color: "#000080",
                                     cursor: "pointer",
                                     textDecoration: "none",
                                     marginTop: "10px",
@@ -284,7 +284,7 @@ const UserLogin = () => {
                             Don't have an account?
                             <span
                                 onClick={() => navigate("/usersignup")}
-                                style={{ color: "#FF550C", cursor: "pointer" }}
+                                style={{ color: "#000080", cursor: "pointer" , fontWeight:"bold"}}
                             >
                                 {" "}
                                 Sign Up

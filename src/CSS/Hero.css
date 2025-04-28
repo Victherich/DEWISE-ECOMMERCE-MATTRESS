@@ -33,8 +33,7 @@
     width: 100%;
     height: 400px;
     font-family: Arial, Helvetica, sans-serif;
-    background-color: rgba(255, 166, 0, 0.3);
-    /* margin-top: 110px; */
+    background-color:rgba(0, 0, 255, 0.1);
     position: relative;
 }
 
@@ -87,20 +86,20 @@
 }
 
 .Hero1{
-    background-image: url("../Images/heroimg1.jpeg");
+    background-image: url("../Images3/heroimg1.jpg");
     background-position: center;
     background-size: cover;
     border-radius: 10px;
 }
 
 .Hero2{
-    background-image: url("../Images/heroimg2.jpeg");
+    background-image: url("../Images3/heroimg2.jpg");
     background-position: center;
     border-radius: 10px;
 }
 
 .Hero3{
-    background-image: url("../Images/heroimg3.jpeg");
+    background-image: url("../Images3/heroimg3.jpg");
     background-position: center;
     border-radius: 10px;
 }

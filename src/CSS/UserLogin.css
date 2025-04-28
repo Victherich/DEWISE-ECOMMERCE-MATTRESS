@@ -188,7 +188,7 @@
     
 }
 .AgentFormPage1 h1{
-    color:#FF550C;
+    color:#000080;
     font-weight: 600 ;
     /* margin-bottom: 20px; */
     font-size: 1.5rem;
@@ -197,7 +197,7 @@
 .AgentSignUpNextButton{
     padding: 10px 30px;
     border-radius: 5px; 
-    background-color: #FF9300;
+    background-color: #000080;
     border: none;
     color: #FAFAFA;
     cursor: pointer;
@@ -221,7 +221,7 @@
 }
 
 .AgentFormPage1Link{
-    color:#FF550C;
+    color:#000080;
     text-decoration: none;
     font-weight: bold;
     cursor: pointer;
@@ -245,7 +245,7 @@
 
 .agentinput label{
     font-weight: 400;
-    color: #FF550C;
+    color: #000080;
 }
 
 .agentinput input,.AgentClickToUpload{

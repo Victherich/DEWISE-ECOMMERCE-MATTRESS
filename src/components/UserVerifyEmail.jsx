@@ -20,7 +20,7 @@
 // //         });
 
 // //         // Post the token to the verification endpoint
-// //         const response = await axios.post('https://www.glmarketplace.ng/api/api4users/user_verify_email.php', { token });
+// //         const response = await axios.post('https://dewisemattress.com/api/api4users/user_verify_email.php', { token });
 
 // //         Swal.close();
 
@@ -77,7 +77,7 @@
 //               });
       
 //               // Post the token to the verification endpoint
-//               const response = await axios.post('https://www.glmarketplace.ng/api/api4users/user_verify_email.php', { token });
+//               const response = await axios.post('https://dewisemattress.com/api/api4users/user_verify_email.php', { token });
       
 //               Swal.close();
 //               console.log(response.data)
@@ -142,7 +142,7 @@ const UserVerifyEmail = () => {
         },
       });
 
-      const response = await axios.post('https://www.glmarketplace.ng/api/api4users/user_verify_email.php', { token });
+      const response = await axios.post('https://dewisemattress.com/api/api4users/user_verify_email.php', { token });
       Swal.close();
 
       Swal.fire({icon:"success"});

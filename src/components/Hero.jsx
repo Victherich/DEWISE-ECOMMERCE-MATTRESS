@@ -20,6 +20,7 @@ import heroImg5 from "../Images/heroimg5.jpeg"
 import heroImg6 from "../Images/heroimg6.jpeg"
 import heroImg7 from "../Images/heroimg7.jpeg"
 import heroImg8 from "../Images/heroimg8.jpeg"
+import Hero3 from './Hero3'
 
 
 const Hero = () => {
@@ -41,18 +42,8 @@ const Hero = () => {
             <img src={heroImg7} alt="heroImg8"/>
         </div>
         <div className='HeroLeft'>
-        {HeroSwitch===0&&<div className='Hero1'>
-            <p>Welcome to GL Marketplace <br/> Your Ultimate Online Shopping Destination!</p>
-            {/* <h2>Best Collections</h2> */}
-        </div>}
-        {HeroSwitch===1&&<div className='Hero2'>
-            <p>Welcome to GL Marketplace <br/> Your Ultimate Online Shopping Destination!</p>
-            {/* <h2>Best Deals</h2> */}
-        </div>}
-        {HeroSwitch===2&&<div className='Hero3'>
-            <p>Welcome to GL Marketplace <br/> Your Ultimate Online Shopping Destination!</p>
-            {/* <h2>Easy Shopping</h2> */}
-        </div>}
+       
+      <Hero3/>
         </div>
         <div className='HeroRight'>
             {/* <img src={heroImg5} alt="heroImg5"/> */}

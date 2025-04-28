@@ -43,7 +43,7 @@
 //     setIsSubmitting(true);
 
 //     try {
-//       const response = await axios.post("https://www.glmarketplace.ng/api/api4users/user_reset_password.php", {
+//       const response = await axios.post("https://dewisemattress.com/api/api4users/user_reset_password.php", {
 //         token: formData.token,
 //         password: formData.password
 //       });
@@ -187,7 +187,7 @@ const UserResetPassword = () => {
     setIsSubmitting(true);
 
     try {
-      const response = await axios.post("https://www.glmarketplace.ng/api/api4users/user_reset_password.php", {
+      const response = await axios.post("https://dewisemattress.com/api/api4users/user_reset_password.php", {
         token: formData.token,
         password: formData.password
       });

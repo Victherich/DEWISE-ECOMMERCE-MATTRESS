@@ -13,8 +13,8 @@
 }
 
 .PopularCategoriesWrap h1{
-    color: #FF550C;
-    text-align: center;
+    color: #000080;
+    text-align: center; 
 }
 
 
@@ -29,14 +29,14 @@
 }
 
 .PopularCategory{
-    width: 200px;
-    height: 200px;
+    width: 300px;
+    height: 300px;
     cursor: pointer;
     transform: scale(1);
     transition: 350ms;
 
     /* background-color: red; */
-    background-image: url("../Images/cat1.jpeg");
+    background-image: url("../Images3/z1.png");
     background-position: center;
     background-size: cover;
     display: flex;
@@ -44,6 +44,7 @@
     align-items: center;
     text-align: center;
     position: relative;
+    border: 1px solid blueviolet;
     
 }
 
@@ -52,23 +53,23 @@
     position: absolute;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.3);
+    /* background-color: rgba(0, 0, 0, 0.3); */
 }
 
 .PopularCategory:nth-child(2){
-    background-image:url("../Images/cat2.jpeg");
+    background-image:url("../Images3/z2.jpeg");
 }
 
 .PopularCategory:nth-child(3){
-    background-image:url("../Images/cat3.jpeg");
+    background-image:url("../Images3/z3.jpg");
 }
 
 .PopularCategory:nth-child(4){
-    background-image:url("../Images/foodmartimg.jpeg");
+    background-image:url("../Images3/z4.jpg");
 }
 
 .PopularCategory:nth-child(5){
-    background-image:url("../Images/cat4.jpeg");
+    background-image:url("../Images3/olivefoam.jpeg");
 }
 
 .PopularCategory:hover{

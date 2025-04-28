@@ -40,8 +40,15 @@ import ChristmasOverlay from './components/ChristmassWelcomeMessage.jsx';
 import { useState,useEffect } from 'react';
 import ChristmassImg from "./Images/ChristmassImg.png"
 import Footer from './components/Footer.jsx';
-
-
+import wp from './Images3/whatsapplogo.png'
+import PrivacyPolicyPage from './components/PrivacyPolicyPage.jsx';
+import ReferralPolicyPage from './components/ReferralPolicy.jsx';
+import TermsAndConditionsPage from './components/TermsAndConditions.jsx';
+import FooterInfo from './components/FooterInfo.jsx';
+import OrderTrackingPage from './components/TrackOrder.jsx';
+import Brands from './components/Brands.jsx';
+import Specials from './components/Specials.jsx';
+import ProductDetail2 from './components/ProductDetail2.jsx';
 
 function App() {
   const [showOverlay, setShowOverlay] = useState(true);
@@ -70,6 +77,7 @@ function App() {
       {/* <Route path="/subcategory" element={<SubCategoryPage/>}/> */}
       <Route path = "/productlistpage/:category" element ={<ProductListPage/>}/>
       <Route path="/productdetail/:productId" element={<ProductDetail/>}/> 
+      <Route path="/productdetail2/:productId" element={<ProductDetail2/>}/> 
       <Route path="/cartpage" element={<CartPage/>}/>
       {/* <Route path = "/ordersummarypage" element={<OrderSummaryPage/>}/> */}
       {/* <Route path="/userlogin" element={<UserLogin/>}/> */}
@@ -111,11 +119,19 @@ function App() {
 
         <Route path="/aboutus" element={<AboutUs/>}/>
         <Route path="/contactus" element={<ContactUs/>}/>
+        <Route path='/privacypolicy' element={<PrivacyPolicyPage/>}/>
+        <Route path='/referral' element={<ReferralPolicyPage/>}/>
+        <Route path='/termsandconditions' element={<TermsAndConditionsPage/>}/>
+        <Route path='/trackorder' element={<OrderTrackingPage/>}/>
+        <Route path='/brands' element={<Brands/>}/>
+        <Route path='/specials' element={<Specials/>}/>
 
     </Routes>
     {/* <FooterBanner/> */}
     {/* <img src={ChristmassImg} alt="Logo2" className='SideLogo2' /> */}
     <LiveChatWidget/>
+    <a><img src={wp} alt="logo" className="WhatsAppIcon" onClick={() => window.open("https://wa.me/2348061549031", "_blank")} /></a> 
+     <FooterInfo/>
     <Footer/>
     {/* <FooterUp/> */}
     {/* <FooterDown/> */}

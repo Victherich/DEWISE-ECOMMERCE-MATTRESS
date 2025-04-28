@@ -19,8 +19,8 @@ const PopularCategories = () => {
     <div className='PopularCategoriesWrap'>
         <h1>EXPLORE POPULAR CATEGORIES</h1>
         <div className='PopularCategories'>
-            {subCategories.slice(0,5).map((subCategory)=>(
-                 <div className='PopularCategory' onClick={()=>navigate(`/productlistpage/${subCategory.name}`)}><p>{subCategory.name}</p></div>
+            {subCategories.slice(0,4).map((subCategory)=>(
+                 <div className='PopularCategory' onClick={()=>navigate(`/productlistpage/${subCategory.name}`)}><p>{}</p></div>
     
             ))}
 </div>

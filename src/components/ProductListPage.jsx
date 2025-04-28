@@ -37,7 +37,7 @@
 
 //       try {
 //         // Example API call to get products by category
-//         const response = await axios.get(`https://www.glmarketplace.ng/api/get_products_by_category.php?category=${category}`);
+//         const response = await axios.get(`https://dewisemattress.com/api/get_products_by_category.php?category=${category}`);
 //         setProducts(response.data.products || []); // Assuming API returns products array
 //         console.log(response.data.products)
 //       } catch (error) {
@@ -84,7 +84,7 @@
 //           {products.length > 0 ? (
 //             products.map(product => (
 //               <div className='ProductCard' key={product.id}>
-//                 <img src={`https://www.glmarketplace.ng/api/uploads/${product.product_images[0]}`} 
+//                 <img src={`https://dewisemattress.com/api/uploads/${product.product_images[0]}`} 
 //                 alt={product.productName} 
 //                 onClick={() => navigate(`/productdetail/${product.id}`)}
 //                 style={{cursor:"pointer"}}/>
@@ -141,7 +141,7 @@ const ProductListPage = () => {
             setLoading(true);
             try {
                 const response = await axios.get(
-                    `https://www.glmarketplace.ng/api/get_products_by_category.php?category=${category}`
+                    `https://dewisemattress.com/api/get_products_by_category.php?category=${category}`
                 );
                 setProducts(response.data.products || []);
             } catch (error) {
@@ -196,12 +196,12 @@ const ProductListPage = () => {
                         >
                             <div className='CardUp'>
                                 <img
-                                    src={`https://www.glmarketplace.ng/api/uploads/${product.product_images[0]}`}
+                                    src={`https://dewisemattress.com/api/uploads/${product.product_images[0]}`}
                                     alt={product.product_name}
                                 />
                             </div>
                             <div className='CardDown'>
-                                <p>{product.product_name.slice(0, 13)}...</p>
+                                <p>{product.product_name.slice(0,50)}...</p>
                                 <span>₦ {new Intl.NumberFormat().format(product.price)}</span>
                                 {/* <button
                                     className='AddToCartButton'

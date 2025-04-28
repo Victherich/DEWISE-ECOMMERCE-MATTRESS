@@ -9,7 +9,7 @@
   
   .admin-profile-page h2{
     text-align: center;
-    color: #FF550C;
+    color: #000080;
   }
 
   .admin-profile-page p {
@@ -19,14 +19,14 @@
   .admin-profile-page button{
     padding: 5px;
     background-color: white;
-    color: #FF550C;
-    border: 1px solid #FF9003;
+    color: #000080;
+    border: 1px solid #000080;
     cursor: pointer;
     border-radius: 5px;
   }
   
   .admin-profile-page button:hover{
-    background-color: #FF9003;
+    background-color: #000080;
     color: white;
   }
 

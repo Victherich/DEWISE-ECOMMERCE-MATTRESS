@@ -21,7 +21,7 @@ const AdminSearchProduct = () => {
         Swal.showLoading();
 
         try {
-            const response = await axios.get(`https://www.glmarketplace.ng/api/get_products_by_name.php?searchTerm=${searchNameInput}`);
+            const response = await axios.get(`https://dewisemattress.com/api/get_products_by_name.php?searchTerm=${searchNameInput}`);
             setProducts(response.data.products);
             Swal.close();
         } catch (error) {
@@ -40,7 +40,7 @@ const AdminSearchProduct = () => {
         Swal.showLoading();
 
         try {
-            const response = await axios.get(`https://www.glmarketplace.ng/api/get_product_by_id.php?productId=${searchIdInput}`);
+            const response = await axios.get(`https://dewisemattress.com/api/get_product_by_id.php?productId=${searchIdInput}`);
             if(response.data.product){
                 setProducts([response.data.product]);
             }
@@ -66,7 +66,7 @@ const handleDeleteProduct = async (productId) => {
       if (result.isConfirmed) {
         Swal.fire({text:"Deleting..."})
         try {
-          const response = await axios.post('https://www.glmarketplace.ng/api/delete_product.php', 
+          const response = await axios.post('https://dewisemattress.com/api/delete_product.php', 
             { productId }, // Data being sent
             {
               headers: {
@@ -119,7 +119,7 @@ const handleDeleteProduct = async (productId) => {
                     products?.map(product => (
                         <div className="searchProduct-card" key={product.id}>
                             <img
-                                src={`https://www.glmarketplace.ng/api/uploads/${product.product_images[0]}`}
+                                src={`https://dewisemattress.com/api/uploads/${product.product_images[0]}`}
                                 alt={product.product_name}
                             />
                             <div className="searchProduct-info">
@@ -129,7 +129,7 @@ const handleDeleteProduct = async (productId) => {
                             </div>
                             <ActionButtons>
 
-                <DeleteButton style={{backgroundColor:"#FF9003"}} onClick={() => navigate(`/productdetail/${product.id}`)}>View</DeleteButton>
+                <DeleteButton style={{backgroundColor:"#000080"}} onClick={() => navigate(`/productdetail/${product.id}`)}>View</DeleteButton>
                 <DeleteButton onClick={() => handleDeleteProduct(product.id)}>Delete</DeleteButton>
               </ActionButtons>
                         </div>
@@ -153,13 +153,13 @@ const ActionButtons = styled.div`
 `;
 
 const DeleteButton = styled.button`
-  background-color: #ff4d4d;
+  background-color: #000080;
   color: white;
   border: none;
   padding: 5px 10px;
   border-radius: 5px;
   cursor: pointer;
   &:hover {
-    background-color: #e60000;
+    background-color:#000080;
   }
 `;

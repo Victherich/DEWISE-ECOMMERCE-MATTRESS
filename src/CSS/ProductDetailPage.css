@@ -294,7 +294,7 @@
   .product-info h1 {
     font-size: 1.5rem;
     margin-bottom: 10px;
-    color: #FF550C;
+    color: #000080;
   }
   
   .product-info span {
@@ -306,7 +306,7 @@
     font-size: 1.3rem;
     font-weight: 600;
     margin-bottom: 20px;
-    color: #FF550C;
+    color: #000080;
   }
   
   .buy-now, .add-to-cart {
@@ -316,7 +316,7 @@
   }
   
   .buy-now {
-    background-color:#FF9300;
+    background-color:#000080;
     color: white;
     border: none;
     transition: 350ms;
@@ -324,14 +324,14 @@
   }
 
   .buy-now:hover{
-    background-color: #FF550C;
+    background-color: gray;
   }
   
   .add-to-cart {
     background-color: none;
-    color:#FF9300;
+    color:#000080;
     font-weight: 600;
-    border: 1px solid #FF9300;
+    border: 1px solid #000080;
   }
   
   .wishlist-icon {
@@ -350,9 +350,9 @@
     width: 100%;
     gap: 10px;
     padding: 10px 20px;
-    color: #FF9300;
+    color: #000080;
     background-color:white;
-    border: 1px solid #FF9300;
+    border: 1px solid #000080;
     cursor: pointer;
     font-weight: 600;
   }

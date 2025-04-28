@@ -61,12 +61,12 @@
 
 .ProductCard{
     width:230px;
-    /* background-color: #F4F4F4; */
+
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    /* text-align: center; */
+ 
     
 }
 
@@ -76,7 +76,7 @@
 }
 
 .ProductCard p{
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     font-weight: bold;
     cursor: pointer;
     /* margin-bottom: 10px; */

@@ -1,16 +1,16 @@
-import React, { useContext, useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
-import '../CSS/OrderSummaryPage.css';
-import { Context } from './Context';
-import Swal from "sweetalert2"
-import { useDispatch } from 'react-redux';
-import PaystackPop from "@paystack/inline-js"
+
+
+import React, { useContext,useEffect, useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
 import { clearCart } from '../Features/Slice';
+import { Context } from './Context';
+import Swal from "sweetalert2";
+import PaystackPop from "@paystack/inline-js";
 import { useFlutterwave, closePaymentModal } from 'flutterwave-react-v3';
+import axios from 'axios';
 
-
+import '../CSS/OrderSummaryPage.css';
 
 const deliveryFees = {
     Abia: { Umuahia: 100, Aba: 100, Ohafia: 100, Arochukwu: 100 },
@@ -51,119 +51,88 @@ const deliveryFees = {
     Zamfara: { Gusau: 100, "Kaura Namoda": 100, "Talata Mafara": 100, Zaria: 100 },
     FCT: { Abuja: 100, Gwagwalada: 100, Kuje: 100, Bwari: 100 }
   };
-  
-  // console.log(deliveryFees);
-    
 
 const OrderSummaryPage = () => {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const userId = useSelector(state=>state.userInfo.id)
+
+  const userInfo = useSelector(state => state.userInfo);
+  const user = useSelector(state => state.DeliveryDetail);
+  // const cart = useSelector(state => state.cartItems);
+  const [cart, setCart]=useState([]);
+  console.log(cart);
 
 
 
-  const navigate = useNavigate()
-    const dispatch = useDispatch()
-    const userInfo = useSelector(state=>state.userInfo)
-  const user = useSelector((state) => state.DeliveryDetail);
-  const cart = useSelector((state) => state.cartItems);
-  
-  const {loading,setLoading,loading2,setLoading2,dashContent,setDashContent,userAllOrders,setUserAllOrders,
-    orderedList,setOrderedList,orderListPostUrl,orderSendEmailUrl
-  }=useContext(Context)
-  const {setAdminMenu}=useContext(Context)
+   // Fetch cart items when the component mounts
 
-  console.log(userInfo)
-  console.log(cart)
-
-  const calculateTotal = () => {
-    let total = cart.reduce((sum, item) => sum + item.price  * item.quantity, 0);
-    const deliveryFee = deliveryFees[user.state]?.[user.city] || 0;
-    return total + deliveryFee;
-  };
-
-  
-
-  
-  const createOrder = async (orderSummary) => {
-    const loadingAlert = Swal.fire({ text: "Processing your order..." });
-    Swal.showLoading();
-    
+   const fetchCartItems = async () => {
     try {
-      // Show a loading alert
-      
-  
-      // Make a POST request to the backend
-      const response = await axios.post('https://www.glmarketplace.ng/api/api4users/create_order.php', orderSummary);
-      
-      
-      Swal.fire({
-        icon: 'success',
-        title: 'Order Placed Successfully!',
-        text: 'Your order has been confirmed. You will receive an email with the order details.',
-        allowOutsideClick:false,
-    }).then((result) => {
-        if (result.isConfirmed) {
-            navigate('/userdashboard');
-            setAdminMenu(1)
-        }
-    });     
-
-      // Handle success response
+      const response = await axios.get(`https://dewisemattress.com/api/api4users/get_user_cart.php?user_id=${userId}`);
       if (response.data.success) {
-        
-        
-        // Clear the cart in Redux
-        dispatch(clearCart());
-  
-        // Navigate back to homepage or order confirmation page
+        setCart(response.data.cart_items); // Set the cart items in state
+        console.log(response.data)
         
       } else {
-        Swal.fire({
-          icon: 'error',
-          title: 'Order Failed',
-          text: response.data.error || 'An error occurred while processing your order.',
-        });
+        // setError('No items found in the cart.');
       }
-    } catch (error) {
-      console.error('Error creating order:', error);
-      Swal.fire({
-        icon: 'error',
-        title: 'Error',
-        text: 'An error occurred while processing your order. Please try again later.',
-      });
+    } catch (err) {
+      // setError('Failed to fetch cart items.');
+      console.error(err);
     } finally {
-      // Close the loading alert
-    //   Swal.close();
-    loadingAlert.close();
+      // setLoading(false); // Set loading to false once the request is complete
     }
   };
-  
 
 
-
-  const generateOrderRef = () => {
-    return 'ORD-' + Date.now() + '-' + Math.floor(Math.random() * 10000);
+  useEffect(() => { 
+  fetchCartItems(); // Call the function to fetch data
+  // Clean up the effect if needed (optional)
+  return () => {
+    // Any cleanup logic here if required
   };
+}, [userId]);
 
-  const [isChecked,setIsChecked]=useState(false)
+
+
+
+
+  const {
+    setAdminMenu,
+    orderSendEmailUrl
+  } = useContext(Context);
+
+  const [isChecked, setIsChecked] = useState(false);
+
   const email = user.email;
-  const amount= calculateTotal();
-  const firstname=user.firstName
-  const lastname= user.lastName
+  const amount = calculateTotal();
+  const firstname = user.firstName;
+  const lastname = user.lastName;
 
-  const deliveryCharge = new Intl.NumberFormat().format(deliveryFees[user.state]?.[user.city] || 0)
+  function calculateTotal() {
+    return cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+  }
+
+  function generateOrderRef() {
+    return 'ORD-' + Date.now() + '-' + Math.floor(Math.random() * 10000);
+  }
+
+  function getCurrentDateTime() {
+    const now = new Date();
+    const offset = now.getTimezoneOffset() * 60000;
+    return new Date(now.getTime() - offset).toISOString().slice(0, 19).replace("T", " ");
+  }
 
 
-const handleOrderNow2 = async (reference) => {
-    const getCurrentDateTime = () => {
-      const now = new Date();
-      const offset = now.getTimezoneOffset() * 60000;
-      const localTime = new Date(now.getTime() - offset);
-      return localTime.toISOString().slice(0, 19).replace("T", " ");
-    };
   
+  async function createOrder(reference) {
+    const loadingAlert = Swal.fire({ text: "Processing your order..." });
+    Swal.showLoading();
+
     const orderSummary = {
       userId: userInfo.id,
       date: getCurrentDateTime(),
-      deliveryCharge: Number(deliveryCharge.replace(/,/g, '')), // unformatted delivery charge
       transactionRef: reference,
       orderRef: generateOrderRef(),
       firstName: user.firstName,
@@ -174,251 +143,135 @@ const handleOrderNow2 = async (reference) => {
       state: user.state,
       city: user.city,
       cartItems: cart.map(item => ({
-        imageUrl: `https://www.glmarketplace.ng/api/uploads/${item.image}`,
-        productName: item.productName,
+        imageUrl: `https://dewisemattress.com/api/uploads/${item.image}`,
+        productName: item.product_name,
         quantity: item.quantity,
-        price: item.price, // raw price, without formatting
-        productId:item.id,
+        price: item.price,
+        productId: item.product_id
       })),
-      total: calculateTotal() // unformatted total amount
+      total: calculateTotal()
     };
-  
-    console.log(orderSummary);
-    createOrder(orderSummary);
-  
+
     try {
-      const response = await axios.post(`${orderSendEmailUrl}`, {
-        buyerEmail: user.email,
-        sellerEmail: 'heovincom@glmarketplace.ng',
-        orderSummary: JSON.stringify(orderSummary, null, 2)
-      });
-  
-      if (response.status === 200) {
-        // Swal.fire({ icon: "success", text: "Order confirmed, Please check your email for details" });
+      const response = await axios.post('https://dewisemattress.com/api/api4users/create_order.php', orderSummary);
+
+      if (response.data.success) {
+        Swal.fire({
+          icon: 'success',
+          title: 'Order Placed Successfully!',
+          text: 'You will receive an email with the order details.',
+          allowOutsideClick: false,
+        }).then(result => {
+          if (result.isConfirmed) {
+            navigate('/userdashboard');
+            setAdminMenu(1);
+          }
+        });
+
+        dispatch(clearCart());
       } else {
-        // Swal.fire({ icon: "error", text: "Failed to send order summary." });
+        Swal.fire({
+          icon: 'error',
+          title: 'Order Failed',
+          text: response.data.error || 'An error occurred while processing your order.',
+        });
       }
     } catch (error) {
-      console.error(error);
-    //   Swal.fire({ icon: "error", text: "An error occurred while sending the order summary." });
+      Swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: 'An error occurred while processing your order. Please try again later.',
+      });
+    } finally {
+      loadingAlert.close();
     }
-  };
-  
+  }
 
-
-
-
-  const handleOrderNow = () => {
-    // handleLoading();
-    if (isChecked) {
-    //   handleOrderNow3()
-    } else {
-      payWithPaystack();
-    }
-  };
-
- 
-
-
-
-  // const payWithPaystack = () => {
-  //   const paystack = new PaystackPop();
-  //   paystack.newTransaction({
-  //     key: "pk_test_60e1f53bba7c80b60029bf611a26a66a9a22d4e4",
-  //     amount: amount * 100,
-  //     email: email,
-  //     firstname: firstname,
-  //     lastname: lastname,
-  //     onSuccess: (transaction) => {
-
-  //       Swal.fire({ icon: "success", text: "Payment successful!", showConfirmButton: true,timer:2000 });
-  
-  //       handleOrderNow2(transaction.reference)
-        
-  //     },
-  //     onCancel: () => {
-  //       // handle payment cancellation
-  //       Swal.fire({ icon: "error", text: "Payment cancelled.", showConfirmButton: true });
-  //     },
-  //     onError: (error) => {
-  //       // handle payment errors
-  //       Swal.fire({ icon: "error", text: `Payment failed: ${error.message}`, showConfirmButton: true });
-  //     }
-  //   });
-  // };
-
-  const payWithPaystack = () => {
+  function payWithPaystack() {
     const paystack = new PaystackPop();
-  
+
     paystack.newTransaction({
       key: "pk_test_60e1f53bba7c80b60029bf611a26a66a9a22d4e4",
-      amount: amount * 100, // Amount in kobo
-      email: email,
-      firstname: firstname,
-      lastname: lastname,
+      // key: "pk_live_951c991a9d895dd08017bf11d39c944e6617bd86",
+      amount: amount * 100,
+      email,
+      firstname,
+      lastname,
       onSuccess: (transaction) => {
-        Swal.fire({
-          icon: "success",
-          text: "Payment successful!",
-          showConfirmButton: true,
-          timer: 2000,
-        });
-        handleOrderNow2(transaction.reference);
+        Swal.fire({ icon: "success", text: "Payment successful!", timer: 2000 });
+        createOrder(transaction.reference);
       },
       onCancel: () => {
-        Swal.fire({
-          icon: "error",
-          text: "Payment cancelled.",
-          showConfirmButton: true,
-        });
+        Swal.fire({ icon: "error", text: "Payment cancelled." });
       },
       onError: (error) => {
-        Swal.fire({
-          icon: "error",
-          text: `Payment failed: ${error.message}`,
-          showConfirmButton: true,
-        });
+        Swal.fire({ icon: "error", text: `Payment failed: ${error.message}` });
       },
     });
-  };
-  
-  
+  }
 
-const [currencyOption,setCurrencyOption]=useState("")
-
-
-
-
-// const payWithFlutterWave = () => {
-//   const config = {
-//     public_key: "FLWPUBK_TEST-3f4052d4a8b6e027b460756652b193df-X",
-//     tx_ref: generateOrderRef(),
-//     amount: amount, 
-//     currency: 'USD',
-//     payment_options: 'card,banktransfer',
-//     customer: {
-//       email: email,
-//       name: `${firstname} ${lastname}`,
-//     },
-//     customizations: {
-//       title: 'Heovin.com',
-//       description: 'Payment for items in cart',
-//     },
-//     callback: (data) => {
-//       if (data.status === "successful") {
-//         Swal.fire({ icon: "success", text: "Payment successful!" });
-//         handleOrderNow2(data.transaction_id);
-//       } else {
-//         Swal.fire({ icon: "error", text: "Payment failed, try again!" });
-//       }
-//       closePaymentModal(); // close modal programmatically
-//     },
-//     onClose: () => {
-//       Swal.fire({ icon: "error", text: "Payment cancelled!" });
-//     }
-//   };
-
-//   const handleFlutterPayment = useFlutterwave(config);
-//   handleFlutterPayment({
-//     callback: (response) => {
-//       if (response.status === "successful") {
-//         Swal.fire({ icon: "success", text: "Payment successful!" });
-//         handleOrderNow2(response.transaction_id);
-//       }
-//       closePaymentModal(); 
-//     },
-//     onClose: () => Swal.fire({ icon: "error", text: "Payment cancelled." }),
-//   });
-// };
-
- // Move the useFlutterwave hook into the component
- 
- 
- 
- const flutterwaveConfig = {
-  public_key: "FLWPUBK_TEST-3f4052d4a8b6e027b460756652b193df-X",
-  tx_ref: generateOrderRef(),
-  amount: amount,
-  currency: 'USD',
-  payment_options: 'card,banktransfer',
-  customer: {
-    email: email,
-    name: `${firstname} ${lastname}`,
-  },
-  customizations: {
-    title: 'Heovin.com',
-    description: 'Payment for items in cart',
-  },
-};
-
-const handleFlutterPayment = useFlutterwave(flutterwaveConfig);
-
-const payWithFlutterWave = () => {
-  handleFlutterPayment({
-    callback: (response) => {
-      if (response.status === "successful") {
-        Swal.fire({ icon: "success", text: "Payment successful!" });
-        handleOrderNow2(response.transaction_id);
-      }
-      closePaymentModal();
+  const flutterwaveConfig = {
+    public_key: "FLWPUBK_TEST-3f4052d4a8b6e027b460756652b193df-X",
+    tx_ref: generateOrderRef(),
+    amount,
+    currency: 'USD',
+    payment_options: 'card,banktransfer',
+    customer: { email, name: `${firstname} ${lastname}` },
+    customizations: {
+      title: 'Heovin.com',
+      description: 'Payment for items in cart',
     },
-    onClose: () => Swal.fire({ icon: "error", text: "Payment cancelled." }),
-  });
-};
+  };
 
+  const handleFlutterPayment = useFlutterwave(flutterwaveConfig);
+
+  const payWithFlutterWave = () => {
+    handleFlutterPayment({
+      callback: (response) => {
+        if (response.status === "successful") {
+          Swal.fire({ icon: "success", text: "Payment successful!" });
+          createOrder(response.transaction_id);
+        }
+        closePaymentModal();
+      },
+      onClose: () => Swal.fire({ icon: "error", text: "Payment cancelled." }),
+    });
+  };
 
   return (
     <div className="order-summary">
       <h2>Order Summary</h2>
+
       <div className="user-info">
         <h3>Delivery Information</h3>
-        <p><strong>First Name:</strong> {user.firstName}</p>
-        <p><strong>Last Name:</strong> {user.lastName}</p>
-        <p><strong>Phone:</strong> {user.phone}</p>
-        <p><strong>Email:</strong> {user.email}</p>
-        <p><strong>Address:</strong> {user.address}</p>
-        <p><strong>State:</strong> {user.state}</p>
-        <p><strong>City:</strong> {user.city}</p>
+        {["firstName", "lastName", "phone", "email", "address", "state", "city"].map(key => (
+          <p key={key}><strong>{key.replace(/([A-Z])/g, ' $1')}: </strong>{user[key]}</p>
+        ))}
       </div>
+
       <div className="cart-info">
         <h3>Cart Items</h3>
         <ul>
           {cart.map((item, index) => (
             <li key={index}>
-                <img src={`https://www.glmarketplace.ng/api/uploads/${item.image}`} alt="summaryImage"/>
-              <p>{item.productName} - {item.quantity} x ₦ {new Intl.NumberFormat().format(item.price)}</p>
-              <p style={{fontSize:"0.7rem"}}>Product ID: {item.id}</p>
+              <img src={`https://dewisemattress.com/api/uploads/${item.image}`} alt="summaryImage" />
+              <p>{item.product_name} - {item.quantity} x ₦ {new Intl.NumberFormat().format(item.price)}</p>
+              {/* <p style={{ fontSize: "0.7rem" }}>Product ID: {item.product_id}</p> */}
             </li>
           ))}
         </ul>
       </div>
+
       <div className="total-info">
         <h3>Total</h3>
-        <p><strong>Subtotal:</strong> ₦ {new Intl.NumberFormat().format(cart.reduce((sum, item) => sum + item.price * item.quantity, 0))}</p>
-        <p><strong>Delivery Fee:</strong> ₦ {new Intl.NumberFormat().format(deliveryFees[user.state]?.[user.city] || 0)}</p>
-        <p><strong>Grand Total:</strong> ₦ {new Intl.NumberFormat().format(calculateTotal())}</p>
+        <p><strong>Subtotal:</strong> ₦ {new Intl.NumberFormat().format(amount)}</p>
+        <p><strong>Grand Total:</strong> ₦ {new Intl.NumberFormat().format(amount)}</p>
       </div>
-      {/* <div className='CheckBoxWrap'><input type="checkbox" isChecked={isChecked} onClick={()=>setIsChecked(!isChecked)}/> <p>Payment on delivery</p></div>       */}
-{/* {isChecked?<button onClick={handleOrderNow}>Order Now</button> */}
 
-
-
-
-{/* <select className='OrderSummaryPageSelect' onChange={(e)=>setCurrencyOption(e.target.value)}>
-  <option >--Select Currency in which you want to pay and click "pay now"--</option>
-  <option value="naira">Naira</option>
-  <option value="usd">USD</option>
-</select> */}
-
-<button type="button" onClick={payWithPaystack}>Pay Now</button>
-{/* {currencyOption==="usd"&&<button type="button" onClick={payWithFlutterWave}>Pay Now</button>} */}
-    
+      <button type="button" onClick={payWithPaystack}>Pay Now</button>
     </div>
-
   );
 };
 
 export default OrderSummaryPage;
-
-
 

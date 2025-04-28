@@ -3,6 +3,7 @@ import '../CSS/Footer.css';
 import {Link, useLocation, useNavigate} from 'react-router-dom'
 import { FaCcMastercard, FaCcVisa, FaFacebook, FaInstagram, FaNetworkWired, FaTwitter, FaWeebly, FaWeibo, FaWindowRestore } from 'react-icons/fa';
 import { Context } from './Context';
+import logo from '../Images3/logo.jpeg'
 
 const Footer = () => {
   const location = useLocation()
@@ -18,17 +19,26 @@ const navigate = useNavigate();
         <div className="footer-contact">
           <h2></h2>
      
-          <FaWeibo/>
+          <img src={logo} alt='logo'/>
 
-          <h4>GL MARKETPLACE</h4>
-          <p>Email: support@glmarketplace.ng</p>
-          <p>Phone: +234 81234567 </p>
+          <h4 style={{marginTop:"10px"}}>DEWISE MATTRESS</h4>
+          <p style={{fontSize:"0.8rem"}}>
+          EZEKEN & ASSOCIATES INVESTMENT<br/> NIG. LIMITED is one of the Top distributor<br/> of uni-foam since year 2010.Registered <br/>in 28 Apr 2014 and started commercially<br/> in Lagos state Nigerian
+          We specialize in<br/> distributing mattress round lagos state<br/> and we assure attractive design,quality <br/>and variety.Our commitment to constantly<br/> upgrade ourselves with the latest technology<br/> and it enables us to standout in the market<br/> with a class and dignity.
+          </p>
+          <p>Email: contact@dewisemattress.com</p>
+          <p>Phone: +234 806 154 9031 </p>
         </div>
         <div className="footer-links">
           <h4>Quick Links</h4>
           <Link to={"/"} className="footer-link">Home</Link>
           <Link to={"/aboutus"} className="footer-link">About us</Link>
           <Link to={"/contactus"} className="footer-link">Contact us</Link>
+          <Link to={"/privacypolicy"} className="footer-link">Privacy Policy</Link>
+          <Link to={'/termsandconditions'} className="footer-link">Terms and Conditions</Link>
+          <Link to={"/referral"} className="footer-link">Referral</Link>
+          <Link to={"/brands"} className="footer-link">Brands</Link>
+          <Link to={"/specials"} className="footer-link">Specials</Link>
        
         </div>
 
@@ -50,9 +60,10 @@ const navigate = useNavigate();
           </ul>
         </div>
         <div className="footer-social">
-          <a href="https://facebook.com" className="social-link"><FaFacebook/></a>
-          <a href="https://twitter.com" className="social-link"><FaTwitter/></a>
-          <a href="https://instagram.com" className="social-link"><FaInstagram/></a>
+          <h4>Socials</h4>
+          <a href="https://web.facebook.com/profile.php?id=61550544209616" target="_blank" className="social-link"><FaFacebook/></a>
+        
+          <a href="https://www.instagram.com/dewise.mattress/?utm_source=qr&igshid=NGExMmI2YTkyZg%3D%3D" target="_blank" className="social-link"><FaInstagram/></a>
         </div>
       </div>
     </footer>

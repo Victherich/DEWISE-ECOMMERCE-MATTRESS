@@ -102,7 +102,7 @@ import { useNavigate } from 'react-router-dom';
 
     return (
       <div className="delivery-form-container">
-        <h1>DELIVERY INFORMATION</h1>
+        <h1>CUSTOMER INFORMATION</h1>
         <form className="delivery-form" onSubmit={handleSubmit}>
           <label>
             First Name:
@@ -176,7 +176,7 @@ import { useNavigate } from 'react-router-dom';
               ))}
             </select>
           </label>
-          <button style={{backgroundColor:"#FF9003",
+          <button style={{backgroundColor:"#000080",
           color:"white",
           border:"none",
           borderRadius:"5px",

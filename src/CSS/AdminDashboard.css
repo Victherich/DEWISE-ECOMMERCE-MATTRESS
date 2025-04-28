@@ -1,4 +1,4 @@
-.AdminDashboard{
+  .AdminDashboard{
     display: flex;
     justify-content: center;
     /* align-items: center; */
@@ -12,7 +12,7 @@
 
   .AdminDashboardMenu{
     width: 30%;
-    background-color: rgba(255, 166, 0, 0.2);
+    background-color: #e2e2ff;
     /* background-color: lightgray; */
     padding: 10px;
     display: flex;
@@ -27,7 +27,7 @@
 
   .AdminDashboardMenuP{
     cursor: pointer;
-    color: orangered;
+    color: #000080;
     font-weight: 500;
     /* text-decoration: underline; */
     padding: 5px 10px;
@@ -37,7 +37,7 @@
   .AdminDashboardMenuPActive{
     cursor: pointer;
     color: white;
-    background-color: #FF9300; 
+    background-color: #000080; 
     /* font-weight: 500; */
     /* text-decoration: underline; */
     padding: 5px 10px;

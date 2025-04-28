@@ -93,7 +93,7 @@
 //         },
 //       });
 
-//       const response = await axios.post('https://www.glmarketplace.ng/api/upload_product.php', formData);
+//       const response = await axios.post('https://dewisemattress.com/api/upload_product.php', formData);
 //       if (response.data.success) {
 //         Swal.fire('Success', response.data.message, 'success');
 //         setCurrentView('storeinfo'); 
@@ -393,7 +393,7 @@ function UploadProduct({setAdminMenu}) {
         },
       });
   
-      const response = await axios.post('https://www.glmarketplace.ng/api/upload_product.php', formData, {
+      const response = await axios.post('https://dewisemattress.com/api/upload_product.php', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
@@ -419,7 +419,7 @@ function UploadProduct({setAdminMenu}) {
 
   return (
     <UploadFormWrap>
-      <h2 style={{textAlign:"center",color:"#FF550C"}}>Upload Product</h2>
+      <h2 style={{textAlign:"center",color:"#000080"}}>Upload Product</h2>
       <UploadForm onSubmit={handleSubmit}>
         <Input type="text" name="productName" placeholder="Product Name" onChange={handleInputChange} />
         <Input type="text" name="description" placeholder="Description" onChange={handleInputChange} />
@@ -493,7 +493,7 @@ const Select = styled.select`
 `;
 
 const SubmitButton = styled.button`
-  background-color: #FF9003;
+  background-color: #000080;
   color: white;
   padding: 10px;
   border: none;

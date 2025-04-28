@@ -36,7 +36,7 @@ const AdminLogin = () => {
     setIsSubmitting(true);
 
     try {
-      const response = await axios.post('https://www.glmarketplace.ng/api/admin_login.php', formData, {
+      const response = await axios.post('https://dewisemattress.com/api/admin_login.php', formData, {
         headers: {
           'Content-Type': 'application/json',
         },

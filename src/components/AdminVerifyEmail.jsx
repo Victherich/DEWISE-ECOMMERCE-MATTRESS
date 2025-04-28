@@ -20,7 +20,7 @@ const AdminVerifyEmail = () => {
           }
         });
 
-        const response = await axios.post('https://www.glmarketplace.ng/api/admin_verify_email.php', { token });
+        const response = await axios.post('https://dewisemattress.com/api/admin_verify_email.php', { token });
 
         Swal.close();
         Swal.fire({icon:"success",timer:2000})

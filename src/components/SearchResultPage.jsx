@@ -32,7 +32,7 @@
 //       setLoading(true);
 //       try {
 //         // Example API call to get products by category
-//         const response = await axios.get(`https://www.glmarketplace.ng/api/get_products_by_category.php?category=${category}`);
+//         const response = await axios.get(`https://dewisemattress.com/api/get_products_by_category.php?category=${category}`);
 //         setProducts(response.data.products || []); // Assuming API returns products array
 //         console.log(response.data.products)
 //       } catch (error) {
@@ -79,7 +79,7 @@
 //           {products.length > 0 ? (
 //             products.map(product => (
 //               <div className='ProductCard' key={product.id}>
-//                 <img src={`https://www.glmarketplace.ng/api/uploads/${product.product_images[0]}`} alt={product.productName} />
+//                 <img src={`https://dewisemattress.com/api/uploads/${product.product_images[0]}`} alt={product.productName} />
 //                 <div className='ProductTextWrap'>
 //                   <p onClick={() => navigate(`/productdetail/${product.id}`)}>
 //                     {product.product_name}
@@ -159,7 +159,7 @@
 //                         products.map(product => (
 //                             <div className='ProductCard' key={product.id}>
 //                                 <img 
-//                                 src={`https://www.glmarketplace.ng/api/uploads/${product.product_images[0]}`} 
+//                                 src={`https://dewisemattress.com/api/uploads/${product.product_images[0]}`} 
 //                                 alt={product.product_name} 
 //                                 onClick={() => navigate(`/productdetail/${product.id}`)}
 //                                 />
@@ -251,7 +251,7 @@ const SearchResultPage = () => {
                         >
                             <div className='CardUp'>
                                 <img
-                                    src={`https://www.glmarketplace.ng/api/uploads/${product.product_images[0]}`}
+                                    src={`https://dewisemattress.com/api/uploads/${product.product_images[0]}`}
                                     alt={product.product_name}
                                 />
                             </div>

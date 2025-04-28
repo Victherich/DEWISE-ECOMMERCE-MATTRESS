@@ -19,7 +19,7 @@ const UserProfile = () => {
     const loadingAlert = Swal.fire({title:"Updating phone number..."})
     Swal.showLoading()
     try {
-      const response = await axios.post('https://www.glmarketplace.ng/api/api4users/user_update_phone.php', {
+      const response = await axios.post('https://dewisemattress.com/api/api4users/user_update_phone.php', {
         email: userInfo.email, // Assuming email is stored in adminInfo
         phoneNumber: phone
       });
@@ -60,9 +60,9 @@ const UserProfile = () => {
   return (
     <div className="admin-profile-page">
       <h2>User Information</h2>
-      <p><strong style={{color:"#FF550C"}}>Name:</strong> {userInfo.full_name}</p>
-      <p><strong style={{color:"#FF550C"}}>Email:</strong> {userInfo.email}</p>
-      <p><strong style={{color:"#FF550C"}}>Phone:</strong> {userInfo.phone_number}</p>
+      <p><strong style={{color:"#000080"}}>Name:</strong> {userInfo.full_name}</p>
+      <p><strong style={{color:"#000080"}}>Email:</strong> {userInfo.email}</p>
+      <p><strong style={{color:"#000080"}}>Phone:</strong> {userInfo.phone_number}</p>
       <button onClick={() => setEditModal(!editModal)}>Edit Phone number</button>
       {editModal && (
         <div className='admin-profile-edit-modal'>

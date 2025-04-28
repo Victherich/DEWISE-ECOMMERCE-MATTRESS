@@ -29,7 +29,7 @@
 //       });
 
 //       try {
-//         const response = await axios.get(`https://www.glmarketplace.ng/api/get_product_by_id.php?productId=${productId}`);
+//         const response = await axios.get(`https://dewisemattress.com/api/get_product_by_id.php?productId=${productId}`);
 //         if (response.data.success) {
 //           setProduct(response.data.product);
 //           Swal.close(); // Close the Swal loading
@@ -63,12 +63,12 @@
 //           {/* Product Images */}
 //           <div className='ProductDetailPageLeft'>
 //             {product.product_images.map((image, index) => (
-//               <img key={index} src={`https://www.glmarketplace.ng/api/uploads/${image}`} alt={`Product image ${index}`}   onClick={()=>setImageIndex(index)} />
+//               <img key={index} src={`https://dewisemattress.com/api/uploads/${image}`} alt={`Product image ${index}`}   onClick={()=>setImageIndex(index)} />
 //             ))}
 //           </div>
 
 //           <div className='ProductDetailPageMid'>
-//             <img src={`https://www.glmarketplace.ng/api/uploads/${product.product_images[imageIndex]}`} alt="Main Product" />
+//             <img src={`https://dewisemattress.com/api/uploads/${product.product_images[imageIndex]}`} alt="Main Product" />
 //           </div>
 
 //           <div className='ProductDetailPageRight'>
@@ -148,7 +148,7 @@
 //       });
 
 //       try {
-//         const response = await axios.get(`https://www.glmarketplace.ng/api/get_product_by_id.php?productId=${productId}`);
+//         const response = await axios.get(`https://dewisemattress.com/api/get_product_by_id.php?productId=${productId}`);
 //         if (response.data.success) {
 //           setProduct(response.data.product);
 //           Swal.close();
@@ -193,7 +193,7 @@
 //           {product.product_images.map((image, index) => (
 //             <img
 //               key={index}
-//               src={`https://www.glmarketplace.ng/api/uploads/${image}`}
+//               src={`https://dewisemattress.com/api/uploads/${image}`}
 //               alt={`Product image ${index}`}
 //               onClick={() => setImageIndex(index)}
 //             />
@@ -201,7 +201,7 @@
 //         </div>
 
 //         <div className='ProductDetailPageMid'>
-//           <img src={`https://www.glmarketplace.ng/api/uploads/${product.product_images[imageIndex]}`} alt="Main Product" />
+//           <img src={`https://dewisemattress.com/api/uploads/${product.product_images[imageIndex]}`} alt="Main Product" />
 //         </div>
 
 //         <div className='ProductDetailPageRight'>
@@ -269,7 +269,7 @@ const ProductDetail = () => {
       });
 
       try {
-        const response = await axios.get(`https://www.glmarketplace.ng/api/get_product_by_id.php?productId=${productId}`);
+        const response = await axios.get(`https://dewisemattress.com/api/get_product_by_id.php?productId=${productId}`);
         if (response.data.success) {
           setProduct(response.data.product);
           Swal.close();
@@ -289,7 +289,7 @@ const ProductDetail = () => {
   const handleAddToCart = () => {
     const cartItem = {
       id: product.id,
-      productName: product.product_name,
+      productName: product.product_name ,
       price: product.price,
       quantity,
       image: product.product_images[0],
@@ -311,7 +311,7 @@ const ProductDetail = () => {
       <div className="product-detail">
         <div className="image-gallery">
           <img
-            src={`https://www.glmarketplace.ng/api/uploads/${product.product_images[imageIndex]}`}
+            src={`https://dewisemattress.com/api/uploads/${product.product_images[imageIndex]}`}
             alt="Product"
             className="main-image"
           />
@@ -319,7 +319,7 @@ const ProductDetail = () => {
             {product.product_images.map((image, index) => (
               <img
                 key={index}
-                src={`https://www.glmarketplace.ng/api/uploads/${image}`}
+                src={`https://dewisemattress.com/api/uploads/${image}`}
                 alt={`Thumbnail ${index}`}
                 className={imageIndex === index ? "thumbnail-imageActive" : "thumbnail-image"}
                 onClick={() => setImageIndex(index)}

@@ -12,7 +12,7 @@ const UserOrders = () => {
     useEffect(() => {
         const fetchOrders = async () => {
             try {
-                const response = await axios.get(`https://www.glmarketplace.ng/api/api4users/get_user_orders.php?userId=${userId}`);
+                const response = await axios.get(`https://dewisemattress.com/api/api4users/get_user_orders.php?userId=${userId}`);
 
                 console.log(response.data); // Debugging line
                 if (response.data.success) {
@@ -41,18 +41,18 @@ const UserOrders = () => {
 
     return (
         <div className="orders-container">
-            <h2 style={{color:"#FF550C"}}>Your Orders</h2>
+            <h2 style={{color:"#000080"}}>Your Orders</h2>
             {orders.length === 0 ? (
                 <p>No orders found.</p>
             ) : (
                 <div className="orders-list">
                     {orders.map(order => (
                         <div key={order.order_ref} className="order-card">
-                            <h3 style={{color:"#FF550C"}}>Order Ref: {order.order_ref}</h3>
+                            <h3 style={{color:"#000080"}}>Order Ref: {order.order_ref}</h3>
                             <p>Transaction Ref: {order.transaction_ref}</p>
                             <p>Date: {new Date(order.order_date).toLocaleString()}</p>
                             <p>Total: ₦{order.total}</p>
-                            <p>Delivery Charge: ₦{order.delivery_charge}</p>
+                            {/* <p>Delivery Charge: ₦{order.delivery_charge}</p> */}
                             <div className="order-items">
                                 {order.items.map(item => (
                                     <div key={item.product_id} className="order-item">

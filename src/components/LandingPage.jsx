@@ -12,6 +12,8 @@ import ProductListPageLanding from './ProductlistPageLanding'
 import ProductListPageDeals from './ProductListPageDeals'
 import PopularCategories from './PopularCategories'
 import PopularCategories2 from './PopularCategories2'
+import ProductSlider from './productSlider'
+import ProductSlider2 from './productSlider2'
 
 const LandingPage = () => {
   return (
@@ -19,7 +21,9 @@ const LandingPage = () => {
       <Hero/>
       <PopularCategories/>
       <ProductListPageLanding/>
-      <PopularCategories2/>
+      {/* <PopularCategories2/> */}
+      <ProductSlider/>
+      <ProductSlider2/>
       <ProductListPageDeals/>
       
       
