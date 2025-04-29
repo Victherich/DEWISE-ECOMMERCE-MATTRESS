@@ -22,7 +22,7 @@ const ProductDetail2 = () => {
   const navigate = useNavigate();
 
   const dispatch = useDispatch(); // To dispatch actions
-  const { featuredProducts } = useContext(Context); // Context holding featured products
+  const { featuredProducts, fetchCartItems } = useContext(Context); // Context holding featured products
 
   // Fetch product details based on productId
   useEffect(() => {
@@ -101,6 +101,7 @@ if(userInfo===null){
   
       if (data.success) {
         Swal.fire('Success', 'Product added to cart', 'success');
+        fetchCartItems();
       } else {
         Swal.fire('Error', data.error || 'Something went wrong', 'error');
       }

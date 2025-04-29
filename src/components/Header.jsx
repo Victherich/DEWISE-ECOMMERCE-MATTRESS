@@ -283,22 +283,20 @@ import axios from 'axios';
 import logo from '../Images3/logo.jpeg'
 
 
+
 const Header = () => {
-  const cart = useSelector((state) => state.cartItems);
+  // const cart = useSelector((state) => state.cartItems);
   const wishlist = useSelector((state) => state.wishlist); // If used
   const userInfo = useSelector((state) => state.userInfo);
+  const userId = userInfo?.id
   const navigate = useNavigate();
-  const { mobileMenuSwitch, setMobileMenuSwitch, setSearchArray, subCategories } = useContext(Context);
+  const { mobileMenuSwitch, setMobileMenuSwitch, setSearchArray, subCategories , cart, totalQty} = useContext(Context);
   const sideMenuRef = useRef(null);
   // console.log(userInfo)
 
-  const [totalQty, setTotalQty] = useState(0);
 
-  // Calculate cart total quantity
-  useEffect(() => {
-    const totalItems = cart.reduce((acc, item) => acc + item.quantity, 0);
-    setTotalQty(totalItems);
-  }, [cart]);
+
+  
 
   // Handle click outside of menu
   useEffect(() => {

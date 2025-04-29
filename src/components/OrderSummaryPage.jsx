@@ -56,6 +56,7 @@ const OrderSummaryPage = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const userId = useSelector(state=>state.userInfo.id)
+  const {fetchCartItems, setTotalQty}=useContext(Context);
 
   const userInfo = useSelector(state => state.userInfo);
   const user = useSelector(state => state.DeliveryDetail);
@@ -67,7 +68,7 @@ const OrderSummaryPage = () => {
 
    // Fetch cart items when the component mounts
 
-   const fetchCartItems = async () => {
+   const fetchCartItems2 = async () => {
     try {
       const response = await axios.get(`https://dewisemattress.com/api/api4users/get_user_cart.php?user_id=${userId}`);
       if (response.data.success) {
@@ -87,7 +88,7 @@ const OrderSummaryPage = () => {
 
 
   useEffect(() => { 
-  fetchCartItems(); // Call the function to fetch data
+  fetchCartItems2(); // Call the function to fetch data
   // Clean up the effect if needed (optional)
   return () => {
     // Any cleanup logic here if required
@@ -156,6 +157,7 @@ const OrderSummaryPage = () => {
       const response = await axios.post('https://dewisemattress.com/api/api4users/create_order.php', orderSummary);
 
       if (response.data.success) {
+        
         Swal.fire({
           icon: 'success',
           title: 'Order Placed Successfully!',
@@ -163,12 +165,13 @@ const OrderSummaryPage = () => {
           allowOutsideClick: false,
         }).then(result => {
           if (result.isConfirmed) {
-            navigate('/userdashboard');
-            setAdminMenu(1);
+            // navigate('/userdashboard');
+            // setAdminMenu(1);
           }
         });
 
-        dispatch(clearCart());
+        clearCart(userInfo.id);
+
       } else {
         Swal.fire({
           icon: 'error',
@@ -191,8 +194,8 @@ const OrderSummaryPage = () => {
     const paystack = new PaystackPop();
 
     paystack.newTransaction({
-      key: "pk_test_60e1f53bba7c80b60029bf611a26a66a9a22d4e4",
-      // key: "pk_live_951c991a9d895dd08017bf11d39c944e6617bd86",
+      // key: "pk_test_60e1f53bba7c80b60029bf611a26a66a9a22d4e4",
+      key: "pk_live_951c991a9d895dd08017bf11d39c944e6617bd86",
       amount: amount * 100,
       email,
       firstname,
@@ -237,6 +240,55 @@ const OrderSummaryPage = () => {
       onClose: () => Swal.fire({ icon: "error", text: "Payment cancelled." }),
     });
   };
+
+
+
+
+
+
+  // clear cart
+  const clearCart = async (userId) => {
+    try {
+      Swal.showLoading();
+  
+      const response = await axios.post('https://dewisemattress.com/api/api4users/delete_cart_items.php', {
+        user_id: userId
+      });
+  
+      console.log('Clear cart response:', response.data);
+  
+      if (response.data.success) {
+        // Swal.fire({
+        //   icon: 'success',
+        //   title: 'Cart Cleared',
+        //   text: response.data.message,
+        // });
+        // Optionally refresh cart data
+        setTotalQty(0);
+        navigate('/userdashboard');
+        setAdminMenu(1);
+        
+      } else {
+        Swal.fire({
+          icon: 'error',
+          title: 'Error',
+          text: response.data.error || 'Failed to clear cart.',
+        });
+      }
+    } catch (error) {
+      console.error('Error clearing cart:', error);
+      Swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: 'An error occurred while clearing the cart.',
+      });
+    } finally {
+      Swal.close();
+    }
+  };
+
+
+
 
   return (
     <div className="order-summary">

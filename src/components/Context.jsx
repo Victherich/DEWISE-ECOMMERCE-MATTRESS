@@ -6,6 +6,9 @@ import logo3 from '../Images3/greenearth.jpeg'
 import logo4 from '../Images3/vonologo.png'
 import logo5 from '../Images3/olivefoam.jpeg'
 import logo6 from '../Images3/vitafoamlogo.png'
+import { useSelector } from 'react-redux'
+import axios from 'axios'
+import { useEffect } from 'react'
 
 export const Context = createContext();
 
@@ -17,6 +20,8 @@ const ContextProvider = ({children}) => {
     const [mobileMenuSwitch,setMobileMenuSwitch]=useState(false)
     const [searchArray,setSearchArray]=useState([])
     const [isChatVisible, setIsChatVisible] = useState(false);
+    const userId = useSelector(state=>state.userInfo?.id);
+    
 
 const orderSendEmailUrl="https://hotsalesngonboarding.onrender.com/api/send-order-summary"
 
@@ -346,12 +351,54 @@ const featuredProducts = [
 ]
 
 
+const [cart, setCart]=useState([]);
 
+
+// get cart from backend
+const fetchCartItems = async () => {
+  try {
+    const response = await axios.get(`https://dewisemattress.com/api/api4users/get_user_cart.php?user_id=${userId}`);
+    if (response.data.success) {
+      setCart(response.data.cart_items); // Set the cart items in state
+      // console.log(response.data)
+     
+    } else {
+      // setError('No items found in the cart.');
+    }
+  } catch (err) {
+    // setError('Failed to fetch cart items.');
+    console.error(err);
+  } finally {
+    // setLoading(false); // Set loading to false once the request is complete
+  }
+};
+
+useEffect(() => { 
+fetchCartItems(); // Call the function to fetch data
+// Clean up the effect if needed (optional)
+return () => {
+  // Any cleanup logic here if required
+};
+}, [userId]);
+
+
+const [totalQty, setTotalQty] = useState(0);
+
+  // Calculate cart total quantity
+  const handleCalculateQty=()=>{
+    const totalItems = cart.reduce((acc, item) => acc + item.quantity, 0);
+    setTotalQty(totalItems);
+  }
+
+  useEffect(()=>{
+    handleCalculateQty();
+  },[cart])
+ 
 
   return (
     <Context.Provider value={{adminToken,setAdminToken,admin,setAdmin,adminMenu,
     setAdminMenu,trackingID,setTrackingID,orderSendEmailUrl,mobileMenuSwitch,setMobileMenuSwitch,searchArray,setSearchArray,
-    isChatVisible,setIsChatVisible,subCategories, featuredProducts}}>
+    isChatVisible,setIsChatVisible,subCategories, featuredProducts,cart, fetchCartItems, totalQty, setTotalQty}}>
 
         {children}
     </Context.Provider>

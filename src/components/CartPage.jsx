@@ -1,7 +1,7 @@
 
 
 
-import React, { useState,useEffect } from 'react';
+import React, { useState,useEffect, useContext } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { updateCartQuantity, removeFromCart } from '../Features/Slice'; // Import actions
 import "../CSS/CartPage.css";   
@@ -9,6 +9,7 @@ import { useNavigate } from 'react-router-dom';
 import { use } from 'react';
 import axios from 'axios';
 import Swal from 'sweetalert2';
+import { Context } from './Context';
 
 const CartPage = () => {
   // const { cartItems, totalQuantity, totalAmount } = useSelector(state => state); // Access cart state
@@ -16,8 +17,11 @@ const CartPage = () => {
   const navigate = useNavigate();
   const [cartItems, setCartItems]=useState([])
   const [error, setError]=useState('')
-const userId = useSelector(state=>state.userInfo.id)
+const userId = useSelector(state=>state.userInfo?.id)
 const [cartTotal, setCartTotal] = useState(0);
+const {fetchCartItems}=useContext(Context);
+
+// console.log(cartItems)
 
   // Function to handle quantity change
   // const handleQuantityChange = (id, newQuantity) => {
@@ -37,7 +41,7 @@ const [cartTotal, setCartTotal] = useState(0);
  
     // Fetch cart items when the component mounts
 
-    const fetchCartItems = async () => {
+    const fetchCartItems2 = async () => {
       try {
         const response = await axios.get(`https://dewisemattress.com/api/api4users/get_user_cart.php?user_id=${userId}`);
         if (response.data.success) {
@@ -57,7 +61,7 @@ const [cartTotal, setCartTotal] = useState(0);
 
 
     useEffect(() => { 
-    fetchCartItems(); // Call the function to fetch data
+    fetchCartItems2(); // Call the function to fetch data
     // Clean up the effect if needed (optional)
     return () => {
       // Any cleanup logic here if required
@@ -87,7 +91,7 @@ const [cartTotal, setCartTotal] = useState(0);
       console.log("Sending request with:", {
         user_id: userId,
         product_id: parseInt(productId),  // Ensure this is an integer
-        size: size ? size : null,         // If no size, send null
+        size: size ? size : '',         // If no size, send null
       });
   
       // Send POST request to the backend API
@@ -106,6 +110,7 @@ const [cartTotal, setCartTotal] = useState(0);
           title: 'Quantity Updated!',
           text: 'The quantity of the product has been updated.',
         });
+        fetchCartItems2();
         fetchCartItems();
       } else {
         Swal.fire({
@@ -146,20 +151,22 @@ const [cartTotal, setCartTotal] = useState(0);
         Swal.close();
   
         // ✅ Refresh the cart immediately
-        await fetchCartItems(); // VERY IMPORTANT: await it
+        await fetchCartItems2(); // VERY IMPORTANT: await it
+        fetchCartItems();
+
 
         if (response.data.message=='0'){
           window.location.reload();
         }
   
         // Now show success alert AFTER refreshing
-        Swal.fire({
-          icon: 'success',
-          // title: 'Success',
-          // text: response.data.message,
-          timer: 1000,
-          showConfirmButton: false,
-        });
+        // Swal.fire({
+        //   icon: 'success',
+        //   title: 'Success',
+        //   text: response.data.message,
+        //   timer: 1000,
+        //   showConfirmButton: false,
+        // });
       } else {
         Swal.close();
         Swal.fire({
@@ -216,7 +223,7 @@ const [cartTotal, setCartTotal] = useState(0);
                   </div>
                   {/* <p className='UnitPrice' style={{marginTop:"10px"}}><strong style={{marginRight:"5px"}}>Unit Price: </strong>  ${item.price}</p> */}
                   <div className='CartItemQtyWrap'>
-                    <p style={{ backgroundColor: "#000080",color:"white" }} onClick={()=>decreaseQuantity(item.product_id,item.size )}>-</p>
+                    <p style={{ backgroundColor: "#000080",color:"white" }} onClick={()=>decreaseQuantity(item.product_id?item.product_id:item.id,item.size )}>-</p>
                     <p style={{ backgroundColor: "white" }}>{item.quantity}</p>
                     <p style={{ backgroundColor: "#000080", color:"white" }} onClick={()=>increaseQuantity(item.product_id,item.size )}>+</p>
                   </div>
@@ -250,7 +257,7 @@ const [cartTotal, setCartTotal] = useState(0);
             <p>Order Total:</p>
             <p style={{ color: "#000080" }}> ₦ {new Intl.NumberFormat().format(cartTotal.toFixed(2))}</p>
           </div>
-          {<button
+          {cartItems.length>0&&<button
             onClick={() => navigate("/deliverydetailpage")}
             style={{ width: "90%", fontWeight: "bold", backgroundColor: "#000080", color: "white", fontSize: "1rem", margin: "0 auto" }}
           >

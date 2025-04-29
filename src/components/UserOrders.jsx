@@ -1,13 +1,22 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import axios from 'axios';
 import '../CSS/UserOrders.css'; // Import custom styles
 import { useSelector } from 'react-redux';
+import { Context } from './Context';
 
 const UserOrders = () => {
     const [orders, setOrders] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const userId = useSelector(state => state.userInfo.id);
+const {fetchCartItems}=useContext(Context);
+
+
+useEffect(()=>{
+fetchCartItems();
+},[])
+
+
   
     useEffect(() => {
         const fetchOrders = async () => {
@@ -51,7 +60,7 @@ const UserOrders = () => {
                             <h3 style={{color:"#000080"}}>Order Ref: {order.order_ref}</h3>
                             <p>Transaction Ref: {order.transaction_ref}</p>
                             <p>Date: {new Date(order.order_date).toLocaleString()}</p>
-                            <p>Total: ₦{order.total}</p>
+                            <p>Total: ₦ {new Intl.NumberFormat().format(order.total)}</p>
                             {/* <p>Delivery Charge: ₦{order.delivery_charge}</p> */}
                             <div className="order-items">
                                 {order.items.map(item => (
@@ -60,8 +69,8 @@ const UserOrders = () => {
                                         <div className="item-details">
                                             <p>{item.product_name}</p>
                                             <p>Quantity: {item.quantity}</p>
-                                            <p>Price: ₦{item.price}</p>
-                                            <p style={{fontSize:"small"}}>Product ID: {item.product_id}</p>
+                                            <p>Price: ₦ {new Intl.NumberFormat().format(item.price)}</p>
+                                            <p style={{fontSize:"10px"}}>Product ID: {item.product_id}</p>
                                         </div>
                                     </div>
                                 ))}

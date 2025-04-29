@@ -239,14 +239,15 @@
 
 
 
-import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import React, { useState, useEffect, useContext } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
 import Swal from 'sweetalert2';
 import { FaBackward } from 'react-icons/fa6';
 import "../CSS/ProductDetailPage.css";
 import { addToCart } from '../Features/Slice';
+import { Context } from './Context';
 
 const ProductDetail = () => {
   const { productId } = useParams();
@@ -255,6 +256,10 @@ const ProductDetail = () => {
   const [imageIndex, setImageIndex] = useState(0);
   const [quantity, setQuantity] = useState(1); // Track product quantity for cart
   const dispatch = useDispatch();
+  const userInfo = useSelector(state=>state.userInfo);
+  const navigate = useNavigate();
+  const {fetchCartItems}=useContext(Context);
+  // console.log(product)
 
   useEffect(() => {
     const fetchProduct = async () => {
@@ -286,17 +291,46 @@ const ProductDetail = () => {
     fetchProduct();
   }, [productId]);
 
-  const handleAddToCart = () => {
-    const cartItem = {
-      id: product.id,
-      productName: product.product_name ,
-      price: product.price,
-      quantity,
-      image: product.product_images[0],
-    };
-    dispatch(addToCart(cartItem));
-    Swal.fire('Success', 'Product added to cart', 'success');
-  };
+ 
+ 
+   const handleAddToCart = async () => {
+ if(userInfo===null){
+   Swal.fire({text:"Please login to proceed"}).then((result)=>{if(result.isConfirmed){navigate('/userlogin')}});
+   return;
+ }
+ 
+     Swal.fire({text:"Adding to cart..."});
+     Swal.showLoading();
+     try {
+       const response = await fetch('https://dewisemattress.com/api/api4users/add_to_cart.php', {
+         method: 'POST',
+         headers: {
+           'Content-Type': 'application/json',
+         },
+         body: JSON.stringify({
+           user_id: userInfo.id, // 🔥 TODO: Replace with actual logged-in user id
+           product_id: product.id,
+           product_name: `${product.product_name}`,
+           size:'0',
+           price: product.price,
+           image: product.product_images[0],
+         }),
+       });
+   
+       const data = await response.json();
+   
+       if (data.success) {
+         Swal.fire('Success', 'Product added to cart', 'success');
+         fetchCartItems();
+       } else {
+         Swal.fire('Error', data.error || 'Something went wrong', 'error');
+       }
+     } catch (error) {
+       Swal.fire('Error', error.message || 'Network error', 'error');
+     }
+   };
+
+
 
   if (loading) {
     return <div>Loading...</div>;
