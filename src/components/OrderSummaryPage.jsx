@@ -161,8 +161,9 @@ const OrderSummaryPage = () => {
         Swal.fire({
           icon: 'success',
           title: 'Order Placed Successfully!',
-          text: 'You will receive an email with the order details.',
+          // text: 'You will receive an email with the order details.',
           allowOutsideClick: false,
+          confirmButtonText:"Proceed to your Dashboard"
         }).then(result => {
           if (result.isConfirmed) {
             // navigate('/userdashboard');
@@ -190,28 +191,75 @@ const OrderSummaryPage = () => {
     }
   }
 
-  function payWithPaystack() {
-    const paystack = new PaystackPop();
 
-    paystack.newTransaction({
-      // key: "pk_test_60e1f53bba7c80b60029bf611a26a66a9a22d4e4",
-      key: "pk_live_951c991a9d895dd08017bf11d39c944e6617bd86",
-      amount: amount * 100,
-      email,
-      firstname,
-      lastname,
-      onSuccess: (transaction) => {
-        Swal.fire({ icon: "success", text: "Payment successful!", timer: 2000 });
-        createOrder(transaction.reference);
-      },
-      onCancel: () => {
-        Swal.fire({ icon: "error", text: "Payment cancelled." });
-      },
-      onError: (error) => {
-        Swal.fire({ icon: "error", text: `Payment failed: ${error.message}` });
-      },
-    });
-  }
+
+
+
+// paystack full option
+  // function payWithPaystack() {
+  //   const paystack = new PaystackPop();
+
+  //   paystack.newTransaction({
+  //     // key: "pk_test_60e1f53bba7c80b60029bf611a26a66a9a22d4e4",
+  //     key: "pk_live_951c991a9d895dd08017bf11d39c944e6617bd86",
+  //     amount: amount * 100,
+  //     email,
+  //     firstname,
+  //     lastname,
+  //     onSuccess: (transaction) => {
+  //       Swal.fire({ icon: "success", text: "Payment successful!", timer: 2000 });
+  //       createOrder(transaction.reference);
+  //     },
+  //     onCancel: () => {
+  //       Swal.fire({ icon: "error", text: "Payment cancelled." });
+  //     },
+  //     onError: (error) => {
+  //       Swal.fire({ icon: "error", text: `Payment failed: ${error.message}` });
+  //     },
+  //   });
+  // }
+
+
+
+
+
+
+
+
+
+
+
+// paystack card only
+function payWithPaystack() {
+  const paystack = new PaystackPop();
+
+  paystack.newTransaction({
+      //  key: "pk_test_60e1f53bba7c80b60029bf611a26a66a9a22d4e4",
+    key: "pk_live_951c991a9d895dd08017bf11d39c944e6617bd86",
+    amount: amount * 100,
+    email,
+    firstname,
+    lastname,
+    channels: ["card"], // ✅ Restrict to card payments only
+    onSuccess: (transaction) => {
+      Swal.fire({ icon: "success", text: "Payment successful!", timer: 2000 });
+      createOrder(transaction.reference);
+    },
+    onCancel: () => {
+      Swal.fire({ icon: "error", text: "Payment cancelled." });
+    },
+    onError: (error) => {
+      Swal.fire({ icon: "error", text: `Payment failed: ${error.message}` });
+    },
+  });
+}
+
+
+
+
+
+
+
 
   const flutterwaveConfig = {
     public_key: "FLWPUBK_TEST-3f4052d4a8b6e027b460756652b193df-X",

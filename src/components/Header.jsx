@@ -410,7 +410,7 @@ const Header = () => {
          </div>
 
          {subCategories.slice(-2).map((subCategory)=>(
-        <div  className="Menu" onClick={() => navigate(`/productlistpage/${subCategory.name}`)}><p>{subCategory.name.toUpperCase()}</p></div>
+        <div  className="Menu" onClick={() => navigate(`/productlistpage/${subCategory.id}`)}><p>{subCategory.name.toUpperCase()}</p></div>
       
       ))} 
 
@@ -429,7 +429,7 @@ const Header = () => {
       {mobileMenuSwitch && (
         <div className="HeaderDown2" ref={sideMenuRef}>
               {subCategories.map((subCategory)=>(
-        <p  onClick={() => {navigate(`/productlistpage/${subCategory.name}`);setMobileMenuSwitch(false)}}>{subCategory.name.toUpperCase()}</p>
+        <p  onClick={() => {navigate(`/productlistpage/${subCategory.id}`);setMobileMenuSwitch(false)}}>{subCategory.name.toUpperCase()}</p>
       
       ))} 
         

@@ -66,6 +66,25 @@ const navigate = useNavigate();
           <a href="https://www.instagram.com/dewise.mattress/?utm_source=qr&igshid=NGExMmI2YTkyZg%3D%3D" target="_blank" className="social-link"><FaInstagram/></a>
         </div>
       </div>
+         <div
+         style={{
+        display:"flex",
+        justifyContent:"center",
+        alignItems:"center",
+        width:"100%",
+        paddingTop:"50px"
+         }}
+         >
+         <a style={{fontSize:"0.7rem",
+          color:"rgba(255,255,255,0.6)",
+          textDecoration:"underline",
+          cursor:"pointer"
+          }}
+          onClick={()=>window.open("https://elexdontech.com", "_blank")}
+          >
+            <span style={{color:"rgba(0,255,0,0.7)"}}>POWERED BY </span> 
+             ELEXDON DIGITAL TECHNOLOGIES LIMITED</a>
+      </div>
     </footer>
   );
 };

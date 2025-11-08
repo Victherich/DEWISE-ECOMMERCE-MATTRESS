@@ -28,18 +28,13 @@ const orderSendEmailUrl="https://hotsalesngonboarding.onrender.com/api/send-orde
 
 
 const subCategories = [
-  { id: 4,  name: 'Mouka Foam',  logo:logo1},
-  { id: 5,  name: 'UniFoam',  logo:logo2},
-  // { id: 6,  name: 'Green Earth',  logo:logo3},
-  // { id: 7,  name: 'Vono' , logo:logo4},
-  // { id: 8,  name: 'Olive Foam', logo:logo5 },
-  // { id: 9,  name: 'Vita Foam' , logo:logo6},
- 
-  {id:11, name:'Eco Foam '},
-  {id:2, name:'Vision Foam'},
-  {id:13,name:"Whale Foam"},
-  {id:12, name:'Pillows'},
-  { id: 10, name: 'Foot Marts' },
+  { id: 1,  name: 'Mouka Foam',  logo:logo1},
+  { id: 2,  name: 'UniFoam',  logo:logo2},
+  {id:3, name:'Eco Foam '},
+  {id:4, name:'Vision Foam'},
+  // {id:5,name:"Whale Foam"},
+  {id:6, name:'Pillows'},
+  { id: 7, name: 'Foot Marts' },
 
 ];
 
@@ -69,7 +64,8 @@ const featuredProducts = [
       { "size": "6x6x18", "price": 270000 },
       { "size": "6x6x20", "price": 300000 }
     ],
-    "images": ["/fp1.jpg", "/fp2.jpg", "/fp3.jpg"]
+    "images": ["/fp1.jpg", "/fp2.jpg", "/fp3.jpg"],
+    "category":3
   },
   {
     "id": 2,
@@ -86,7 +82,8 @@ const featuredProducts = [
       { "size": "6x4.5x10", "price": 120000 },
       { "size": "6x4.5x12", "price": 145000 }
     ],
-    "images": ["fp4.jpg", "fp5.jpg", "fp6.jpg"]
+    "images": ["fp4.jpg", "fp5.jpg", "fp6.jpg"],
+      "category":3
   },
   {
     "id": 3,
@@ -107,7 +104,8 @@ const featuredProducts = [
       { "size": "6x6x18", "price": 400000 },
       { "size": "6x6x20", "price": 450000 }
     ],
-    "images": ["fp7.jpg", "fp8.jpg", "fp9.jpg"]
+    "images": ["fp7.jpg", "fp8.jpg", "fp9.jpg"],
+      "category":4
   },
   {
     "id": 4,
@@ -128,7 +126,8 @@ const featuredProducts = [
       { "size": "6x6x18", "price": 400000 },
       { "size": "6x6x20", "price": 450000 }
     ],
-    "images": ["fp10.jpg", "fp11.jpg", "fp12.jpg"]
+    "images": ["fp10.jpg", "fp11.jpg", "fp12.jpg"],
+      "category":4
   },
   {
     "id": 5,
@@ -145,7 +144,8 @@ const featuredProducts = [
       { "size": "6x4.5x10", "price": 85000 },
       { "size": "6x4.5x12", "price": 105000 }
     ],
-    "images": ["fp13.jpg", "fp14.jpg", "fp15.jpg"]
+    "images": ["fp13.jpg", "fp14.jpg", "fp15.jpg"],
+      "category":2
   },
   {
     "id": 6,
@@ -158,7 +158,8 @@ const featuredProducts = [
       { "size": "6x6x10", "price": 320000 },
       { "size": "6x6x12", "price": 350000 }
     ],
-    "images": ["fp16.jpg", "fp17.jpg", "fp18.jpg"]
+    "images": ["fp16.jpg", "fp17.jpg", "fp18.jpg"],
+      "category":3
   },
   {
     "id": 7,
@@ -171,7 +172,8 @@ const featuredProducts = [
       { "size": "6x6x10", "price": 320000 },
       { "size": "6x6x12", "price": 350000 }
     ],
-    "images": ["fp19.jpg", "fp20.jpg", "fp21.jpg"]
+    "images": ["fp19.jpg", "fp20.jpg", "fp21.jpg"],
+      "category":3
   },
   {
     "id": 8,
@@ -184,7 +186,8 @@ const featuredProducts = [
       { "size": "6x6x10", "price": 320000 },
       { "size": "6x6x12", "price": 350000 }
     ],
-    "images": ["fp22.jpg", "fp23.jpg", "fp24.jpg"]
+    "images": ["fp22.jpg", "fp23.jpg", "fp24.jpg"],
+      "category":3
   },
 
 
@@ -207,7 +210,8 @@ const featuredProducts = [
       { "size": "6x6x18", "price": 320000 },
       { "size": "6x6x20", "price": 335000 }
     ],
-    "images": ["fp25.jpg", "fp26.jpg", "fp27.jpg"]
+    "images": ["fp25.jpg", "fp26.jpg", "fp27.jpg"],
+      "category":1
   },
   {
     "id": 10,
@@ -228,7 +232,8 @@ const featuredProducts = [
       { "size": "6x6x18", "price": 320000 },
       { "size": "6x6x20", "price": 335000 }
     ],
-    "images": ["fp28.jpg", "fp29.jpg", "fp30.jpg"]
+    "images": ["fp28.jpg", "fp29.jpg", "fp30.jpg"],
+      "category":1
   },
   {
     "id": 11,
@@ -240,7 +245,8 @@ const featuredProducts = [
       { "size": "6x6x10", "price": 420000 },
       { "size": "6x7x10", "price": 505000 }
     ],
-    "images": ["fp31.jpg", "fp32.jpg", "fp33.jpg"]
+    "images": ["fp31.jpg", "fp32.jpg", "fp33.jpg"],
+      "category":1
   },
   {
     "id": 12,
@@ -261,7 +267,8 @@ const featuredProducts = [
       { "size": "6x6x18", "price": 275000 },
       { "size": "6x6x20", "price": 300000 }
     ],
-    "images": ["fp34.jpg", "fp35.jpg", "fp36.jpg"]
+    "images": ["fp34.jpg", "fp35.jpg", "fp36.jpg"],
+      "category":2
   },
   {
     "id": 13,
@@ -278,7 +285,8 @@ const featuredProducts = [
       { "size": "6x4.5x10", "price": 85000 },
       { "size": "6x4.5x12", "price": 105000 }
     ],
-    "images": ["fp37.jpg", "fp38.jpg", "fp39.jpg"]
+    "images": ["fp37.jpg", "fp38.jpg", "fp39.jpg"],
+      "category":2
   },
   {
     "id": 14,
@@ -299,7 +307,8 @@ const featuredProducts = [
       { "size": "6x6x18", "price": 275000 },
       { "size": "6x6x20", "price": 300000 }
     ],
-    "images": ["fp40.jpg", "fp41.jpg", "fp42.jpg"]
+    "images": ["fp40.jpg", "fp41.jpg", "fp42.jpg"],
+      "category":2
   },
   {
     "id": 15,
@@ -312,10 +321,27 @@ const featuredProducts = [
       { "size": "6x6x10", "price": 220000 },
       { "size": "6x6x12", "price": 240000 }
     ],
-    "images": ["fp43.jpg", "fp44.jpg", "fp45.jpg"]
+    "images": ["fp43.jpg", "fp44.jpg", "fp45.jpg"],
+      "category":2
   },
+
   {
     "id": 16,
+    "name": "Unifoam (Sapphire) semi-orthopaedic",
+    "featuredFoam": [
+      { "size": "6x4.5x8", "price": 135000 },
+      { "size": "6x4.5x10", "price": 160000 },
+      { "size": "6x4.5x12", "price": 190000 },
+      { "size": "6x6x8", "price": 170000 },
+      { "size": "6x6x10", "price": 220000 },
+      { "size": "6x6x12", "price": 240000 }
+    ],
+    "images": ["fp46.jpg", "fp47.jpg", "fp48.jpg"],
+      "category":2
+  },
+
+    {
+    "id": 17,
     "name": "Mouka Foam (Flora)",
     "featuredFoam": [
       { "size": "6x4.5x8", "price": 120000 },
@@ -333,20 +359,8 @@ const featuredProducts = [
       { "size": "6x6x18", "price": 320000 },
       { "size": "6x6x20", "price": 335000 }
     ],
-    "images": ["fp46.jpg", "fp47.jpg", "fp48.jpg"]
-  },
-  {
-    "id": 17,
-    "name": "Unifoam (Sapphire) semi-orthopaedic",
-    "featuredFoam": [
-      { "size": "6x4.5x8", "price": 135000 },
-      { "size": "6x4.5x10", "price": 160000 },
-      { "size": "6x4.5x12", "price": 190000 },
-      { "size": "6x6x8", "price": 170000 },
-      { "size": "6x6x10", "price": 220000 },
-      { "size": "6x6x12", "price": 240000 }
-    ],
-    "images": ["fp49.jpg", "fp50.jpg", "fp51.jpg"]
+    "images": ["fp49.jpg", "fp50.jpg", "fp51.jpg"],
+      "category":1
   },
 ]
 
@@ -411,7 +425,7 @@ export default ContextProvider
 
 
 // database details
-// User : “dewisemattress_dewisemattress” was added to the database “dewisemattress_db1”.
+// User “dewisemattress_dewisemattress” was added to the database “dewisemattress_db1”.
 // pw: dewise@2023
 
 

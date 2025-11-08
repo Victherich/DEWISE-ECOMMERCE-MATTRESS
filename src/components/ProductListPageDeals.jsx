@@ -112,8 +112,14 @@ const ProductListPageDeals = () => {
                 </Link>
             ))
     ) : (
-        <div style={{ width: "100%", height: "200px", display: "flex", justifyContent: "center", alignItems: "center" }}>
-            No products found for this category.
+        <div style={{ width: "100%", 
+        height: "50px", 
+        display: "flex", 
+        justifyContent: "center", 
+        alignItems: "center", 
+        color:"#000080",
+        fontWeight:"bold" }}>
+            OUR CRAZY DEALS ARE COMING SOON.
         </div>
     )}
 </div>
